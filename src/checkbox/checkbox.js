@@ -1,13 +1,13 @@
 export default {
-    template: import('./input.html'),
-    style: import('./input.css'),
+    template: import('./checkbox.html'),
+    style: import('./checkbox.css'),
     data: {
-        text: '',
+        checked: false,
     },
     methods: {
         onInputChange() {
             this.trigger('change', {
-                text: this.text,
+                checked: this.checked,
             });
         }
     },
