@@ -11,4 +11,9 @@ export default {
             });
         }
     },
+    lifecycle: {
+        init() {
+            this.onInputChange();
+        }
+    }
 };          
