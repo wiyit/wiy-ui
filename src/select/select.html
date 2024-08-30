@@ -1,0 +1,7 @@
+<select wiy:onchange="this.onInputChange">
+    <option value="">{{this.attr('prompt') || '请选择：'}}</option>
+    <option wiy:for="this.options" wiy:for.value="option" value="{{option.value}}" wiy:data-selected="option.selected"
+        wiy:data-disabled="option.disabled">
+        {{option.name}}
+    </option>
+</select>
