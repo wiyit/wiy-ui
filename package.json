@@ -3,6 +3,7 @@
   "version": "1.0.0-beta.3",
   "description": "UI library for wiy.",
   "scripts": {},
+  "main": "src/index.js",
   "files": [
     "src/"
   ],
