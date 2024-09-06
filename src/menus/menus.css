@@ -1,0 +1,46 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu:not(:first-of-type) {
+    border-top: 1px dashed lightgray;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 6px;
+    line-height: 1em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.item.opened {
+    background-color: aliceblue;
+}
+
+.item:hover {
+    background-color: aliceblue;
+}
+
+.name {
+    flex-grow: 1;
+}
+
+.angle {
+    display: flex;
+}
+
+sub-menus {
+    padding-left: 1em;
+    font-size: 0.95em;
+    border-top: 1px solid lightgray;
+}

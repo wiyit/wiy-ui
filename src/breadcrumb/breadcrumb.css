@@ -1,0 +1,24 @@
+:host {
+    display: flex;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.item:not(:first-of-type)::before {
+    content: '/';
+    color: gray;
+}
+
+.name {
+    padding: 0 4px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.name:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
