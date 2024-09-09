@@ -1,0 +1,10 @@
+<div id="button" wiy:onclick="this.contentShow=!this.contentShow">
+    <slot></slot>
+    <div id="angle">
+        <wiy-icon wiy:if="this.contentShow" name="angle-up"></wiy-icon>
+        <wiy-icon wiy:if="!this.contentShow" name="angle-down"></wiy-icon>
+    </div>
+</div>
+<div id="content" wiy:if="this.contentShow">
+    <slot name="content"></slot>
+</div>

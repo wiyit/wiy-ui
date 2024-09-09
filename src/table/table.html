@@ -1,0 +1,26 @@
+<div id="table" wiy:data-style="this.getTableStyle()">
+    <div></div>
+    <div class="head-cell" wiy:for="this.columnList" wiy:for.value="column">
+        {{this.getColumn(column).name}}
+    </div>
+    <div></div>
+    <div class="number-cell" wiy:for="this.dataList" wiy:data-style="this.getNumberCellStyle(key)">
+    </div>
+    <div class="operation-cell" wiy:for="this.dataList" wiy:data-style="this.getOperationCellStyle(key)">
+        <wiy-dropdown>
+            <div id="title">操作</div>
+            <style>
+                #title {
+                    margin: 6px;
+                    line-height: 1em;
+                }
+            </style>
+            <template wiy:slot="content">
+                <wiy-menus wiy:data-list="this.operationList"></wiy-menus>
+            </template>
+        </wiy-dropdown>
+    </div>
+    <div class="{{this.getClasses(parseInt(key))}}" wiy:for="this.getFlattenedDataList()" wiy:for.value="item">
+        {{item}}
+    </div>
+</div>

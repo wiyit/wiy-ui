@@ -1,0 +1,71 @@
+:host {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#table {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: grid;
+    border: solid lightgray;
+    border-width: 1px 0 0 1px;
+    counter-reset: number;
+}
+
+#table>div {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 4px 8px;
+    box-sizing: border-box;
+    word-break: break-all;
+    justify-content: flex-start;
+    align-items: center;
+    border: solid lightgray;
+    border-width: 0 1px 1px 0;
+}
+
+.head-cell {
+    font-weight: bold;
+}
+
+.number-cell {
+    justify-content: center !important;
+    user-select: none;
+    counter-increment: number;
+}
+
+.number-cell::before {
+    content: counter(number);
+}
+
+.operation-cell {
+    user-select: none;
+    grid-column: -2;
+}
+
+.h-align-left {
+    justify-content: flex-start !important;
+}
+
+.h-align-right {
+    justify-content: flex-end !important;
+}
+
+.h-align-center {
+    justify-content: center !important;
+}
+
+.v-align-top {
+    align-items: flex-start !important;
+}
+
+.v-align-bottom {
+    align-items: flex-end !important;
+}
+
+.v-align-center {
+    align-items: center !important;
+}
