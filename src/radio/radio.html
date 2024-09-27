@@ -1,1 +1,2 @@
-<input type="radio" wiy:data="this.checked" wiy:onchange="this.onInputChange" />
+<input id="radio" type="radio" wiy:data="this.checked" wiy:onchange="this.onInputChange" />
+<label for="radio" wiy:if="this.attr('label')">{{this.attr('label') || ''}}</label>

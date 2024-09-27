@@ -29,6 +29,7 @@
 
 .head-cell {
     font-weight: bold;
+    background-color: rgba(240, 240, 240);
 }
 
 .number-cell {

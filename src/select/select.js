@@ -1,5 +1,6 @@
 export default {
     template: import('./select.html'),
+    style: import('./select.css'),
     data: {
         options: [],
     },

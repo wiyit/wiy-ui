@@ -1,0 +1,30 @@
+#items {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 6px;
+}
+
+.label {
+    line-height: 26px;
+}
+
+.required {
+    color: red;
+    position: absolute;
+}
+
+.label-name {
+    margin-left: 10px;
+}
+
+.value {
+    display: flex;
+    align-items: center;
+}
+
+#operations {
+    display: flex;
+    gap: 6px;
+    margin-left: 10px;
+    margin-top: 20px;
+}

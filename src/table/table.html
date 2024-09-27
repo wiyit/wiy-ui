@@ -1,9 +1,9 @@
 <div id="table" wiy:data-style="this.getTableStyle()">
-    <div></div>
+    <div class="head-cell"></div>
     <div class="head-cell" wiy:for="this.columnList" wiy:for.value="column">
         {{this.getColumn(column).name}}
     </div>
-    <div></div>
+    <div class="head-cell"></div>
     <div class="number-cell" wiy:for="this.dataList" wiy:data-style="this.getNumberCellStyle(key)">
     </div>
     <div class="operation-cell" wiy:for="this.dataList" wiy:data-style="this.getOperationCellStyle(key)">
@@ -11,8 +11,7 @@
             <div id="title">操作</div>
             <style>
                 #title {
-                    margin: 6px;
-                    line-height: 1em;
+                    margin: 4px 6px;
                 }
             </style>
             <template wiy:slot="content">

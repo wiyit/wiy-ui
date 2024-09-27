@@ -1,1 +1,2 @@
-<input type="checkbox" wiy:data="this.checked" wiy:onchange="this.onInputChange" />
+<input id="checkbox" type="checkbox" wiy:data="this.checked" wiy:onchange="this.onInputChange" />
+<label for="checkbox" wiy:if="this.attr('label')">{{this.attr('label') || ''}}</label>

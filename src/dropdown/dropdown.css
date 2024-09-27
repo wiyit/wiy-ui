@@ -11,6 +11,10 @@
     user-select: none;
 }
 
+#button.opened {
+    background-color: aliceblue;
+}
+
 #button:hover {
     background-color: aliceblue;
 }
