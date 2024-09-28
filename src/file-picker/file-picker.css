@@ -1,0 +1,14 @@
+#file {
+    display: none;
+}
+
+#files {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.file {
+    font-size: 0.8em;
+}

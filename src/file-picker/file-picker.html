@@ -1,0 +1,7 @@
+<input type="file" id="file" wiy:onchange="this.onInputChange" />
+<wiy-button wiy:onclick="this.onButtonClick">添加文件</wiy-button>
+<div id="files">
+    <div class="file" wiy:for="this.files" wiy:for.value="file">
+        {{file.name}}
+    </div>
+</div>
