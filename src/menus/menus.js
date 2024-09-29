@@ -5,7 +5,7 @@ export default {
         'sub-menus': import('./menus.js'),
     },
     data: {
-        list: [],
+        items: [],
     },
     methods: {
         isOpened(menu) {

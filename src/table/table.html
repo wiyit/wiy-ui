@@ -1,12 +1,12 @@
 <div id="table" wiy:data-style="this.getTableStyle()">
     <div class="head-cell"></div>
-    <div class="head-cell" wiy:for="this.columnList" wiy:for.value="column">
+    <div class="head-cell" wiy:for="this.columns" wiy:for.value="column">
         {{this.getColumn(column).name}}
     </div>
     <div class="head-cell"></div>
-    <div class="number-cell" wiy:for="this.dataList" wiy:data-style="this.getNumberCellStyle(key)">
+    <div class="number-cell" wiy:for="this.data" wiy:data-style="this.getNumberCellStyle(key)">
     </div>
-    <div class="operation-cell" wiy:for="this.dataList" wiy:data-style="this.getOperationCellStyle(key)">
+    <div class="operation-cell" wiy:for="this.data" wiy:data-style="this.getOperationCellStyle(key)">
         <wiy-dropdown>
             <div id="title">操作</div>
             <style>
@@ -15,7 +15,7 @@
                 }
             </style>
             <template wiy:slot="content">
-                <wiy-menus wiy:data-list="this.operationList"></wiy-menus>
+                <wiy-menus wiy:data-items="this.operations"></wiy-menus>
             </template>
         </wiy-dropdown>
     </div>

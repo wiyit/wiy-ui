@@ -2,8 +2,9 @@ export default {
     template: import('./table.html'),
     style: import('./table.css'),
     data: {
-        columnList: [],
-        dataList: [],
+        columns: [],
+        data: [],
+        operations: [],
     },
     methods: {
         getColumn(column) {
@@ -22,8 +23,8 @@ export default {
         },
         getFlattenedDataList() {
             const dataList = [];
-            Object.entries(this.dataList).forEach(([rowIndex, row]) => {
-                this.columnList.forEach((column, columnIndex) => {
+            Object.entries(this.data).forEach(([rowIndex, row]) => {
+                this.columns.forEach((column, columnIndex) => {
                     column = this.getColumn(column);
                     let value;
                     if (typeof column.value == 'function') {
@@ -37,7 +38,7 @@ export default {
             return dataList;
         },
         getClasses(index) {
-            const column = this.getColumn(this.columnList[index % this.columnList.length]);
+            const column = this.getColumn(this.columns[index % this.columns.length]);
             const classes = [];
 
             switch (column.hAlign) {
@@ -56,7 +57,7 @@ export default {
         },
         getTableStyle() {
             const widthList = ['40px'];
-            this.columnList.forEach(column => {
+            this.columns.forEach(column => {
                 const { width, minWidth, maxWidth } = this.getColumn(column);
                 widthList.push(`minmax(${minWidth || width || 'auto'}, ${maxWidth || width || 'auto'})`);
             });

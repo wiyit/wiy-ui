@@ -2,7 +2,7 @@ export default {
     template: import('./breadcrumb.html'),
     style: import('./breadcrumb.css'),
     data: {
-        list: [],
+        items: [],
     },
     methods: {
         onItemClick(item) {

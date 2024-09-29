@@ -1,24 +1,24 @@
 <div id="items">
-    <div class="label" wiy:for="this.itemList" wiy:for.value="item" wiy:data-style="this.getLabelStyle(key)">
+    <div class="label" wiy:for="this.items" wiy:for.value="item" wiy:data-style="this.getLabelStyle(key)">
         <span wiy:if="item.required" class="required">*</span>
         <span class="label-name">{{item.label}}</span>
     </div>
-    <div class="value" wiy:for="this.itemList" wiy:for.value="item">
-        <wiy-input wiy:if="item.type == 'input'" wiy:data-text="item.value"
-            placeholder="{{item.placeholder}}"></wiy-input>
+    <div class="value" wiy:for="this.items" wiy:for.value="item">
+        <wiy-input wiy:if="item.type == 'input'" wiy:data-text="item.value" type="{{item.subType || 'text'}}"
+            placeholder="{{item.placeholder || ''}}"></wiy-input>
         <wiy-radio wiy:if="item.type == 'radio'" wiy:data-checked="item.value"></wiy-radio>
         <wiy-radio-group wiy:if="item.type == 'radio-group'" wiy:data-options="item.options"></wiy-radio-group>
         <wiy-checkbox wiy:if="item.type == 'checkbox'" wiy:data-checked="item.value"
-            label="{{item.label}}"></wiy-checkbox>
+            label="{{item.label || ''}}"></wiy-checkbox>
         <wiy-checkbox-group wiy:if="item.type == 'checkbox-group'" wiy:data-options="item.options"></wiy-checkbox-group>
         <wiy-select wiy:if="item.type == 'select'" wiy:data-options="item.options"
             prompt="{{item.prompt || ''}}"></wiy-select>
         <wiy-file-picker wiy:if="item.type == 'file-picker'" wiy:data-files="item.files"></wiy-file-picker>
         <wiy-textarea wiy:if="item.type == 'textarea'" wiy:data-text="item.value"
-            placeholder="{{item.placeholder}}"></wiy-textarea>
+            placeholder="{{item.placeholder || ''}}"></wiy-textarea>
     </div>
 </div>
 <div id="operations">
-    <wiy-button wiy:for="this.operationList" wiy:for.value="operation" icon="{{operation.icon || ''}}"
+    <wiy-button wiy:for="this.operations" wiy:for.value="operation" icon="{{operation.icon || ''}}"
         wiy:onclick="this.onOperationClick(operation)">{{operation.name}}</wiy-button>
 </div>

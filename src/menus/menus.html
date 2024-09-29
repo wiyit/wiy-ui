@@ -1,4 +1,4 @@
-<div class="menu" wiy:for="this.list" wiy:for.value="menu">
+<div class="menu" wiy:for="this.items" wiy:for.value="menu">
     <div class="item {{this.isOpened(menu) ? 'opened' : ''}}" wiy:onclick="this.onItemClick(menu)">
         <wiy-icon name="{{menu.icon || 'list'}}"></wiy-icon>
         <div class="name">{{menu.name}}</div>
@@ -7,6 +7,6 @@
             <wiy-icon wiy:if="!this.isOpened(menu)" name="angle-down"></wiy-icon>
         </div>
     </div>
-    <sub-menus wiy:if="this.isOpened(menu)" wiy:data-list="menu.sub">
+    <sub-menus wiy:if="this.isOpened(menu)" wiy:data-items="menu.sub">
     </sub-menus>
 </div>

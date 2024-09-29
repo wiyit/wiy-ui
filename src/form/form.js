@@ -2,8 +2,8 @@ export default {
     template: import('./form.html'),
     style: import('./form.css'),
     data: {
-        itemList: [],
-        operationList: [],
+        items: [],
+        operations: [],
     },
     methods: {
         getLabelStyle(index) {

@@ -1,3 +1,3 @@
 <wiy-icon wiy:if="this.attr('icon')" name="{{this.attr('icon')}}"></wiy-icon>
-<input type="text" wiy:data="this.text" wiy:onchange="this.onInputChange"
+<input type="{{this.attr('type') || 'text'}}" wiy:data="this.text" wiy:onchange="this.onInputChange"
     placeholder="{{this.attr('placeholder') || ''}}" has-icon="{{!!this.attr('icon')}}" />
