@@ -3,11 +3,12 @@
     <div class="head-cell" wiy:for="this.columns" wiy:for.value="column">
         {{this.getColumn(column).name}}
     </div>
-    <div class="head-cell"></div>
+    <div class="head-cell">操作</div>
     <div class="number-cell" wiy:for="this.data" wiy:data-style="this.getNumberCellStyle(key)">
     </div>
-    <div class="operation-cell" wiy:for="this.data" wiy:data-style="this.getOperationCellStyle(key)">
-        <wiy-dropdown>
+    <div class="operation-cell" wiy:for="this.data" wiy:for.value="row"
+        wiy:data-style="this.getOperationCellStyle(key)">
+        <wiy-dropdown wiy:if="this.getOperations(row)">
             <div id="title">操作</div>
             <style>
                 #title {
@@ -15,11 +16,11 @@
                 }
             </style>
             <template wiy:slot="content">
-                <wiy-menus wiy:data-items="this.operations"></wiy-menus>
+                <wiy-menus wiy:data-items="this.getOperations(row)"></wiy-menus>
             </template>
         </wiy-dropdown>
     </div>
-    <div class="{{this.getClasses(parseInt(key))}}" wiy:for="this.getFlattenedDataList()" wiy:for.value="item">
+    <div class="{{this.getClasses(key)}}" wiy:for="this.getFlattenedDataList()" wiy:for.value="item">
         {{item}}
     </div>
 </div>

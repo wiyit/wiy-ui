@@ -14,6 +14,9 @@ export default {
                     name: file.name,
                 });
             });
-        }
+        },
+        onDeleteClick(key) {
+            delete this.files[key];
+        },
     },
 };

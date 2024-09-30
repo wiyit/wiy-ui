@@ -1,7 +1,8 @@
-<input type="file" id="file" wiy:onchange="this.onInputChange" />
+<input type="file" id="file" multiple wiy:onchange="this.onInputChange" />
 <wiy-button wiy:onclick="this.onButtonClick">添加文件</wiy-button>
 <div id="files" wiy:if="this.files.length">
     <div class="file" wiy:for="this.files" wiy:for.value="file">
-        {{file.name}}
+        <wiy-icon name="close" class="delete" wiy:onclick="this.onDeleteClick(key)"></wiy-icon>
+        <span>{{file.name}}</span>
     </div>
 </div>

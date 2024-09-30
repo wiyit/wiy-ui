@@ -11,4 +11,11 @@
 
 .file {
     font-size: 0.8em;
+    display: flex;
+    gap: 6px;
+}
+
+.delete {
+    flex-shrink: 0;
+    cursor: pointer;
 }

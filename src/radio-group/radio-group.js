@@ -4,4 +4,11 @@ export default {
     data: {
         options: [],
     },
+    methods: {
+        onInputChange(key) {
+            this.options.forEach((option, index) => {
+                option.checked = index == key;
+            });
+        },
+    },
 };          

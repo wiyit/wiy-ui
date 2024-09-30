@@ -1,4 +1,5 @@
 <div class="option" wiy:for="this.options" wiy:for.value="option">
-    <input id="radio-{{key}}" name="radio" type="radio" wiy:data="option.checked" wiy:onchange="this.onInputChange" />
-    <label for="radio-{{key}}" wiy:if="option.label">{{option.label || ''}}</label>
+    <input id="radio-{{key}}" name="radio" type="radio" wiy:data="option.checked"
+        wiy:onchange="this.onInputChange(key)" />
+    <label for="radio-{{key}}">{{option.label || option.value}}</label>
 </div>

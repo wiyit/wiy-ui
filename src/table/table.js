@@ -4,7 +4,7 @@ export default {
     data: {
         columns: [],
         data: [],
-        operations: [],
+        operations: undefined,
     },
     methods: {
         getColumn(column) {
@@ -16,10 +16,16 @@ export default {
             };
         },
         getNumberCellStyle(index) {
-            return `grid-row: ${parseInt(index) + 2}`;
+            return `grid-row: ${index + 2}`;
         },
         getOperationCellStyle(index) {
-            return `grid-row: ${parseInt(index) + 2}`;
+            return `grid-row: ${index + 2}`;
+        },
+        getOperations(row) {
+            if (typeof this.operations == 'function') {
+                return this.operations(row);
+            }
+            return this.operations;
         },
         getFlattenedDataList() {
             const dataList = [];
@@ -31,6 +37,9 @@ export default {
                         value = column.value(row);
                     } else {
                         value = row[column.value || columnIndex];
+                    }
+                    if (typeof value == 'undefined') {
+                        value = column.defaultValue || '';
                     }
                     dataList.push(value);
                 });
