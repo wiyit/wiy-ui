@@ -8,14 +8,14 @@ export default {
         onButtonClick(e) {
             e.stopPropagation();
             this.contentShow = !this.contentShow;
-            wiy.eventBus.trigger('wiycomponentclick', {
+            this.getApp().getEventBus().trigger('wiycomponentclick', {
                 uuid: this.getUuid(),
             });
         },
     },
     lifecycle: {
         init() {
-            wiy.eventBus.on('wiycomponentclick', (e) => {
+            this.getApp().getEventBus().on('wiycomponentclick', (e) => {
                 if (e.data.uuid != this.getUuid()) {
                     this.contentShow = false;
                 }

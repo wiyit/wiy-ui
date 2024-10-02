@@ -6,7 +6,7 @@ export default {
     },
     methods: {
         onItemClick(item) {
-            item.onclick && item.onclick();
+            item.onclick && item.onclick(this);
         },
     },
 };

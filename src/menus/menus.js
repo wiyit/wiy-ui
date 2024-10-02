@@ -13,7 +13,7 @@ export default {
         },
         onItemClick(menu) {
             menu.subShow = !menu.subShow;
-            menu.onclick && menu.onclick();
+            menu.onclick && menu.onclick(this);
         },
     },
 };
