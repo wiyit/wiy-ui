@@ -9,14 +9,26 @@ export default {
             this.getElement('file').click();
         },
         onInputChange() {
-            Array.from(this.getElement('file').files).forEach(file => {
-                this.files.push({
-                    name: file.name,
+            const element = this.getElement('file');
+            if (element) {
+                Array.from(element.files).forEach(file => {
+                    this.files.push({
+                        name: file.name,
+                    });
                 });
+                element.value = '';//清空input中已选择的文件
+            }
+            this.trigger('change', {
+                files: this.files,
             });
         },
         onDeleteClick(key) {
-            delete this.files[key];
+            this.files.splice(key, 1);
         },
     },
+    lifecycle: {
+        init() {
+            this.onInputChange();
+        }
+    }
 };
