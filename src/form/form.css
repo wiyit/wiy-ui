@@ -1,5 +1,4 @@
 #title {
-    margin-left: 8px;
     font-size: 1.2em;
     font-weight: bold;
 }
@@ -33,5 +32,4 @@
 #operations {
     display: flex;
     gap: 20px;
-    margin-left: 8px;
 }

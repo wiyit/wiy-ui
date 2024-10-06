@@ -3,24 +3,25 @@ export default {
     style: import('./select.css'),
     data: {
         options: [],
+        data: {},
     },
     methods: {
-        onInputChange(e, node) {
-            if (node) {
+        onInputChange() {
+            const select = this.getElement('select');
+            if (select) {
                 this.options.forEach((option, index) => {
-                    const o = node[index + 1];
-                    option.selected = o.selected;
-                    option.disabled = o.disabled;
+                    const o = select[index + 1];
+                    const selected = o.selected;
+                    this.data[option.value] = selected;
                 });
             }
             this.trigger('change', {
-                value: this.value,
-                options: this.options,
+                data: this.data,
             });
-        }
+        },
     },
     lifecycle: {
-        async init() {
+        init() {
             this.onInputChange();
         }
     }

@@ -9,8 +9,9 @@
             type="{{item.subType || 'text'}}" placeholder="{{item.placeholder || ''}}"></wiy-input>
         <wiy-radio-group wiy:if="item.type == 'radio-group'" wiy:data-options="item.options"
             wiy:data-data="this.data[item.name]"></wiy-radio-group>
-        <wiy-checkbox-group wiy:if="item.type == 'checkbox-group'" wiy:data-options="item.options"></wiy-checkbox-group>
-        <wiy-select wiy:if="item.type == 'select'" wiy:data-options="item.options"
+        <wiy-checkbox-group wiy:if="item.type == 'checkbox-group'" wiy:data-options="item.options"
+            wiy:data-data="this.data[item.name]"></wiy-checkbox-group>
+        <wiy-select wiy:if="item.type == 'select'" wiy:data-options="item.options" wiy:data-data="this.data[item.name]"
             prompt="{{item.prompt || ''}}"></wiy-select>
         <wiy-file-picker wiy:if="item.type == 'file-picker'" wiy:data-files="this.data[item.name]"></wiy-file-picker>
         <wiy-textarea wiy:if="item.type == 'textarea'" wiy:data-text="this.data[item.name]"

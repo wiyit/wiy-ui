@@ -1,4 +1,5 @@
 <div class="option" wiy:for="this.options" wiy:for.value="option">
-    <input id="checkbox-{{key}}" name="checkbox" type="checkbox" wiy:data="option.checked" />
+    <input id="checkbox-{{key}}" name="checkbox" type="checkbox" wiy:data="this.data[option.value]"
+        wiy:onchange="this.onInputChange" />
     <label for="checkbox-{{key}}">{{option.label || option.value}}</label>
 </div>
