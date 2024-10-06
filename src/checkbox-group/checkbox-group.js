@@ -8,6 +8,7 @@ export default {
     methods: {
         onInputChange() {
             this.trigger('change', {
+                options: this.options,
                 data: this.data,
             });
         },

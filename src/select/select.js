@@ -16,6 +16,7 @@ export default {
                 });
             }
             this.trigger('change', {
+                options: this.options,
                 data: this.data,
             });
         },

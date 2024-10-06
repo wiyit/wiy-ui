@@ -12,6 +12,7 @@ export default {
                 this.data[option.value] = checked;
             });
             this.trigger('change', {
+                options: this.options,
                 data: this.data,
             });
         },
