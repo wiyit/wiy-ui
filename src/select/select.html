@@ -2,6 +2,6 @@
     <option value="">{{this.attr('prompt') || '请选择：'}}</option>
     <option wiy:for="this.options" wiy:for.value="option" value="{{option.value}}"
         wiy:data-selected="this.data[option.value]" wiy:data-disabled="option.disabled">
-        {{option.name}}
+        {{option.label || option.value}}
     </option>
 </select>
