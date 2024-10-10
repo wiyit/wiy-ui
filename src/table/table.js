@@ -15,39 +15,29 @@ export default {
                 name: column,
             };
         },
-        getNumberCellStyle(index) {
-            return `grid-row: ${index + 2}`;
-        },
-        getOperationCellStyle(index) {
-            return `grid-row: ${index + 2}`;
-        },
         getOperations(row) {
             if (typeof this.operations == 'function') {
                 return this.operations(row);
             }
             return this.operations;
         },
-        getFlattenedDataList() {
-            const dataList = [];
-            Object.entries(this.data).forEach(([rowIndex, row]) => {
-                this.columns.forEach((column, columnIndex) => {
-                    column = this.getColumn(column);
-                    let value;
-                    if (typeof column.value == 'function') {
-                        value = column.value(row);
-                    } else {
-                        value = row[column.value || columnIndex];
-                    }
-                    if (typeof value == 'undefined') {
-                        value = column.defaultValue || '';
-                    }
-                    dataList.push(value);
-                });
-            });
-            return dataList;
+        getItem(row, column, rowIndex, columnIndex) {
+            column = this.getColumn(column);
+            let value;
+
+            if (typeof column.value == 'function') {
+                value = column.value(row, rowIndex);
+            } else {
+                value = row[column.value || columnIndex];
+            }
+            if (typeof value == 'undefined') {
+                value = column.defaultValue || '';
+            }
+
+            return value;
         },
-        getClasses(index) {
-            const column = this.getColumn(this.columns[index % this.columns.length]);
+        getClasses(column) {
+            column = this.getColumn(column);
             const classes = [];
 
             switch (column.hAlign) {

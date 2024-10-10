@@ -44,7 +44,6 @@
 
 .operation-cell {
     user-select: none;
-    grid-column: -2;
 }
 
 .h-align-left {
