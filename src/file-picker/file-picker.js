@@ -14,6 +14,9 @@ export default {
                 Array.from(element.files).forEach(file => {
                     this.files.push({
                         name: file.name,
+                        getFile() {
+                            return file;
+                        },
                     });
                 });
                 element.value = '';//清空input中已选择的文件
