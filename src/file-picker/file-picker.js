@@ -24,6 +24,9 @@ export default {
         },
         onDeleteClick(key) {
             this.files.splice(key, 1);
+            this.trigger('change', {
+                files: this.files,
+            });
         },
     },
     lifecycle: {

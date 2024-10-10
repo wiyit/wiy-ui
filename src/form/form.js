@@ -11,5 +11,8 @@ export default {
         onOperationClick(operation) {
             operation.onclick && operation.onclick(this);
         },
+        onItemValueChange(item) {
+            item.onchange && item.onchange(this, item);
+        },
     },
 };
