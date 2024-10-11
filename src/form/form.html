@@ -6,7 +6,8 @@
             <span class="label-name">{{item.label}}</span>
         </div>
         <div class="value">
-            <wiy-input wiy:if="!item.type || item.type == 'input'" wiy:data-text="this.data[item.name]"
+            <div wiy:if="!item.type">{{this.data[item.name] || ''}}</div>
+            <wiy-input wiy:if="item.type == 'input'" wiy:data-text="this.data[item.name]"
                 wiy:onchange="this.onItemValueChange(item)" type="{{item.subType || 'text'}}"
                 placeholder="{{item.placeholder || ''}}"></wiy-input>
             <wiy-radio-group wiy:if="item.type == 'radio-group'" wiy:data-options="item.options"

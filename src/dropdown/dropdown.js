@@ -5,23 +5,16 @@ export default {
         contentShow: false,
     },
     methods: {
-        onButtonClick(e) {
-            e.stopPropagation();
+        onButtonClick() {
             this.contentShow = !this.contentShow;
-            this.getApp().getEventBus().trigger('wiycomponentclick', {
-                uuid: this.getUuid(),
-            });
         },
     },
     lifecycle: {
         init() {
-            this.getApp().getEventBus().on('wiycomponentclick', (e) => {
-                if (e.data.uuid != this.getUuid()) {
+            window.addEventListener('click', (e) => {
+                if (!this.onEventPath(e)) {
                     this.contentShow = false;
                 }
-            });
-            window.addEventListener('click', () => {
-                this.contentShow = false;
             });
         },
     },

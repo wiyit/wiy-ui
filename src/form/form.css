@@ -13,6 +13,7 @@
 .label {
     line-height: 26px;
     position: relative;
+    font-size: 14px;
 }
 
 .required {
@@ -22,10 +23,12 @@
 
 .label-name {
     margin-left: 8px;
+    color: rgb(65, 65, 65);
 }
 
 .value {
     display: flex;
+    line-height: 26px;
 }
 
 #operations {
