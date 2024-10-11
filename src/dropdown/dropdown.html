@@ -1,10 +1,7 @@
 <div id="button" class="{{this.contentShow ? 'opened' : ''}}" wiy:onclick="this.onButtonClick">
     <slot></slot>
-    <div id="angle">
-        <wiy-icon wiy:if="this.contentShow" name="angle-up"></wiy-icon>
-        <wiy-icon wiy:if="!this.contentShow" name="angle-down"></wiy-icon>
-    </div>
+    <wiy-icon id="angle" name="angle-down"></wiy-icon>
 </div>
-<div id="content" wiy:if="this.contentShow">
+<div id="content">
     <slot name="content"></slot>
 </div>

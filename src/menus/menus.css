@@ -35,11 +35,24 @@
 }
 
 .angle {
-    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.item.opened .angle {
+    transform: scaleY(-1);
 }
 
 sub-menus {
     padding-left: 1em;
     font-size: 0.95em;
+    transition: opacity 0.3s ease;
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+}
+
+.item.opened~sub-menus {
     border-top: 1px solid lightgray;
+    height: auto;
+    opacity: 1;
 }

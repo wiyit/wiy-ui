@@ -9,6 +9,7 @@
     padding: 0 10px;
     cursor: pointer;
     user-select: none;
+    line-height: 1em;
 }
 
 #button.opened {
@@ -20,7 +21,11 @@
 }
 
 #angle {
-    display: flex;
+    transition: transform 0.3s ease;
+}
+
+#button.opened #angle {
+    transform: scaleY(-1);
 }
 
 #content {
@@ -30,4 +35,13 @@
     right: 0;
     box-shadow: 0 0 6px gray;
     z-index: 1;
+    transition: opacity 0.3s ease;
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+}
+
+#button.opened~#content {
+    height: auto;
+    opacity: 1;
 }
