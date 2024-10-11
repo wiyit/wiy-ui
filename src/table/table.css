@@ -69,3 +69,11 @@
 .v-align-center {
     align-items: center !important;
 }
+
+.cell.clickable {
+    cursor: pointer;
+}
+
+.cell.clickable:hover {
+    background-color: aliceblue;
+}

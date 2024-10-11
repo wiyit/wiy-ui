@@ -7,8 +7,8 @@
 
     <template wiy:for="this.data" wiy:for.value="row" wiy:for.key="rowIndex">
         <div class="number-cell"></div>
-        <div class="{{this.getClasses(column)}}" wiy:for="this.columns" wiy:for.value="column"
-            wiy:for.key="columnIndex">
+        <div class="{{this.getClasses(column)}}" wiy:for="this.columns" wiy:for.value="column" wiy:for.key="columnIndex"
+            wiy:onclick="this.onCellClick(row, column, rowIndex, columnIndex)">
             {{this.getItem(row, column, rowIndex, columnIndex)}}
         </div>
         <div class="operation-cell">

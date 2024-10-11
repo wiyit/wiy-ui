@@ -36,9 +36,13 @@ export default {
 
             return value;
         },
+        onCellClick(row, column, rowIndex, columnIndex) {
+            column = this.getColumn(column);
+            column.onclick && column.onclick(this, row, column, rowIndex, columnIndex);
+        },
         getClasses(column) {
             column = this.getColumn(column);
-            const classes = [];
+            const classes = ['cell'];
 
             switch (column.hAlign) {
                 case 'right': classes.push('h-align-right'); break;
@@ -50,6 +54,10 @@ export default {
                 case 'top': classes.push('v-align-top'); break;
                 case 'bottom': classes.push('v-align-bottom'); break;
                 default: classes.push('v-align-center'); break;
+            }
+
+            if (column.onclick) {
+                classes.push('clickable');
             }
 
             return classes.join(' ');
