@@ -1,3 +1,8 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
 #file {
     display: none;
 }
@@ -13,6 +18,7 @@
     font-size: 0.8em;
     display: flex;
     gap: 6px;
+    line-height: normal;
 }
 
 .delete {

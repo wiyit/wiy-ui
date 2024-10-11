@@ -1,6 +1,7 @@
 :host {
-    display: inline-block;
+    display: flex;
     height: 26px;
+    width: max-content;
 }
 
 button {
