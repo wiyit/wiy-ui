@@ -3,6 +3,7 @@ const components = {
     'wiy-button': import('./button/button.js'),
     'wiy-checkbox': import('./checkbox/checkbox.js'),
     'wiy-checkbox-group': import('./checkbox-group/checkbox-group.js'),
+    'wiy-dialog': import('./dialog/dialog.js'),
     'wiy-dropdown': import('./dropdown/dropdown.js'),
     'wiy-file-picker': import('./file-picker/file-picker.js'),
     'wiy-form': import('./form/form.js'),

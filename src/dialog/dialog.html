@@ -1,0 +1,9 @@
+<dialog id="dialog">
+    <div id="head">
+        <div id="title">{{this.title || '对话框'}}</div>
+        <wiy-icon id="close" name="close" wiy:onclick="this.onCloseClick"></wiy-icon>
+    </div>
+    <div id="content">
+        <slot></slot>
+    </div>
+</dialog>

@@ -1,0 +1,40 @@
+dialog[open] {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 8px;
+    padding: 0;
+}
+
+dialog:focus {
+    outline: none;
+}
+
+#head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid lightgray;
+}
+
+#title {
+    line-height: 1em;
+    font-weight: bold;
+}
+
+#close {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    will-change: contents;
+}
+
+#close:hover {
+    transform: scale(1.05);
+}
+
+#content {
+    overflow: auto;
+}
