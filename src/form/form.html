@@ -9,7 +9,7 @@
             <div class="value">
                 <template wiy:if="!item.type">
                     <template wiy:if="!item.isHtml">{{this.data[item.name] || ''}}</template>
-                    <template wiy:if="item.isHtml" wiy:html="this.data[item.name] || ''"></template>
+                    <div wiy:if="item.isHtml" wiy:html="this.data[item.name] || ''"></div>
                 </template>
                 <wiy-input wiy:if="item.type == 'input'" wiy:data-text="this.data[item.name]"
                     wiy:onchange="this.onItemValueChange(item)" type="{{item.subType || 'text'}}"
