@@ -1,4 +1,4 @@
-<div id="title">{{this.title}}</div>
+<div id="title">{{this.title || ''}}</div>
 <div id="items">
     <template wiy:for="this.items" wiy:for.value="item">
         <template wiy:if="this.needShow(item)">

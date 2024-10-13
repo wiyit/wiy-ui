@@ -2,7 +2,7 @@ export default {
     template: import('./form.html'),
     style: import('./form.css'),
     data: {
-        title: '请填写表单：',
+        title: '',
         items: [],
         operations: [],
         data: {},
