@@ -11,6 +11,9 @@ export default {
         isOpened(menu) {
             return menu.sub && menu.sub.length > 0 && menu.subShow;
         },
+        isActive(menu) {
+            return menu.isActive && menu.isActive(this);
+        },
         onItemClick(menu) {
             menu.subShow = !menu.subShow;
             menu.onclick && menu.onclick(this);

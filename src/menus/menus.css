@@ -26,7 +26,13 @@
     background-color: aliceblue;
 }
 
-.item:hover {
+.item.active {
+    color: rgb(64 158 255);
+    cursor: auto;
+}
+
+.item:not(.active):hover {
+    color: rgb(64 158 255);
     background-color: aliceblue;
 }
 
