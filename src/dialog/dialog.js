@@ -6,8 +6,7 @@ export default {
     },
     methods: {
         onCloseClick() {
-            const dialog = this.getElement('dialog');
-            dialog.close();
+            this.close();
         },
         showModal() {
             const dialog = this.getElement('dialog');

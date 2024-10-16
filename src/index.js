@@ -15,6 +15,7 @@ const components = {
     'wiy-radio-group': import('./radio-group/radio-group.js'),
     'wiy-select': import('./select/select.js'),
     'wiy-table': import('./table/table.js'),
+    'wiy-tabs': import('./tabs/tabs.js'),
     'wiy-textarea': import('./textarea/textarea.js'),
 };
 
