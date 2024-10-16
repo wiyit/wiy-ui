@@ -48,7 +48,7 @@
 }
 
 .tab.active {
-    color: rgb(64 158 255);
+    color: rgb(64, 158, 255);
     background-color: white;
     cursor: auto;
 }

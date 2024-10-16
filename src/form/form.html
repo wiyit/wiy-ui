@@ -23,7 +23,8 @@
                     wiy:data-data="this.data[item.name]" wiy:onchange="this.onItemValueChange(item)"
                     prompt="{{item.prompt || ''}}"></wiy-select>
                 <wiy-file-picker wiy:if="item.type == 'file-picker'" wiy:data-files="this.data[item.name]"
-                    wiy:onchange="this.onItemValueChange(item)"></wiy-file-picker>
+                    wiy:onchange="this.onItemValueChange(item)"
+                    wiy:onfileclick="e => this.onFilePickerFileClick(e, item)"></wiy-file-picker>
                 <wiy-textarea wiy:if="item.type == 'textarea'" wiy:data-text="this.data[item.name]"
                     wiy:onchange="this.onItemValueChange(item)" placeholder="{{item.placeholder || ''}}"></wiy-textarea>
             </div>

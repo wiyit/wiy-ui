@@ -27,3 +27,15 @@
     margin-top: 0.2em;
     color: red;
 }
+
+.delete:hover {
+    color: rgb(64, 158, 255);
+}
+
+.file-name {
+    cursor: pointer;
+}
+
+.file-name:hover {
+    color: rgb(64, 158, 255);
+}

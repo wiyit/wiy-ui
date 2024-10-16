@@ -29,12 +29,10 @@ dialog:focus {
 
 #close {
     cursor: pointer;
-    transition: transform 0.3s ease;
-    will-change: contents;
 }
 
 #close:hover {
-    transform: scale(1.05);
+    color: rgb(64, 158, 255);
 }
 
 #content {

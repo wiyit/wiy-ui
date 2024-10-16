@@ -31,6 +31,11 @@ export default {
                 files: this.files,
             });
         },
+        onFileClick(file) {
+            this.trigger('fileclick', {
+                file: file,
+            });
+        },
     },
     lifecycle: {
         init() {

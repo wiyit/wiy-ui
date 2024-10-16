@@ -3,6 +3,6 @@
 <div id="files" wiy:if="this.files.length">
     <div class="file" wiy:for="this.files" wiy:for.value="file">
         <wiy-icon name="close" class="delete" wiy:onclick="this.onDeleteClick(key)"></wiy-icon>
-        <span>{{file.name}}</span>
+        <span class="file-name" wiy:onclick="this.onFileClick(file)">{{file.name}}</span>
     </div>
 </div>

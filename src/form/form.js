@@ -17,5 +17,8 @@ export default {
         needShow(item) {
             return !item.when || item.when(this, item);
         },
+        onFilePickerFileClick(e, item) {
+            item.onfileclick && item.onfileclick(this, item, e.data.file);
+        },
     },
 };
