@@ -1,0 +1,24 @@
+<div>
+    共
+    {{this.total}}
+    条
+</div>
+<template wiy:if="this.total > 0">
+    <div id="buttons">
+        <wiy-button icon="angle-left" wiy:onclick="this.current--"></wiy-button>
+        <template wiy:for="Array.from({ length: this.items.length })" wiy:for.key="i">
+            <wiy-icon wiy:if="this.items[i] == '...'" name="ellipsis"></wiy-icon>
+            <template wiy:if="this.items[i] != '...'">
+                <div wiy:if="this.current == this.items[i]">{{this.items[i]}}</div>
+                <wiy-button wiy:if="this.current != this.items[i]"
+                    wiy:onclick="this.current = this.items[i]">{{this.items[i]}}</wiy-button>
+            </template>
+        </template>
+        <wiy-button icon="angle-right" wiy:onclick="this.current++"></wiy-button>
+    </div>
+    <div id="jumper">
+        前往
+        <wiy-input wiy:data-text="this.current"></wiy-input>
+        页
+    </div>
+</template>

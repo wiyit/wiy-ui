@@ -1,0 +1,28 @@
+:host {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    line-height: 1em;
+    user-select: none;
+}
+
+#buttons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+#buttons>* {
+    min-width: 28px;
+    text-align: center;
+}
+
+#jumper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+#jumper wiy-input {
+    width: 36px;
+}

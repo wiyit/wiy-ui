@@ -48,6 +48,10 @@
     transform: scaleY(-1);
 }
 
+wiy-icon {
+    height: auto;
+}
+
 sub-menus {
     padding-left: 1em;
     font-size: 0.95em;
