@@ -3,7 +3,7 @@ export default {
     style: import('./pagination.css'),
     data: {
         total: 0,
-        current: 0,
+        current: 1,
         pageSize: 10,
     },
     methods: {
@@ -50,13 +50,20 @@ export default {
     lifecycle: {
         init() {
             this.observe(() => {
-                return [
-                    this.total,
-                    this.current,
-                    this.pageSize,
-                ];
+                return this.total;
             }, () => {
-                this.current = Math.min(Math.max(this.current, 1), this.getPageCount());// 调整current
+                const oldCurrent = this.current;
+                const newCurrent = Math.max(Math.min(oldCurrent, this.getPageCount()), 1);
+                if (oldCurrent == newCurrent) {
+                    this.items = this.generateItems();// 更新items
+                } else {
+                    this.current = newCurrent;
+                }
+            });
+            this.observe(() => {
+                return this.current;
+            }, (result) => {
+                this.current = Math.max(Math.min(result, this.getPageCount()), 1);// 调整current
                 this.items = this.generateItems();// 更新items
 
                 this.trigger('change', {
