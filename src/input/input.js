@@ -1,6 +1,6 @@
 export default {
     template: import('./input.html'),
-    style: import('./input.css'),
+    style: import('./input.scss'),
     data: {
         text: '',
     },

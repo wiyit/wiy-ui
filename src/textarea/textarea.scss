@@ -1,0 +1,22 @@
+:host {
+    display: flex;
+
+    textarea {
+        min-height: 32px;
+        box-sizing: border-box;
+        padding: 5px 8px;
+        border-radius: 3px;
+        border: 1px solid var(--wiy-textarea-border-color);
+        background-color: var(--wiy-textarea-color);
+
+        &:hover {
+            border-color: var(--wiy-textarea-border-color-hover);
+        }
+
+        &:focus {
+            outline: none;
+            border-color: var(--wiy-textarea-border-color-focus);
+            box-shadow: var(--wiy-textarea-focus-shadow);
+        }
+    }
+}

@@ -21,10 +21,6 @@
         &:active {
             background-color: var(--wiy-button-color-active);
         }
-
-        &:disabled {
-            background-color: var(--wiy-button-color-disabled);
-        }
     }
 }
 
@@ -40,10 +36,6 @@
         &:active {
             background-color: var(--wiy-button-primary-color-active);
         }
-
-        &:disabled {
-            background-color: var(--wiy-button-primary-color-disabled);
-        }
     }
 }
 
@@ -58,10 +50,6 @@
 
         &:active {
             background-color: var(--wiy-button-danger-color-active);
-        }
-
-        &:disabled {
-            background-color: var(--wiy-button-danger-color-disabled);
         }
     }
 }

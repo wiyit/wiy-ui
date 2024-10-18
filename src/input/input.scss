@@ -1,0 +1,33 @@
+:host {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    input {
+        height: 32px;
+        box-sizing: border-box;
+        padding: 5px 8px;
+        border-radius: 3px;
+        border: 1px solid var(--wiy-input-border-color);
+        background-color: var(--wiy-input-color);
+
+        &:hover {
+            border-color: var(--wiy-input-border-color-hover);
+        }
+
+        &:focus {
+            outline: none;
+            border-color: var(--wiy-input-border-color-focus);
+            box-shadow: var(--wiy-input-focus-shadow);
+        }
+
+        &[has-icon=true] {
+            padding-left: calc(1em + 12px);
+        }
+    }
+
+    wiy-icon {
+        position: absolute;
+        margin-left: 6px;
+    }
+}
