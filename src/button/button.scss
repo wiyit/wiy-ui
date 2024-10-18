@@ -1,0 +1,67 @@
+:host {
+    button {
+        height: 32px;
+        padding: 5px 12px;
+        border-radius: 3px;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        font-size: 14px;
+        line-height: 1em;
+        background-color: var(--wiy-button-color);
+        color: var(--wiy-button-text-color);
+
+        &:hover {
+            background-color: var(--wiy-button-color-hover);
+        }
+
+        &:active {
+            background-color: var(--wiy-button-color-active);
+        }
+
+        &:disabled {
+            background-color: var(--wiy-button-color-disabled);
+        }
+    }
+}
+
+:host([type=primary]) {
+    button {
+        background-color: var(--wiy-button-primary-color);
+        color: var(--wiy-button-primary-text-color);
+
+        &:hover {
+            background-color: var(--wiy-button-primary-color-hover);
+        }
+
+        &:active {
+            background-color: var(--wiy-button-primary-color-active);
+        }
+
+        &:disabled {
+            background-color: var(--wiy-button-primary-color-disabled);
+        }
+    }
+}
+
+:host([type=danger]) {
+    button {
+        background-color: var(--wiy-button-danger-color);
+        color: var(--wiy-button-danger-text-color);
+
+        &:hover {
+            background-color: var(--wiy-button-danger-color-hover);
+        }
+
+        &:active {
+            background-color: var(--wiy-button-danger-color-active);
+        }
+
+        &:disabled {
+            background-color: var(--wiy-button-danger-color-disabled);
+        }
+    }
+}
