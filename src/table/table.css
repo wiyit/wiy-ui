@@ -2,6 +2,7 @@
     display: flex;
     width: 100%;
     height: 100%;
+    font-size: 14px;
 }
 
 #table {
@@ -9,7 +10,7 @@
     height: 100%;
     box-sizing: border-box;
     display: grid;
-    border: solid lightgray;
+    border: solid var(--wiy-table-border-color);
     border-width: 1px 0 0 1px;
     counter-reset: number;
 }
@@ -18,24 +19,24 @@
     display: flex;
     width: 100%;
     height: 100%;
-    padding: 4px 8px;
+    padding: 8px;
     box-sizing: border-box;
     word-break: break-all;
     justify-content: flex-start;
     align-items: center;
-    border: solid lightgray;
+    border: solid var(--wiy-table-border-color);
     border-width: 0 1px 1px 0;
 }
 
 .head-cell {
-    font-weight: bold;
-    background-color: rgba(240, 240, 240);
+    color: var(--wiy-table-header-text-color);
 }
 
 .number-cell {
     justify-content: center !important;
     user-select: none;
     counter-increment: number;
+    color: var(--wiy-table-number-text-color);
 }
 
 .number-cell::before {

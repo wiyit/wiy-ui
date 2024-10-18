@@ -15,7 +15,7 @@
 }
 
 .file {
-    font-size: 0.8em;
+    font-size: 0.9em;
     display: flex;
     gap: 6px;
     line-height: normal;
@@ -24,7 +24,7 @@
 .delete {
     flex-shrink: 0;
     cursor: pointer;
-    margin-top: 0.2em;
+    margin-top: 0.1em;
     color: red;
 }
 
@@ -34,8 +34,9 @@
 
 .file-name {
     cursor: pointer;
+    color: var(--wiy-file-picker-file-name-color);
 }
 
 .file-name:hover {
-    color: rgb(64, 158, 255);
+    color: var(--wiy-file-picker-file-name-color-hover);
 }

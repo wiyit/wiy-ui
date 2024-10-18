@@ -9,7 +9,7 @@
         <template wiy:for="Array.from({ length: this.items.length })" wiy:for.key="i">
             <wiy-icon wiy:if="this.items[i] == '...'" name="ellipsis"></wiy-icon>
             <template wiy:if="this.items[i] != '...'">
-                <div wiy:if="this.current == this.items[i]">{{this.items[i]}}</div>
+                <div id="current" wiy:if="this.current == this.items[i]">{{this.items[i]}}</div>
                 <wiy-button wiy:if="this.current != this.items[i]"
                     wiy:onclick="this.current = this.items[i]">{{this.items[i]}}</wiy-button>
             </template>
