@@ -13,7 +13,7 @@
 }
 
 #buttons>* {
-    min-width: 28px;
+    min-width: 32px;
     text-align: center;
 }
 
@@ -24,5 +24,5 @@
 }
 
 #jumper wiy-input {
-    width: 36px;
+    width: 48px;
 }
