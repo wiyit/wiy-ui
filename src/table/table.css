@@ -19,7 +19,7 @@
     display: flex;
     width: 100%;
     height: 100%;
-    padding: 8px;
+    padding: 16px;
     box-sizing: border-box;
     word-break: break-all;
     justify-content: flex-start;
@@ -30,6 +30,7 @@
 
 .head-cell {
     color: var(--wiy-table-header-text-color);
+    background-color: var(--wiy-table-header-color);
 }
 
 .number-cell {

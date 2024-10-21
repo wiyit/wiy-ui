@@ -63,7 +63,7 @@ export default {
             return classes.join(' ');
         },
         getTableStyle() {
-            const widthList = ['40px'];
+            const widthList = ['max-content'];
             this.columns.forEach(column => {
                 const { width, minWidth, maxWidth } = this.getColumn(column);
                 widthList.push(`minmax(${minWidth || width || 'auto'}, ${maxWidth || width || 'auto'})`);
