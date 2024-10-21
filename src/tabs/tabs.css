@@ -48,14 +48,14 @@
 }
 
 .tab.active {
-    color: rgb(64, 158, 255);
+    color: var(--wiy-tabs-tab-text-color-active);
     background-color: white;
     cursor: auto;
 }
 
 .tab:not(.active):hover {
-    color: rgb(63, 155, 247);
-    background-color: aliceblue;
+    color: var(--wiy-tabs-tab-text-color-hover);
+    background-color: var(--wiy-tabs-tab-color-hover);
 }
 
 #content {
