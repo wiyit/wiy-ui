@@ -2,32 +2,40 @@
 <div id="items">
     <template wiy:for="this.items" wiy:for.value="item">
         <template wiy:if="this.needShow(item)">
-            <div class="label">
-                <span wiy:if="item.required" class="required">*</span>
-                <span class="label-name">{{item.label}}</span>
-            </div>
-            <div class="value">
-                <template wiy:if="!item.type">
-                    <template wiy:if="!item.isHtml">{{this.data[item.name] || ''}}</template>
-                    <div wiy:if="item.isHtml" wiy:html="this.data[item.name] || ''"></div>
-                </template>
-                <wiy-input wiy:if="item.type == 'input'" wiy:data-text="this.data[item.name]"
-                    wiy:onchange="this.onItemValueChange(item)" type="{{item.subType || 'text'}}"
-                    placeholder="{{item.placeholder || ''}}"></wiy-input>
-                <wiy-radio-group wiy:if="item.type == 'radio-group'" wiy:data-options="item.options"
-                    wiy:data-data="this.data[item.name]" wiy:onchange="this.onItemValueChange(item)"></wiy-radio-group>
-                <wiy-checkbox-group wiy:if="item.type == 'checkbox-group'" wiy:data-options="item.options"
-                    wiy:data-data="this.data[item.name]"
-                    wiy:onchange="this.onItemValueChange(item)"></wiy-checkbox-group>
-                <wiy-select wiy:if="item.type == 'select'" wiy:data-options="item.options"
-                    wiy:data-data="this.data[item.name]" wiy:onchange="this.onItemValueChange(item)"
-                    prompt="{{item.prompt || ''}}"></wiy-select>
-                <wiy-file-picker wiy:if="item.type == 'file-picker'" wiy:data-files="this.data[item.name]"
-                    wiy:onchange="this.onItemValueChange(item)"
-                    wiy:onfileclick="e => this.onFilePickerFileClick(e, item)"></wiy-file-picker>
-                <wiy-textarea wiy:if="item.type == 'textarea'" wiy:data-text="this.data[item.name]"
-                    wiy:onchange="this.onItemValueChange(item)" placeholder="{{item.placeholder || ''}}"></wiy-textarea>
-            </div>
+            <template wiy:if="item.isGroup">
+                <div class="group-label">{{item.label}}</div>
+                <div></div>
+            </template>
+            <template wiy:if="!item.isGroup">
+                <div class="label">
+                    <span wiy:if="item.required" class="required">*</span>
+                    <span class="label-name">{{item.label}}</span>
+                </div>
+                <div class="value">
+                    <template wiy:if="!item.type">
+                        <template wiy:if="!item.isHtml">{{this.data[item.name] || ''}}</template>
+                        <div wiy:if="item.isHtml" wiy:html="this.data[item.name] || ''"></div>
+                    </template>
+                    <wiy-input wiy:if="item.type == 'input'" wiy:data-text="this.data[item.name]"
+                        wiy:onchange="this.onItemValueChange(item)" type="{{item.subType || 'text'}}"
+                        placeholder="{{item.placeholder || ''}}"></wiy-input>
+                    <wiy-radio-group wiy:if="item.type == 'radio-group'" wiy:data-options="item.options"
+                        wiy:data-data="this.data[item.name]"
+                        wiy:onchange="this.onItemValueChange(item)"></wiy-radio-group>
+                    <wiy-checkbox-group wiy:if="item.type == 'checkbox-group'" wiy:data-options="item.options"
+                        wiy:data-data="this.data[item.name]"
+                        wiy:onchange="this.onItemValueChange(item)"></wiy-checkbox-group>
+                    <wiy-select wiy:if="item.type == 'select'" wiy:data-options="item.options"
+                        wiy:data-data="this.data[item.name]" wiy:onchange="this.onItemValueChange(item)"
+                        prompt="{{item.prompt || ''}}"></wiy-select>
+                    <wiy-file-picker wiy:if="item.type == 'file-picker'" wiy:data-files="this.data[item.name]"
+                        wiy:onchange="this.onItemValueChange(item)"
+                        wiy:onfileclick="e => this.onFilePickerFileClick(e, item)"></wiy-file-picker>
+                    <wiy-textarea wiy:if="item.type == 'textarea'" wiy:data-text="this.data[item.name]"
+                        wiy:onchange="this.onItemValueChange(item)"
+                        placeholder="{{item.placeholder || ''}}"></wiy-textarea>
+                </div>
+            </template>
         </template>
     </template>
 </div>

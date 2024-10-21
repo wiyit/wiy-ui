@@ -16,6 +16,13 @@
 .label {
     line-height: 32px;
     position: relative;
+}
+
+:host([label-align=center]) .label {
+    text-align: center;
+}
+
+:host([label-align=right]) .label {
     text-align: right;
 }
 
@@ -46,4 +53,9 @@
 
 :host([operations-pos=center]) #operations {
     justify-content: center;
+}
+
+.group-label {
+    font-weight: bold;
+    padding: 8px 0;
 }
