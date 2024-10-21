@@ -37,4 +37,13 @@
 #operations {
     display: flex;
     gap: 20px;
+    justify-content: left;
+}
+
+:host([operations-pos=right]) #operations {
+    justify-content: right;
+}
+
+:host([operations-pos=center]) #operations {
+    justify-content: center;
 }
