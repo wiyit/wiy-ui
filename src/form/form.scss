@@ -1,0 +1,102 @@
+:host {
+    font-size: 14px;
+
+    #title {
+        font-weight: bold;
+    }
+
+    #items {
+        display: grid;
+        gap: 8px 16px;
+        padding: 10px 0 20px;
+
+        .label {
+            padding-top: 6px;
+            position: relative;
+        }
+
+        .required {
+            color: red;
+            position: absolute;
+        }
+
+        .label-name {
+            padding-left: 8px;
+            color: var(--wiy-form-label-color);
+        }
+
+        .value {
+            display: flex;
+            padding-left: 8px;
+        }
+
+        .group-label {
+            font-weight: bold;
+            padding: 8px 0;
+            grid-column: 1 / -1;
+        }
+
+        .info {
+            min-height: 32px;
+            padding-top: 6px;
+            box-sizing: border-box;
+        }
+
+        .newline {
+            grid-column: auto / -1;
+        }
+    }
+
+    #operations {
+        display: flex;
+        gap: 20px;
+        justify-content: left;
+    }
+}
+
+:host([columns="1"]) {
+    #items {
+        grid-template-columns: repeat(1, max-content);
+    }
+}
+
+:host,
+:host([columns="2"]) {
+    #items {
+        grid-template-columns: repeat(2, max-content);
+    }
+}
+
+:host([columns="4"]) {
+    #items {
+        grid-template-columns: repeat(4, max-content);
+    }
+}
+
+:host([columns="6"]) {
+    #items {
+        grid-template-columns: repeat(6, max-content);
+    }
+}
+
+:host([columns="8"]) {
+    #items {
+        grid-template-columns: repeat(8, max-content);
+    }
+}
+
+:host([label-align=center]) .label {
+    text-align: center;
+}
+
+:host([label-align=right]) .label {
+    text-align: right;
+}
+
+:host([operations-pos=right]) #operations {
+    justify-content: right;
+}
+
+:host([operations-pos=center]) #operations {
+    justify-content: center;
+}

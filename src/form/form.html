@@ -4,18 +4,20 @@
         <template wiy:if="this.needShow(item)">
             <template wiy:if="item.isGroup">
                 <div class="group-label">{{item.label}}</div>
-                <div></div>
             </template>
-            <template wiy:if="!item.isGroup">
+            <template wiy:if="item.newline">
+                <div class="newline"></div>
+            </template>
+            <template wiy:if="!item.isGroup && !item.newline">
                 <div class="label">
                     <span wiy:if="item.required" class="required">*</span>
                     <span class="label-name">{{item.label}}</span>
                 </div>
                 <div class="value">
-                    <template wiy:if="!item.type">
+                    <div class="info" wiy:if="!item.type">
                         <template wiy:if="!item.isHtml">{{this.data[item.name] || ''}}</template>
                         <div wiy:if="item.isHtml" wiy:html="this.data[item.name] || ''"></div>
-                    </template>
+                    </div>
                     <wiy-input wiy:if="item.type == 'input'" wiy:data-text="this.data[item.name]"
                         wiy:onchange="this.onItemValueChange(item)" type="{{item.subType || 'text'}}"
                         placeholder="{{item.placeholder || ''}}"></wiy-input>

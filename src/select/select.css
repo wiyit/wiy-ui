@@ -1,6 +1,8 @@
 :host {
+    height: 32px;
+
     select {
-        height: 32px;
+        height: 100%;
         border: 1px solid var(--wiy-select-border-color);
         border-radius: 3px;
         padding: 5px 8px;

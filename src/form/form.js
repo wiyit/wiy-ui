@@ -1,6 +1,6 @@
 export default {
     template: import('./form.html'),
-    style: import('./form.css'),
+    style: import('./form.scss'),
     data: {
         title: '',
         items: [],
