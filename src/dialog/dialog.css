@@ -5,6 +5,7 @@ dialog[open] {
     border-radius: 8px;
     padding: 0;
     box-shadow: 0 0 6px gray;
+    background-color: white;
 }
 
 dialog:focus {
