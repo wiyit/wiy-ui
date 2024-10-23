@@ -1,3 +1,8 @@
-<wiy-icon wiy:if="this.attr('icon')" name="{{this.attr('icon')}}"></wiy-icon>
-<input type="{{this.attr('type') || 'text'}}" wiy:data="this.text" wiy:onchange="this.onInputChange"
-    placeholder="{{this.attr('placeholder') || ''}}" has-icon="{{!!this.attr('icon')}}" />
+<wiy-icon id="icon" wiy:if="this.attr('icon')" name="{{this.attr('icon')}}"></wiy-icon>
+<input id="input" type="{{this.attr('type') || 'text'}}" wiy:data="this.text" wiy:onchange="this.onInputChange"
+    placeholder="{{this.attr('placeholder') || ''}}" has-icon="{{!!this.attr('icon')}}"
+    is-password="{{this.attr('type') == 'password'}}" />
+<div id="password-icon" wiy:if="this.attr('type') == 'password'" wiy:onclick="this.onPasswordToggleClick">
+    <wiy-icon name="eye" wiy:if="this.showPassword"></wiy-icon>
+    <wiy-icon name="eye-slash" wiy:if="!this.showPassword"></wiy-icon>
+</div>
