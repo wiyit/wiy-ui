@@ -5,10 +5,19 @@
         font-weight: bold;
     }
 
+    #desc {
+        font-size: 14px;
+        color: var(--wiy-form-desc-color);
+        border-left: 1px solid var(--wiy-form-desc-border-color);
+        padding: 8px;
+        margin: 10px 0;
+        white-space: pre-wrap;
+    }
+
     #items {
         display: grid;
         gap: 8px 16px;
-        padding: 10px 0 20px;
+        margin: 10px 0 20px 0;
 
         .label {
             padding-top: 6px;

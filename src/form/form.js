@@ -3,6 +3,7 @@ export default {
     style: import('./form.scss'),
     data: {
         title: '',
+        desc: '',
         items: [],
         operations: [],
         data: {},
