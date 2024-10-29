@@ -9,15 +9,15 @@
         font-size: 14px;
         color: var(--wiy-form-desc-color);
         border-left: 1px solid var(--wiy-form-desc-border-color);
-        padding: 8px;
-        margin: 10px 0;
+        padding: 8px 7px;
+        margin-top: 10px;
         white-space: pre-wrap;
     }
 
     #items {
         display: grid;
         gap: 8px 16px;
-        margin: 10px 0 20px 0;
+        margin-top: 10px;
 
         .label {
             padding-top: 6px;
@@ -59,7 +59,7 @@
     #operations {
         display: flex;
         gap: 20px;
-        justify-content: left;
+        margin-top: 20px;
     }
 }
 
@@ -94,18 +94,40 @@
     }
 }
 
-:host([label-align=center]) .label {
-    text-align: center;
+:host,
+:host([label-align=left]) {
+    .label {
+        text-align: left;
+    }
 }
 
-:host([label-align=right]) .label {
-    text-align: right;
+:host([label-align=center]) {
+    .label {
+        text-align: center;
+    }
 }
 
-:host([operations-pos=right]) #operations {
-    justify-content: right;
+:host([label-align=right]) {
+    .label {
+        text-align: right;
+    }
 }
 
-:host([operations-pos=center]) #operations {
-    justify-content: center;
+:host,
+:host([operations-pos=left]) {
+    #operations {
+        justify-content: left;
+    }
+}
+
+:host([operations-pos=right]) {
+    #operations {
+        justify-content: right;
+    }
+}
+
+:host([operations-pos=center]) {
+    #operations {
+        justify-content: center;
+    }
 }
