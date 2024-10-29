@@ -27,6 +27,7 @@
         .required {
             color: red;
             position: absolute;
+            user-select: none;
         }
 
         .label-name {

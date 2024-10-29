@@ -4,16 +4,16 @@
     <template wiy:for="this.items" wiy:for.value="item">
         <template wiy:if="this.needShow(item)">
             <template wiy:if="item.isGroup">
-                <div class="group-label">{{item.label}}</div>
+                <label class="group-label">{{item.label}}</label>
             </template>
             <template wiy:if="item.newline">
                 <div class="newline"></div>
             </template>
             <template wiy:if="!item.isGroup && !item.newline">
-                <div class="label">
+                <label class="label">
                     <span wiy:if="item.required" class="required">*</span>
                     <span class="label-name">{{item.label}}</span>
-                </div>
+                </label>
                 <div class="value">
                     <div class="info" wiy:if="!item.type">
                         <template wiy:if="!item.isHtml">{{this.data[item.name] || ''}}</template>
@@ -21,7 +21,7 @@
                     </div>
                     <wiy-input wiy:if="item.type == 'input'" wiy:data-text="this.data[item.name]"
                         wiy:onchange="this.onItemValueChange(item)" type="{{item.subType || 'text'}}"
-                        placeholder="{{item.placeholder || ''}}"></wiy-input>
+                        placeholder="{{item.placeholder || ''}}" icon="{{item.icon || ''}}"></wiy-input>
                     <wiy-radio-group wiy:if="item.type == 'radio-group'" wiy:data-options="item.options"
                         wiy:data-data="this.data[item.name]"
                         wiy:onchange="this.onItemValueChange(item)"></wiy-radio-group>
