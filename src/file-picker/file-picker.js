@@ -22,13 +22,11 @@ export default {
                 element.value = '';//清空input中已选择的文件
             }
             this.trigger('change', {
-                files: this.files,
             });
         },
         onDeleteClick(key) {
             this.files.splice(key, 1);
             this.trigger('change', {
-                files: this.files,
             });
         },
         onFileClick(file) {
@@ -39,7 +37,9 @@ export default {
     },
     lifecycle: {
         init() {
-            this.onInputChange();
-        }
-    }
+            this.trigger('datainit', {
+                files: this.files,
+            });
+        },
+    },
 };

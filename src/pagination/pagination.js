@@ -5,6 +5,7 @@ export default {
         total: 0,
         current: 1,
         pageSize: 10,
+        items: [],
     },
     methods: {
         generateItems() {
@@ -51,22 +52,45 @@ export default {
         init() {
             this.observe(() => {
                 return this.total;
-            }, () => {
-                const oldCurrent = this.current;
-                const newCurrent = Math.max(Math.min(oldCurrent, this.getPageCount()), 1);
-                if (oldCurrent == newCurrent) {
-                    this.items = this.generateItems();// 更新items
-                } else {
-                    this.current = newCurrent;
+            }, (_, firstObserve) => {
+                if (firstObserve) {
+                    return;
                 }
+
+                if (this.current != 1) {
+                    this.current = 1;// 调整current
+                    return;
+                }
+                this.items = this.generateItems();// 更新items
             });
+
             this.observe(() => {
-                return this.current;
-            }, (result) => {
-                this.current = Math.max(Math.min(result, this.getPageCount()), 1);// 调整current
+                return this.pageSize;
+            }, (_, firstObserve) => {
+                if (firstObserve) {
+                    return;
+                }
+
+                if (this.current != 1) {
+                    this.current = 1;// 调整current
+                    return;
+                }
                 this.items = this.generateItems();// 更新items
 
                 this.trigger('change', {
+                    total: this.total,
+                    current: this.current,
+                    pageSize: this.pageSize,
+                });
+            });
+
+            this.observe(() => {
+                return this.current;
+            }, (result, firstObserve) => {
+                this.current = Math.max(Math.min(result, this.getPageCount()), 1);// 调整current
+                this.items = this.generateItems();// 更新items
+
+                this.trigger(firstObserve ? 'datainit' : 'change', {
                     total: this.total,
                     current: this.current,
                     pageSize: this.pageSize,

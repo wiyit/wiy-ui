@@ -19,7 +19,9 @@ export default {
     },
     lifecycle: {
         init() {
-            this.onInputChange();
-        }
-    }
-};          
+            this.trigger('datainit', {
+                text: this.text,
+            });
+        },
+    },
+};

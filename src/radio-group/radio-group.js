@@ -12,14 +12,15 @@ export default {
                 this.data[option.value] = checked;
             });
             this.trigger('change', {
-                options: this.options,
-                data: this.data,
             });
         },
     },
     lifecycle: {
         init() {
-            this.onInputChange();
-        }
-    }
-};          
+            this.trigger('datainit', {
+                options: this.options,
+                data: this.data,
+            });
+        },
+    },
+};
