@@ -12,7 +12,7 @@
         line-height: 1em;
 
         &.opened {
-            background-color: aliceblue;
+            background-color: var(--wiy-dropdown-color-opened);
 
             #angle {
                 transform: scaleY(-1);
@@ -25,7 +25,7 @@
         }
 
         &:hover {
-            background-color: aliceblue;
+            background-color: var(--wiy-dropdown-color-hover);
         }
 
         #angle {
