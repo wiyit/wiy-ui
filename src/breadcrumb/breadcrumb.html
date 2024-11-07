@@ -1,5 +1,3 @@
 <div class="item" wiy:for="this.items" wiy:for.value="item">
-    <div class="name" wiy:onclick="this.onItemClick(item)">
-        {{item.name}}
-    </div>
+    <wiy-link class="name" href="javascript:void(0)" wiy:onclick="this.onItemClick(item)">{{item.name}}</wiy-link>
 </div>

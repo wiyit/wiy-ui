@@ -14,11 +14,5 @@
 
 .name {
     padding: 0 4px;
-    cursor: pointer;
     user-select: none;
-}
-
-.name:hover {
-    text-decoration: underline;
-    text-underline-offset: 3px;
 }
