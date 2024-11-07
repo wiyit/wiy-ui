@@ -1,3 +1,6 @@
 <a href="{{this.attr('href') || ''}}" target="{{this.attr('target') || ''}}">
-    <slot></slot>
+    <wiy-icon wiy:if="this.attr('icon')" name="{{this.attr('icon')}}"></wiy-icon>
+    <div>
+        <slot></slot>
+    </div>
 </a>
