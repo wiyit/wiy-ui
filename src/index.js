@@ -10,6 +10,7 @@ const components = {
     'wiy-icon': import('./icon/icon.js'),
     'wiy-image': import('./image/image.js'),
     'wiy-input': import('./input/input.js'),
+    'wiy-link': import('./link/link.js'),
     'wiy-menus': import('./menus/menus.js'),
     'wiy-pagination': import('./pagination/pagination.js'),
     'wiy-radio': import('./radio/radio.js'),
@@ -20,8 +21,10 @@ const components = {
     'wiy-textarea': import('./textarea/textarea.js'),
 };
 
-export default function (app) {
-    Object.entries(components).forEach(([name, value]) => {
-        app.registerComponent(name, value);
-    });
+export default {
+    install(app) {
+        Object.entries(components).forEach(([name, value]) => {
+            app.registerComponent(name, value);
+        });
+    },
 };

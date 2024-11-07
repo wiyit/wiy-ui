@@ -27,7 +27,7 @@
     }
 }
 
-:host([type=primary]) {
+:host([theme=primary]) {
     button {
         background-color: var(--wiy-button-primary-color);
         color: var(--wiy-button-primary-text-color);
@@ -42,7 +42,7 @@
     }
 }
 
-:host([type=danger]) {
+:host([theme=danger]) {
     button {
         background-color: var(--wiy-button-danger-color);
         color: var(--wiy-button-danger-text-color);

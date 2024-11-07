@@ -1,0 +1,55 @@
+:host {
+    a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        text-decoration: none;
+
+        &:visited {
+            color: unset;
+        }
+
+        &:hover {
+            color: var(--wiy-link-color-hover);
+        }
+
+        &:active {
+            color: var(--wiy-link-color-active);
+        }
+    }
+}
+
+:host([theme=primary]) {
+    a {
+        color: var(--wiy-link-primary-color);
+
+        &:hover {
+            color: var(--wiy-link-primary-color-hover);
+        }
+
+        &:active {
+            color: var(--wiy-link-primary-color-active);
+        }
+    }
+}
+
+:host([theme=danger]) {
+    a {
+        color: var(--wiy-link-danger-color);
+
+        &:hover {
+            color: var(--wiy-link-danger-color-hover);
+        }
+
+        &:active {
+            color: var(--wiy-link-danger-color-active);
+        }
+    }
+}
+
+:host([underline]) {
+    a {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+}

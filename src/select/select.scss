@@ -18,5 +18,9 @@
             border-color: var(--wiy-select-border-color-focus);
             box-shadow: var(--wiy-select-focus-shadow);
         }
+
+        option {
+            height: 28px;
+        }
     }
 }

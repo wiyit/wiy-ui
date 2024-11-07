@@ -43,6 +43,6 @@
     </template>
 </div>
 <div id="operations">
-    <wiy-button wiy:for="this.operations" wiy:for.value="operation" type="{{operation.type || ''}}"
+    <wiy-button wiy:for="this.operations" wiy:for.value="operation" theme="{{operation.theme || ''}}"
         icon="{{operation.icon || ''}}" wiy:onclick="this.onOperationClick(operation)">{{operation.name}}</wiy-button>
 </div>
