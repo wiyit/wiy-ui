@@ -1,4 +1,5 @@
 const components = {
+    'wiy-back-top': import('./back-top/back-top.js'),
     'wiy-breadcrumb': import('./breadcrumb/breadcrumb.js'),
     'wiy-button': import('./button/button.js'),
     'wiy-checkbox': import('./checkbox/checkbox.js'),
