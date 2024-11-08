@@ -34,14 +34,19 @@ export default {
                 return this.container;
             }
             return window;
-        }
+        },
+        needShow() {
+            const container = this.getContainer();
+            const showHeight = this.attr('show-height') || 400;
+            return (container.scrollY || container.scrollTop) >= showHeight;
+        },
     },
     lifecycle: {
         init() {
+            this.show = this.needShow();
             const container = this.getContainer();
-            const showHeight = this.attr('show-height') || 400;
             container.addEventListener('scroll', () => {
-                this.show = (container.scrollY || container.scrollTop) > showHeight;
+                this.show = this.needShow();
             });
         },
     },
