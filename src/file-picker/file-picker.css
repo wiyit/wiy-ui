@@ -7,6 +7,10 @@
     display: none;
 }
 
+#button {
+    width: max-content;
+}
+
 #files {
     display: flex;
     flex-direction: column;
