@@ -13,6 +13,7 @@ const components = {
     'wiy-image': import('./image/image.js'),
     'wiy-input': import('./input/input.js'),
     'wiy-link': import('./link/link.js'),
+    'wiy-loading': import('./loading/loading.js'),
     'wiy-menus': import('./menus/menus.js'),
     'wiy-pagination': import('./pagination/pagination.js'),
     'wiy-radio': import('./radio/radio.js'),
