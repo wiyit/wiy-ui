@@ -1,0 +1,37 @@
+:host {
+    position: relative;
+
+    #popover[open] {
+        width: max-content;
+        max-width: 200px;
+        padding: 4px 8px;
+        margin: 0;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        background-color: white;
+        box-shadow: 0px 3px 14px 2px rgba(0, 0, 0, 0.05), 0px 8px 10px 1px rgba(0, 0, 0, 0.06), 0px 5px 5px -3px rgba(0, 0, 0, 0.1);
+    }
+}
+
+:host,
+:host([popover-pos=top]) {
+    #popover[open] {
+        top: unset;
+        bottom: calc(100% + 1px);
+    }
+}
+
+:host([popover-pos=bottom]) {
+    #popover[open] {
+        top: calc(100% + 1px);
+        bottom: unset;
+    }
+}
+
+:host([popover-pos=mouse]) {
+    #popover[open] {
+        position: fixed;
+        bottom: unset;
+    }
+}

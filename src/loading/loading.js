@@ -7,6 +7,12 @@ export default {
     lifecycle: {
         mount() {
             const mask = this.getElement('mask');
+            mask.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {//阻止esc键关闭mask
+                    e.preventDefault();
+                }
+            });
+
             this.observe(() => {
                 return this.loading;
             }, (result) => {

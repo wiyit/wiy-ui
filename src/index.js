@@ -16,6 +16,7 @@ const components = {
     'wiy-loading': import('./loading/loading.js'),
     'wiy-menus': import('./menus/menus.js'),
     'wiy-pagination': import('./pagination/pagination.js'),
+    'wiy-popover': import('./popover/popover.js'),
     'wiy-radio': import('./radio/radio.js'),
     'wiy-radio-group': import('./radio-group/radio-group.js'),
     'wiy-select': import('./select/select.js'),

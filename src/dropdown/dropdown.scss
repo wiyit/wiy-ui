@@ -52,6 +52,7 @@
 :host([content-pos=bottom]) {
     #content {
         top: calc(100% + 1px);
+        bottom: unset;
     }
 }
 
