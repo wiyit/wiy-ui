@@ -14,6 +14,10 @@ export default {
             const i = icon({
                 prefix: this.attr('prefix'),
                 iconName: this.attr('name'),
+            }, {
+                classes: [
+                    ...[this.hasAttr('spin') ? 'spin' : undefined],
+                ],
             });
             if (i) {
                 const html = i.html[0];

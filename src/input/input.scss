@@ -1,5 +1,5 @@
 :host {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     position: relative;
     height: 32px;
@@ -23,11 +23,11 @@
             box-shadow: var(--wiy-input-focus-shadow);
         }
 
-        &[has-icon=true] {
+        &[has-icon] {
             padding-left: calc(1em + 12px);
         }
 
-        &[is-password=true] {
+        &[is-password] {
             padding-right: calc(1em + 12px);
         }
 
