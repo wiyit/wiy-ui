@@ -1,0 +1,73 @@
+:host,
+:host([content-pos=center]) {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .line {
+        width: 100%;
+        border: 0 solid var(--wiy-divider-color);
+        border-top-width: 1px;
+    }
+
+    #content {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        margin: 0 0.5em;
+        color: var(--wiy-divider-text-color);
+    }
+}
+
+:host([content-pos=start]) {
+    .line:first-of-type {
+        width: 0;
+        height: 0;
+        min-width: 0.5em;
+    }
+}
+
+:host([content-pos=end]) {
+    .line:last-of-type {
+        width: 0;
+        height: 0;
+        min-width: 0.5em;
+    }
+}
+
+:host([dashed]) {
+    .line {
+        border-style: dashed;
+    }
+}
+
+:host([vertical]) {
+    flex-direction: column;
+    width: unset;
+    height: 100%;
+
+    .line {
+        width: unset;
+        height: 100%;
+        border-top-width: unset;
+        border-left-width: 1px;
+    }
+
+    #content {
+        margin: 0.5em 0;
+    }
+}
+
+:host([vertical][content-pos=start]) {
+    .line:first-of-type {
+        min-width: unset;
+        min-height: 0.5em;
+    }
+}
+
+:host([vertical][content-pos=end]) {
+    .line:last-of-type {
+        min-width: unset;
+        min-height: 0.5em;
+    }
+}
