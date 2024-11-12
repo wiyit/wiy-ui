@@ -6,28 +6,16 @@ export default {
     },
     methods: {
         onMouseenter(e) {
-            const popover = this.getElement('popover');
-            if (popover) {
-                popover.show();
-            }
+            this.visible = true;
         },
         onMouseleave(e) {
-            const popover = this.getElement('popover');
-            if (popover) {
-                popover.close();
-            }
+            this.visible = false;
         },
     },
     lifecycle: {
         mount() {
             const popover = this.getElement('popover');
             if (popover) {
-                popover.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape') {//阻止esc键关闭popover
-                        e.preventDefault();
-                    }
-                });
-
                 const source = this.getElement('source');
                 if (this.attr('popover-pos') == 'mouse') {
                     source.addEventListener('mousemove', (e) => {
@@ -37,16 +25,6 @@ export default {
                         popover.style.top = y + 'px';
                     });
                 }
-
-                this.observe(() => {
-                    return this.visible;
-                }, (result) => {
-                    if (result) {
-                        popover.show();
-                    } else {
-                        popover.close();
-                    }
-                });
             }
         },
     },

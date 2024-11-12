@@ -1,9 +1,11 @@
-<div id="source" wiy:onmouseenter="this.onMouseenter" wiy:onmouseleave="this.onMouseleave">
-    <slot></slot>
-</div>
-<div id="popover-container" wiy:if="this.hasSlotTemplate('content')" wiy:onmouseenter="this.onMouseenter"
-    wiy:onmouseleave="this.onMouseleave">
-    <dialog id="popover">
-        <slot name="content"></slot>
-    </dialog>
+<div id="container" wiy:onmouseenter="this.onMouseenter" wiy:onmouseleave="this.onMouseleave">
+    <div id="source">
+        <slot></slot>
+    </div>
+    <div id="popover-container" wiy:attr-visible="this.visible ? '' : undefined"
+        wiy:if="this.hasSlotTemplate('content')">
+        <div id="popover">
+            <slot name="content"></slot>
+        </div>
+    </div>
 </div>
