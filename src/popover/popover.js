@@ -7,41 +7,47 @@ export default {
     methods: {
         onMouseenter(e) {
             const popover = this.getElement('popover');
-            popover.show();
+            if (popover) {
+                popover.show();
+            }
         },
         onMouseleave(e) {
             const popover = this.getElement('popover');
-            popover.close();
+            if (popover) {
+                popover.close();
+            }
         },
     },
     lifecycle: {
         mount() {
             const popover = this.getElement('popover');
-            popover.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {//阻止esc键关闭popover
-                    e.preventDefault();
-                }
-            });
+            if (popover) {
+                popover.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {//阻止esc键关闭popover
+                        e.preventDefault();
+                    }
+                });
 
-            const source = this.getElement('source');
-            if (this.attr('popover-pos') == 'mouse') {
-                source.addEventListener('mousemove', (e) => {
-                    const x = e.clientX + 16;
-                    const y = e.clientY + 16;
-                    popover.style.left = x + 'px';
-                    popover.style.top = y + 'px';
+                const source = this.getElement('source');
+                if (this.attr('popover-pos') == 'mouse') {
+                    source.addEventListener('mousemove', (e) => {
+                        const x = e.clientX + 16;
+                        const y = e.clientY + 16;
+                        popover.style.left = x + 'px';
+                        popover.style.top = y + 'px';
+                    });
+                }
+
+                this.observe(() => {
+                    return this.visible;
+                }, (result) => {
+                    if (result) {
+                        popover.show();
+                    } else {
+                        popover.close();
+                    }
                 });
             }
-
-            this.observe(() => {
-                return this.visible;
-            }, (result) => {
-                if (result) {
-                    popover.show();
-                } else {
-                    popover.close();
-                }
-            });
         },
     },
 };

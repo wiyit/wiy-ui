@@ -23,6 +23,7 @@ const components = {
     'wiy-table': import('./table/table.js'),
     'wiy-tabs': import('./tabs/tabs.js'),
     'wiy-textarea': import('./textarea/textarea.js'),
+    'wiy-tooltip': import('./tooltip/tooltip.js'),
 };
 
 export default {

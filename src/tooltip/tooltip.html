@@ -1,0 +1,11 @@
+<wiy-popover popover-pos="mouse">
+    <slot></slot>
+    <template wiy:slot="content" wiy:if="this.attr('content')">
+        <style>
+            #tootip-content {
+                white-space: pre-wrap;
+            }
+        </style>
+        <div id="tootip-content">{{this.attr('content')}}</div>
+    </template>
+</wiy-popover>

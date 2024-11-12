@@ -1,9 +1,15 @@
 :host {
     position: relative;
 
+    #popover-container {
+        position: absolute;
+        z-index: 100;
+    }
+
     #popover[open] {
+        position: static;
         width: max-content;
-        max-width: 200px;
+        max-width: 300px;
         padding: 4px 8px;
         margin: 0;
         border-radius: 6px;
@@ -16,22 +22,30 @@
 
 :host,
 :host([popover-pos=top]) {
-    #popover[open] {
+    #popover-container {
         top: unset;
-        bottom: calc(100% + 1px);
+        bottom: 100%;
+    }
+
+    #popover[open] {
+        margin-bottom: 4px;
     }
 }
 
 :host([popover-pos=bottom]) {
-    #popover[open] {
-        top: calc(100% + 1px);
+    #popover-container {
+        top: 100%;
         bottom: unset;
+    }
+
+    #popover[open] {
+        margin-top: 4px;
+        margin-bottom: unset;
     }
 }
 
 :host([popover-pos=mouse]) {
     #popover[open] {
         position: fixed;
-        bottom: unset;
     }
 }
