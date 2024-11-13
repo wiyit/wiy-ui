@@ -1,7 +1,7 @@
 <div>
     <slot></slot>
 </div>
-<dialog id="mask">
+<dialog id="mask" wiy:attr-visible="this.loading ? '' : undefined">
     <wiy-icon name="{{this.attr('icon') || 'spinner'}}" spin></wiy-icon>
     {{this.attr('text') || '加载中...'}}
 </dialog>

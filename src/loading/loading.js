@@ -6,26 +6,25 @@ export default {
     },
     lifecycle: {
         mount() {
-            const mask = this.getElement('mask');
-            mask.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {//阻止esc键关闭mask
-                    e.preventDefault();
-                }
-            });
+            if (this.hasAttr('fullscreen')) {//当需要显示全屏加载中时，通过showModal、close方法来显示、隐藏遮罩
+                const mask = this.getElement('mask');
 
-            this.observe(() => {
-                return this.loading;
-            }, (result) => {
-                if (result) {
-                    if (this.hasAttr('fullscreen')) {
+                mask.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {//阻止esc键关闭遮罩
+                        e.preventDefault();
+                    }
+                });
+
+                this.observe(() => {
+                    return this.loading;
+                }, (result) => {
+                    if (result) {
                         mask.showModal();
                     } else {
-                        mask.show();
+                        mask.close();
                     }
-                } else {
-                    mask.close();
-                }
-            });
+                });
+            }
         },
     },
 };
