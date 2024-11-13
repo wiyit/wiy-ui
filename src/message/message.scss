@@ -1,17 +1,25 @@
 :host {
-    display: flex;
-    max-width: 50vw;
-    padding: 13px 16px;
-    gap: 10px;
-    align-items: center;
-    background-color: white;
-    border: 1px solid var(--wiy-message-border-color);
-    border-radius: 6px;
-    box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.05), 0px 16px 24px 2px rgba(0, 0, 0, 0.04), 0px 8px 10px -5px rgba(0, 0, 0, 0.08);
+    #container {
+        position: static;
+        display: flex;
+        padding: 13px 16px;
+        gap: 10px;
+        align-items: center;
+        max-width: 50vw;
+        opacity: 0;
+        background-color: white;
+        border: 1px solid var(--wiy-message-border-color);
+        border-radius: 6px;
+        box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.05), 0px 16px 24px 2px rgba(0, 0, 0, 0.04), 0px 8px 10px -5px rgba(0, 0, 0, 0.08);
 
-    #content {
-        font-size: 14px;
-        color: var(--wiy-message-text-color);
+        &[visible] {
+            opacity: 1;
+        }
+
+        #content {
+            font-size: 14px;
+            color: var(--wiy-message-text-color);
+        }
     }
 }
 
@@ -37,5 +45,16 @@
 :host([theme=error]) {
     #icon {
         color: var(--wiy-message-icon-color-error);
+    }
+}
+
+:host([position=top]) {
+    #container {
+        margin-top: -100vh;
+        transition: margin-top 5s ease;
+
+        &[visible] {
+            margin-top: 8px;
+        }
     }
 }
