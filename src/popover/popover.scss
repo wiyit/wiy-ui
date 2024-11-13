@@ -4,6 +4,9 @@
     #popover-container {
         display: none;
         position: absolute;
+        margin: 0;
+        border: none;
+        padding: 0;
         z-index: 100;
 
         &[visible] {
