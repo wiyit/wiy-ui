@@ -6,10 +6,14 @@ export default {
     },
     methods: {
         onMouseenter(e) {
-            this.visible = true;
+            if (!e.buttons) {//只有当鼠标未按下时才显示弹出框
+                this.visible = true;
+            }
         },
         onMouseleave(e) {
-            this.visible = false;
+            if (!e.buttons) {//只有当鼠标未按下时才隐藏弹出框
+                this.visible = false;
+            }
         },
     },
     lifecycle: {
