@@ -1,13 +1,22 @@
-function getLayer() {
-    const layerTagName = 'wiy-message-layer';
-    let layer = document.getElementsByTagName(layerTagName)[0];
+function getLayer(position) {
+    const layerId = `wiy-message-layer-${position}`;
+    let layer = document.getElementById(layerId);
     if (layer) {
         return layer;
     }
 
-    layer = document.createElement(layerTagName);
+    layer = document.createElement('div');
+    layer.setAttribute('id', layerId);
     layer.setAttribute('popover', 'manual');
-    layer.style = 'margin:10px auto;padding:0;border:none;overflow:visible;background:none;display:flex;flex-direction:column;align-items:center;';
+    layer.style = 'width:100vw;height:100vh;margin:0;padding:10px;box-sizing:border-box;border:none;overflow:visible;background:none;display:flex;flex-direction:column;pointer-events:none;';
+    switch (position) {
+        case 'top':
+            layer.style.alignItems = 'center';
+            break;
+        case 'top-right':
+            layer.style.alignItems = 'flex-end';
+            break;
+    }
     document.body.appendChild(layer);
 
     layer.showPopover();
