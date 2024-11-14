@@ -59,15 +59,20 @@ export default {
             }
 
             this.visible = true;
-
-            const duration = this.attr('duration') || 3000;
-            if (duration >= 0) {
-                setTimeout(() => {
-                    this.visible = false;
-
+            this.observe(() => {
+                return this.visible;
+            }, (result) => {
+                if (!result) {
                     setTimeout(() => {//消息消失后unmount当前组件
                         this.unmount();
                     }, 500);
+                }
+            });
+
+            const duration = this.attr('duration') || 3000;
+            if (duration > 0) {
+                setTimeout(() => {
+                    this.visible = false;
                 }, duration);
             }
         },

@@ -4,4 +4,5 @@
     <div id="content">
         <slot></slot>
     </div>
+    <wiy-icon id="close" name="close" wiy:if="this.hasAttr('closable')" wiy:onclick="this.visible = false"></wiy-icon>
 </div>

@@ -1,4 +1,6 @@
 :host {
+    pointer-events: all;
+
     #container {
         display: flex;
         padding: 13px 16px;
@@ -15,9 +17,25 @@
             opacity: 1;
         }
 
+        #icon {
+            flex-shrink: 0;
+        }
+
         #content {
             font-size: 14px;
             color: var(--wiy-message-text-color);
+        }
+
+        #close {
+            flex-shrink: 0;
+            align-self: flex-start;
+            margin-top: 2px;
+            cursor: pointer;
+            color: var(--wiy-message-close-color);
+
+            &:hover {
+                color: red;
+            }
         }
     }
 }
