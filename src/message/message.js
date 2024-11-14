@@ -28,7 +28,7 @@ export default {
     template: import('./message.html'),
     style: import('./message.scss'),
     data: {
-        visible: true,
+        visible: false,
     },
     methods: {
         getIcon() {
@@ -58,12 +58,21 @@ export default {
                 layer.appendChild(this._element);
             }
 
+            this.visible = true;
+
             const duration = this.attr('duration') || 3000;
             if (duration >= 0) {
                 setTimeout(() => {
                     this.visible = false;
+
+                    setTimeout(() => {//消息消失后unmount当前组件
+                        this.unmount();
+                    }, 500);
                 }, duration);
             }
+        },
+        unmount(data) {
+            data.element.remove();//移除当前组件对应的标签
         },
     },
 };
