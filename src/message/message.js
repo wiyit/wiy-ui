@@ -16,6 +16,9 @@ function getLayer(position) {
         case 'top-right':
             layer.style.alignItems = 'flex-end';
             break;
+        default:
+            layer.style.alignItems = 'flex-start';
+            break;
     }
     document.body.appendChild(layer);
 
