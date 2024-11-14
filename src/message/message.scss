@@ -6,8 +6,6 @@
         align-items: center;
         max-width: 50vw;
         opacity: 0;
-        margin-top: -100vh;
-        transition: margin-top 5s ease;
         background-color: white;
         border: 1px solid var(--wiy-message-border-color);
         border-radius: 6px;
@@ -15,7 +13,6 @@
 
         &[visible] {
             opacity: 1;
-            margin: 4px;
         }
 
         #content {
@@ -53,8 +50,37 @@
 :host(:not([position])),
 :host([position=static]) {
     #container {
+        margin-top: -100vh;
+        transition: opacity 0.5s ease, margin-top 6s ease;
+
         &[visible] {
             margin: 0;
+            transition: opacity 0.3s ease;
+        }
+    }
+}
+
+:host([position=top]) {
+    #container {
+        margin-top: -100vh;
+        transition: opacity 0.5s ease, margin-top 6s ease;
+
+        &[visible] {
+            margin: 4px;
+            transition: opacity 0.3s ease, margin-top 0.3s ease;
+        }
+    }
+}
+
+:host([position=right-top]) {
+    #container {
+        margin-top: -100vh;
+        margin-right: -100vw;
+        transition: opacity 0.5s ease, margin-right 3s ease, margin-top 6s ease;
+
+        &[visible] {
+            margin: 4px;
+            transition: opacity 0.3s ease, margin-right 0.3s ease, margin-top 0.3s ease;
         }
     }
 }
