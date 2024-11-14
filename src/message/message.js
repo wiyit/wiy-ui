@@ -10,14 +10,12 @@ function getLayer(position) {
     layer.setAttribute('popover', 'manual');
     layer.style = 'width:100vw;height:100vh;margin:0;padding:10px;box-sizing:border-box;border:none;overflow:visible;background:none;display:flex;flex-direction:column;pointer-events:none;';
     switch (position) {
-        case 'top':
-            layer.style.alignItems = 'center';
-            break;
-        case 'top-right':
+        case 'right-top':
             layer.style.alignItems = 'flex-end';
             break;
+        case 'top':
         default:
-            layer.style.alignItems = 'flex-start';
+            layer.style.alignItems = 'center';
             break;
     }
     document.body.appendChild(layer);
