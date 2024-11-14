@@ -68,6 +68,7 @@
 :host(:not([position])),
 :host([position=static]) {
     #container {
+        max-width: unset;
         margin-top: -100vh;
         transition: opacity 0.5s ease, margin-top 6s ease;
 
