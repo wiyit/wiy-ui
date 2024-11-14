@@ -37,6 +37,10 @@
         .value {
             display: flex;
             padding-left: 8px;
+
+            &>* {
+                width: 100%;
+            }
         }
 
         .group-label {
@@ -65,32 +69,32 @@
 
 :host([columns="1"]) {
     #items {
-        grid-template-columns: repeat(1, max-content);
+        grid-template-columns: 1fr;
     }
 }
 
 :host,
 :host([columns="2"]) {
     #items {
-        grid-template-columns: repeat(2, max-content);
+        grid-template-columns: repeat(1, max-content 1fr);
     }
 }
 
 :host([columns="4"]) {
     #items {
-        grid-template-columns: repeat(4, max-content);
+        grid-template-columns: repeat(2, max-content 1fr);
     }
 }
 
 :host([columns="6"]) {
     #items {
-        grid-template-columns: repeat(6, max-content);
+        grid-template-columns: repeat(3, max-content 1fr);
     }
 }
 
 :host([columns="8"]) {
     #items {
-        grid-template-columns: repeat(8, max-content);
+        grid-template-columns: repeat(4, max-content 1fr);
     }
 }
 
