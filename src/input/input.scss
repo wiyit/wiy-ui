@@ -31,13 +31,13 @@
             padding-right: calc(1em + 12px);
         }
 
-        &[type=number]::-webkit-inner-spin-button,
-        &[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-        }
-
         &[type=number] {
             appearance: textfield;
+
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+            }
         }
     }
 
