@@ -1,0 +1,8 @@
+<div id="container">
+    <div class="item" wiy:attr-active="(this.showScore || this.score) >= key + 1 ? '' : undefined"
+        wiy:for="Array.from({length:this.attr('max') || 5})" wiy:onmouseenter="this.showScore = key + 1"
+        wiy:onmouseleave="this.showScore = undefined" wiy:onclick="this.onItemClick(key)">
+        <wiy-icon name="star"></wiy-icon>
+    </div>
+</div>
+<div id="info" wiy:if="this.showScore || this.score">{{this.showScore || this.score}}星</div>

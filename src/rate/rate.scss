@@ -1,0 +1,28 @@
+:host {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 20px;
+
+    #container {
+        display: flex;
+
+        .item {
+            width: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--wiy-rate-color);
+
+            &[active] {
+                font-size: 18px;
+                color: var(--wiy-rate-color-hover);
+            }
+        }
+    }
+
+    #info {
+        font-size: 14px;
+    }
+}

@@ -21,6 +21,7 @@ const components = {
     'wiy-popover': import('./popover/popover.js'),
     'wiy-radio': import('./radio/radio.js'),
     'wiy-radio-group': import('./radio-group/radio-group.js'),
+    'wiy-rate': import('./rate/rate.js'),
     'wiy-select': import('./select/select.js'),
     'wiy-table': import('./table/table.js'),
     'wiy-tabs': import('./tabs/tabs.js'),

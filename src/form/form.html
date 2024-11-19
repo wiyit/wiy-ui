@@ -21,8 +21,8 @@
                     </div>
                     <wiy-input wiy:if="item.type == 'input'" wiy:data-text="this.data[item.name]"
                         wiy:onchange="this.onItemValueChange(item)" wiy:style="item.style"
-                        type="{{item.subType || 'text'}}" placeholder="{{item.placeholder || ''}}"
-                        icon="{{item.icon || ''}}"></wiy-input>
+                        type="{{item.subType || 'text'}}" wiy:attr-placeholder="item.placeholder"
+                        wiy:attr-icon="item.icon"></wiy-input>
                     <wiy-radio-group wiy:if="item.type == 'radio-group'" wiy:data-options="item.options"
                         wiy:data-data="this.data[item.name]" wiy:onchange="this.onItemValueChange(item)"
                         wiy:style="item.style"></wiy-radio-group>
@@ -31,20 +31,23 @@
                         wiy:style="item.style"></wiy-checkbox-group>
                     <wiy-select wiy:if="item.type == 'select'" wiy:data-options="item.options"
                         wiy:data-data="this.data[item.name]" wiy:onchange="this.onItemValueChange(item)"
-                        wiy:style="item.style" prompt="{{item.prompt || ''}}"></wiy-select>
+                        wiy:style="item.style" wiy:attr-prompt="item.prompt"></wiy-select>
                     <wiy-file-picker wiy:if="item.type == 'file-picker'" wiy:data-files="this.data[item.name]"
                         wiy:onchange="this.onItemValueChange(item)"
                         wiy:onfileclick="e => this.onFilePickerFileClick(e, item)"
                         wiy:style="item.style"></wiy-file-picker>
                     <wiy-textarea wiy:if="item.type == 'textarea'" wiy:data-text="this.data[item.name]"
                         wiy:onchange="this.onItemValueChange(item)" wiy:style="item.style"
-                        placeholder="{{item.placeholder || ''}}"></wiy-textarea>
+                        wiy:attr-placeholder="item.placeholder"></wiy-textarea>
+                    <wiy-rate wiy:if="item.type == 'rate'" wiy:data-score="this.data[item.name]"
+                        wiy:onchange="this.onItemValueChange(item)" wiy:style="item.style"
+                        wiy:attr-max="item.max"></wiy-rate>
                 </div>
             </template>
         </template>
     </template>
 </div>
 <div id="operations">
-    <wiy-button wiy:for="this.operations" wiy:for.value="operation" theme="{{operation.theme || ''}}"
-        icon="{{operation.icon || ''}}" wiy:onclick="this.onOperationClick(operation)">{{operation.name}}</wiy-button>
+    <wiy-button wiy:for="this.operations" wiy:for.value="operation" wiy:attr-theme="operation.theme"
+        wiy:attr-icon="operation.icon" wiy:onclick="this.onOperationClick(operation)">{{operation.name}}</wiy-button>
 </div>

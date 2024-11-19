@@ -1,6 +1,6 @@
 <wiy-icon id="icon" wiy:if="this.attr('icon')" name="{{this.attr('icon')}}"></wiy-icon>
 <input id="input" type="{{this.attr('type') || 'text'}}" wiy:data="this.text" wiy:onchange="this.onInputChange"
-    autocomplete="off" placeholder="{{this.attr('placeholder') || ''}}"
+    autocomplete="off" wiy:attr-placeholder="this.attr('placeholder')"
     wiy:attr-has-icon="this.attr('icon') ? '' : undefined"
     wiy:attr-is-password="this.attr('type') == 'password' ? '' : undefined" />
 <div id="password-icon" wiy:if="this.attr('type') == 'password'" wiy:onclick="this.onPasswordToggleClick">
