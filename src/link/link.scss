@@ -59,3 +59,13 @@
         text-underline-offset: 3px;
     }
 }
+
+:host([underline=hover]) {
+    a {
+        text-decoration: unset;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
