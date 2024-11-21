@@ -1,6 +1,6 @@
 <wiy-popover popover-pos="mouse">
     <slot></slot>
     <template wiy:slot="content" wiy:if="this.attr('text')">
-        <wiy-pre wiy:attr-text="this.attr('text')"></wiy-pre>
+        <wiy-pre text="{{this.attr('text')}}"></wiy-pre>
     </template>
 </wiy-popover>

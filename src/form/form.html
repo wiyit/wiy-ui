@@ -1,6 +1,6 @@
 <div id="title" wiy:if="this.title">{{this.title}}</div>
 <div id="desc" wiy:if="this.desc">
-    <wiy-pre wiy:attr-text="this.desc"></wiy-pre>
+    <wiy-pre text="{{this.desc}}"></wiy-pre>
 </div>
 <div id="items">
     <template wiy:for="this.items" wiy:for.value="item">
