@@ -19,6 +19,7 @@ const components = {
     'wiy-message': import('./message/message.js'),
     'wiy-pagination': import('./pagination/pagination.js'),
     'wiy-popover': import('./popover/popover.js'),
+    'wiy-pre': import('./pre/pre.js'),
     'wiy-radio': import('./radio/radio.js'),
     'wiy-radio-group': import('./radio-group/radio-group.js'),
     'wiy-rate': import('./rate/rate.js'),

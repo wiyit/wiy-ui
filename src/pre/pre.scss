@@ -1,0 +1,7 @@
+:host {
+    white-space: pre-wrap;
+}
+
+:host([nowrap]) {
+    white-space: pre;
+}
