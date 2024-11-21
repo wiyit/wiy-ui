@@ -55,7 +55,7 @@ export default {
             const position = this.attr('position') || 'static';
             if (position != 'static') {
                 const layer = getLayer(position);
-                layer.appendChild(this._element);
+                layer.appendChild(this.getElement());
             }
 
             this.visible = true;
