@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    line-height: 1em;
     user-select: none;
     font-size: 14px;
     color: var(--wiy-pagination-text-color);

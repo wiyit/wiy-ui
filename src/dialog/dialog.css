@@ -13,6 +13,7 @@ dialog[open] {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 10px;
     padding: 10px;
     box-sizing: border-box;
@@ -21,7 +22,6 @@ dialog[open] {
 }
 
 #title {
-    line-height: 1em;
     font-weight: bold;
 }
 

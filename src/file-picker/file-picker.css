@@ -22,13 +22,12 @@
     font-size: 0.9em;
     display: flex;
     gap: 6px;
-    line-height: normal;
 }
 
 .delete {
     flex-shrink: 0;
     cursor: pointer;
-    margin-top: 0.1em;
+    margin-top: 2px;
     color: red;
 }
 

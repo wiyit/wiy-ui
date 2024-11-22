@@ -3,4 +3,7 @@
     <div wiy:if="this.hasSlotTemplate('')">
         <slot></slot>
     </div>
+    <div wiy:if="!this.hasSlotTemplate('')">
+        {{this.attr('href')}}
+    </div>
 </a>
