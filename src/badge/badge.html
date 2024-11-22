@@ -1,0 +1,6 @@
+<slot></slot>
+<div id="circle" wiy:if="this.value">
+    <template wiy:if="!this.hasAttr('dot')">
+        {{this.value > this.attr('max') ? `${this.attr('max')}+` : this.value}}
+    </template>
+</div>

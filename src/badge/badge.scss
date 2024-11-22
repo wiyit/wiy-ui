@@ -1,0 +1,31 @@
+:host {
+    position: relative;
+
+    #circle {
+        position: absolute;
+        box-sizing: border-box;
+        top: -10px;
+        left: calc(100% - 8px);
+        min-width: 20px;
+        min-height: 20px;
+        padding: 0 5px;
+        background-color: var(--wiy-badge-color);
+        color: var(--wiy-badge-text-color);
+        border: 1px solid white;
+        border-radius: 10px;
+        font-size: 12px;
+        z-index: 1;
+        text-align: center;
+    }
+}
+
+:host([dot]) {
+    #circle {
+        top: -4px;
+        left: unset;
+        right: -4px;
+        min-width: 8px;
+        min-height: 8px;
+        padding: unset;
+    }
+}
