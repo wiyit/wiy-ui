@@ -1,9 +1,9 @@
 <a wiy:attr-href="this.attr('href')" wiy:attr-target="this.attr('target')">
     <wiy-icon wiy:if="this.attr('icon')" name="{{this.attr('icon')}}" wiy:attr-spin="this.attr('icon-spin')"></wiy-icon>
-    <div wiy:if="this.hasSlotTemplate('')">
+    <span wiy:if="this.hasSlotTemplate('')">
         <slot></slot>
-    </div>
-    <div wiy:if="!this.hasSlotTemplate('')">
+    </span>
+    <span wiy:if="!this.hasSlotTemplate('')">
         {{this.attr('href')}}
-    </div>
+    </span>
 </a>

@@ -1,12 +1,5 @@
 :host {
-    display: inline-flex;
-
     a {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        gap: 4px;
         text-decoration: none;
         color: var(--wiy-link-color);
 

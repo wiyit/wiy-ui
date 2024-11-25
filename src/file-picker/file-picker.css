@@ -27,7 +27,6 @@
 .delete {
     flex-shrink: 0;
     cursor: pointer;
-    margin-top: 2px;
     color: red;
 }
 

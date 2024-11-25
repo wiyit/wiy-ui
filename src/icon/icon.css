@@ -1,14 +1,7 @@
-:host {
-    display: inline-block;
+svg {
     width: 1em;
     height: 1em;
-}
-
-i {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
+    vertical-align: -0.125em;
 }
 
 .spin {
