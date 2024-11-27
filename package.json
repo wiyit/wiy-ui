@@ -22,6 +22,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "codemirror": "^6.0.1",
-    "echarts": "^5.5.1"
+    "echarts": "^5.5.1",
+    "mapvgl": "^1.0.0-beta.191"
   }
 }
