@@ -3,6 +3,7 @@ import { EditorView, keymap, lineNumbers } from '@codemirror/view';
 import { indentWithTab } from '@codemirror/commands';
 import { languages } from '@codemirror/language-data';
 import { defaultHighlightStyle, foldGutter, LanguageDescription, syntaxHighlighting } from '@codemirror/language';
+import { markdown } from '@codemirror/lang-markdown';
 import { basicSetup } from 'codemirror';
 
 export default {
@@ -79,7 +80,10 @@ export default {
                 LanguageDescription.matchLanguageName(languages, lang).load().then(languageSupport => {
                     view.dispatch({
                         effects: [
-                            languageCompartment.reconfigure(languageSupport),
+                            languageCompartment.reconfigure(languageSupport.language.name == 'markdown'
+                                ? markdown({ codeLanguages: languages })
+                                : languageSupport
+                            ),
                         ],
                     });
                 });
