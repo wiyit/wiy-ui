@@ -71,7 +71,7 @@ export default {
             });
             const view = new EditorView({
                 state,
-                parent: this.getElement('container'),
+                parent: this.getElement('inner-container'),
             });
 
             const lang = this.attr('lang');
