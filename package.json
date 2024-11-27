@@ -16,9 +16,11 @@
     "url": "git+https://github.com/wiyit/wiy-ui.git"
   },
   "dependencies": {
+    "@codemirror/language-data": "^6.5.1",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
-    "@fortawesome/free-solid-svg-icons": "^6.6.0"
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "codemirror": "^6.0.1"
   }
 }
