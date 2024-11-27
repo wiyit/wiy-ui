@@ -11,18 +11,15 @@ export default {
     data: {
         code: '',
         theme: undefined,
-        fontFamily: undefined,
     },
     lifecycle: {
         mount() {
             const languageCompartment = new Compartment();
             const themeCompartment = new Compartment();
-            const fontCompartment = new Compartment();
 
             let extensions = [
                 languageCompartment.of([]),
                 themeCompartment.of([]),
-                fontCompartment.of([]),
                 EditorView.lineWrapping,
                 EditorView.theme({
                     '&': {
@@ -33,6 +30,7 @@ export default {
                     },
                     '.cm-scroller': {
                         overflow: 'auto',
+                        fontFamily: 'inherit',
                     },
                     '.cm-gutters': {
                         userSelect: 'none',
@@ -93,20 +91,6 @@ export default {
                 view.dispatch({
                     effects: [
                         themeCompartment.reconfigure(result || []),
-                    ],
-                });
-            });
-
-            this.observe(() => {
-                return this.fontFamily;
-            }, (result) => {
-                view.dispatch({
-                    effects: [
-                        fontCompartment.reconfigure(EditorView.theme({
-                            '.cm-scroller': {
-                                fontFamily: result || `Consolas, 'Courier New', monospace`,
-                            },
-                        })),
                     ],
                 });
             });
