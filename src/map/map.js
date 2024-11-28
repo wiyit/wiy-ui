@@ -20,16 +20,22 @@ export default {
             await loadBMapGL(this.attr('ak'));
         },
         mount() {
-            const container = this.getElement('container');
+            const element = this.getElement();
+            const container = this.getElement('inner-container');
+            container.style.width = element.clientWidth + 'px';
+            container.style.height = element.clientHeight + 'px';
 
             // 1. 创建地图实例
-            var bmapgl = new BMapGL.Map(container);
+            var map = new BMapGL.Map(container);
+            map.addControl(new BMapGL.ScaleControl());    //比例尺
+
             var point = new BMapGL.Point(116.403748, 39.915055);
-            bmapgl.centerAndZoom(point, 17);
+            map.centerAndZoom(point, 17);
+            map.enableScrollWheelZoom(true);
 
             // 2. 创建MapVGL图层管理器
             var view = new mapvgl.View({
-                map: bmapgl
+                map,
             });
 
             // 3. 创建可视化图层，并添加到图层管理器中
