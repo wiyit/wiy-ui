@@ -1,10 +1,19 @@
 import { Compartment, EditorState } from '@codemirror/state';
 import { EditorView, keymap, lineNumbers } from '@codemirror/view';
 import { indentWithTab } from '@codemirror/commands';
-import { languages } from '@codemirror/language-data';
+import { languages as oldLanguages } from '@codemirror/language-data';
 import { defaultHighlightStyle, foldGutter, LanguageDescription, syntaxHighlighting } from '@codemirror/language';
-import { markdown } from '@codemirror/lang-markdown';
 import { basicSetup } from 'codemirror';
+
+const languages = oldLanguages.filter(desc => {
+    return desc.name.toLowerCase() != 'markdown';
+}).concat(LanguageDescription.of({//支持markdown嵌套
+    name: "Markdown",
+    extensions: ["md", "markdown", "mkd"],
+    load() {
+        return import('@codemirror/lang-markdown').then(m => m.markdown({ codeLanguages: languages }));
+    }
+}));
 
 export default {
     template: import('./code.html'),
@@ -80,10 +89,7 @@ export default {
                 LanguageDescription.matchLanguageName(languages, lang).load().then(languageSupport => {
                     view.dispatch({
                         effects: [
-                            languageCompartment.reconfigure(languageSupport.language.name == 'markdown'
-                                ? markdown({ codeLanguages: languages })
-                                : languageSupport
-                            ),
+                            languageCompartment.reconfigure(languageSupport),
                         ],
                     });
                 });
