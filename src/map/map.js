@@ -36,10 +36,7 @@ export default {
             await loadBMapGL(this.attr('ak'));
         },
         mount() {
-            const element = this.getElement();
-            const container = this.getElement('inner-container');
-            container.style.width = element.clientWidth + 'px';
-            container.style.height = element.clientHeight + 'px';
+            const container = this.getElement('container');
 
             // 创建地图实例
             Object.defineProperty(this, 'map', {
