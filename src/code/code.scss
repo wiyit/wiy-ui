@@ -6,13 +6,8 @@
     #outer-container {
         width: 100%;
         height: 100%;
-        background-color: var(--wiy-code-color);
         display: grid;
-        grid-template-columns: repeat(3, auto);
-
-        .bound {
-            min-width: 1px;
-            min-height: 1px;
-        }
+        grid-template-columns: 1px auto 1px;
+        grid-template-rows: 1px auto 1px;
     }
 }

@@ -33,9 +33,11 @@ export default {
                 EditorView.lineWrapping,
                 EditorView.theme({
                     '&': {
+                        width: '100%',
                         height: '100%',
                         borderRadius: '3px',
                         border: '1px solid var(--wiy-code-border-color)',
+                        backgroundColor: 'var(--wiy-code-color)',
                         overflow: 'hidden',
                     },
                     '.cm-scroller': {
