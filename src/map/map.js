@@ -1,8 +1,16 @@
 import * as mapvgl from 'mapvgl';
 
-const promiseMap = {};
+const getComputedStyle_old = window.getComputedStyle;
+window.getComputedStyle = (...args) => {//hack，百度地图需要向上查找所有父节点来获取鼠标位置，遇到shadow dom，会出现问题
+    if (args[0].nodeType == Node.DOCUMENT_FRAGMENT_NODE) {//shadow dom中的root
+        return {};
+    }
+    return getComputedStyle_old(...args);
+};
+
+let promise;
 function loadBMapGL(ak) {
-    return promiseMap[ak] || (promiseMap[ak] = new Promise((resolve, reject) => {
+    return promise || (promise = new Promise((resolve, reject) => {
         const script = document.createElement('script');
         script.src = 'https://api.map.baidu.com/getscript?v=1.0&type=webgl&ak=' + ak;
         script.onload = () => {
