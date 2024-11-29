@@ -52,9 +52,12 @@ export default {
                 }),
             });
 
-            var point = new BMapGL.Point(116.403748, 39.915055);
-            this.map.centerAndZoom(point, 17);
-            this.map.enableScrollWheelZoom(true);
+            const center = this.attr('center') || '116.403748,39.915055';//默认天安门
+            const zoom = this.attr('zoom') || 10;
+            const centerPoint = new BMapGL.Point(...center.split(',').map(v => {
+                return parseFloat(v);
+            }));
+            this.map.centerAndZoom(centerPoint, zoom);
         },
     },
 };
