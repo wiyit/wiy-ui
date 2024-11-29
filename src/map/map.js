@@ -23,6 +23,14 @@ function loadBMapGL(ak) {
 export default {
     template: import('./map.html'),
     style: import('./map.scss'),
+    components: {
+        'map-layer': import('./layer/layer.js'),
+    },
+    data: {
+        map: undefined,
+        view: undefined,
+        layers: [],
+    },
     lifecycle: {
         async init() {
             await loadBMapGL(this.attr('ak'));
@@ -33,37 +41,23 @@ export default {
             container.style.width = element.clientWidth + 'px';
             container.style.height = element.clientHeight + 'px';
 
-            // 1. 创建地图实例
-            var map = new BMapGL.Map(container);
-            map.addControl(new BMapGL.ScaleControl());    //比例尺
+            // 创建地图实例
+            Object.defineProperty(this, 'map', {
+                writable: false,
+                value: new BMapGL.Map(container),
+            });
+
+            // 创建MapVGL图层管理器
+            Object.defineProperty(this, 'view', {
+                writable: false,
+                value: new mapvgl.View({
+                    map: this.map,
+                }),
+            });
 
             var point = new BMapGL.Point(116.403748, 39.915055);
-            map.centerAndZoom(point, 17);
-            map.enableScrollWheelZoom(true);
-
-            // 2. 创建MapVGL图层管理器
-            var view = new mapvgl.View({
-                map,
-            });
-
-            // 3. 创建可视化图层，并添加到图层管理器中
-            var layer = new mapvgl.PointLayer({
-                color: 'rgba(50, 50, 200, 1)',
-                blend: 'lighter',
-                size: 2
-            });
-            view.addLayer(layer);
-
-            // 4. 准备好规范化坐标数据
-            var data = [{
-                geometry: {
-                    type: 'Point',
-                    coordinates: [116.403748, 39.915055]
-                }
-            }];
-
-            // 5. 关联图层与数据，享受震撼的可视化效果
-            layer.setData(data);
+            this.map.centerAndZoom(point, 17);
+            this.map.enableScrollWheelZoom(true);
         },
     },
 };
