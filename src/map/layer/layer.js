@@ -29,9 +29,10 @@ export default {
             parent.on('mount', () => {
                 parent.view.addLayer(this.layer);
             });
-            parent.on('unmount', () => {
-                parent.view.removeLayer(this.layer);
-            });
+        },
+        unmount(data) {
+            const parent = data.parent;
+            parent.view.removeLayer(this.layer);
         },
     },
 };
