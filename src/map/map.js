@@ -38,26 +38,36 @@ export default {
         mount() {
             const container = this.getElement('container');
 
-            // 创建地图实例
-            Object.defineProperty(this, 'map', {
-                writable: false,
-                value: new BMapGL.Map(container),
-            });
+            new ResizeObserver(() => {
+                if (this.map) {
+                    return;
+                }
 
-            // 创建MapVGL图层管理器
-            Object.defineProperty(this, 'view', {
-                writable: false,
-                value: new mapvgl.View({
-                    map: this.map,
-                }),
-            });
+                if (container.clientWidth && container.clientHeight) {
+                    // 创建地图实例
+                    Object.defineProperty(this, 'map', {
+                        writable: false,
+                        value: new BMapGL.Map(container),
+                    });
 
-            const center = this.attr('center') || '116.403748,39.915055';//默认天安门
-            const zoom = this.attr('zoom') || 10;
-            const centerPoint = new BMapGL.Point(...center.split(',').map(v => {
-                return parseFloat(v);
-            }));
-            this.map.centerAndZoom(centerPoint, zoom);
+                    // 创建MapVGL图层管理器
+                    Object.defineProperty(this, 'view', {
+                        writable: false,
+                        value: new mapvgl.View({
+                            map: this.map,
+                        }),
+                    });
+
+                    const center = this.attr('center') || '116.403748,39.915055';//默认天安门
+                    const zoom = this.attr('zoom') || 10;
+                    const centerPoint = new BMapGL.Point(...center.split(',').map(v => {
+                        return parseFloat(v);
+                    }));
+                    this.map.centerAndZoom(centerPoint, zoom);
+
+                    this.trigger('create');
+                }
+            }).observe(container);
         },
     },
 };

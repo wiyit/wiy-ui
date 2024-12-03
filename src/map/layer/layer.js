@@ -8,25 +8,25 @@ export default {
     },
     lifecycle: {
         mount() {
-            Object.defineProperty(this, 'layer', {
-                writable: false,
-                value: new mapvgl[this.attr('type')](),
-            });
-
-            this.observe(() => {
-                return this.options;
-            }, (result) => {
-                this.layer.setOptions(result);
-            });
-
-            this.observe(() => {
-                return this.data;
-            }, (result) => {
-                this.layer.setData(result);
-            });
-
             const parent = this.getParent();
-            parent.on('mount', () => {
+            parent.on('create', () => {
+                Object.defineProperty(this, 'layer', {
+                    writable: false,
+                    value: new mapvgl[this.attr('type')](),
+                });
+
+                this.observe(() => {
+                    return this.options;
+                }, (result) => {
+                    this.layer.setOptions(result);
+                });
+
+                this.observe(() => {
+                    return this.data;
+                }, (result) => {
+                    this.layer.setData(result);
+                });
+
                 parent.view.addLayer(this.layer);
             });
         },

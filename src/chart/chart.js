@@ -11,19 +11,24 @@ export default {
         mount() {
             const container = this.getElement('container');
 
-            Object.defineProperty(this, 'chart', {
-                writable: false,
-                value: echarts.init(container),
-            });
-
-            this.observe(() => {
-                return this.option;
-            }, (result) => {
-                this.chart.setOption(result);
-            });
-
             new ResizeObserver(() => {
-                this.chart.resize();
+                if (this.chart) {
+                    this.chart.resize();
+                    return;
+                }
+
+                if (container.clientWidth && container.clientHeight) {
+                    Object.defineProperty(this, 'chart', {
+                        writable: false,
+                        value: echarts.init(container),
+                    });
+
+                    this.observe(() => {
+                        return this.option;
+                    }, (result) => {
+                        this.chart.setOption(result);
+                    });
+                }
             }).observe(container);
         },
     },
