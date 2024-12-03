@@ -32,7 +32,7 @@ export default {
         },
         unmount(data) {
             const parent = data.parent;
-            parent.view.removeLayer(this.layer);
+            parent.view && this.layer && parent.view.removeLayer(this.layer);
         },
     },
 };
