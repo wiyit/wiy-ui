@@ -36,14 +36,12 @@ const components = {
 
 export default {
     install(app) {
-        Object.entries(components).forEach(([name, value]) => {
-            app.registerComponent(name, value);
+        Object.entries(components).forEach(([componentName, component]) => {
+            app.registerComponent(componentName, component);
 
-            value.then(module => {
+            component.then(module => {
                 Object.entries(module.methods || {}).forEach(([methodName, method]) => {
-                    app.registerMethod(methodName, (...params) => {
-                        return method(...params, app);
-                    });
+                    app.registerMethod(methodName, method);
                 });
             });
         });

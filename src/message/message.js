@@ -84,17 +84,17 @@ const define = {
 
 export default define;
 export const methods = {
-    showMessage(options, app) {
-        const element = document.createElement('message-component');
+    showMessage(options) {
+        const element = document.createElement('wiy-message');
         options.duration && element.setAttribute('duration', options.duration);
         options.theme && element.setAttribute('theme', options.theme);
         element.setAttribute('position', options.position || 'top');
         options.closable && element.setAttribute('closable', '');
         element.innerHTML = options.content;
 
-        app.newComponent({
+        this.newComponent({
             components: {
-                'message-component': define,
+                'wiy-message': define,
             },
         }).renderElement(element);
     },
