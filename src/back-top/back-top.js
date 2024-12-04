@@ -42,7 +42,7 @@ export default {
         },
     },
     lifecycle: {
-        init() {
+        mount() {
             this.show = this.needShow();
             const container = this.getContainer();
             container.addEventListener('scroll', () => {

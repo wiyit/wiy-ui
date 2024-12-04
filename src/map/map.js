@@ -32,10 +32,9 @@ export default {
         layers: [],
     },
     lifecycle: {
-        async init() {
+        async mount() {
             await loadBMapGL(this.attr('ak'));
-        },
-        mount() {
+
             const container = this.getElement('container');
 
             new ResizeObserver(() => {
