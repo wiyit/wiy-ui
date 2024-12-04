@@ -38,6 +38,14 @@ export default {
     install(app) {
         Object.entries(components).forEach(([name, value]) => {
             app.registerComponent(name, value);
+
+            value.then(module => {
+                Object.entries(module.methods || {}).forEach(([methodName, method]) => {
+                    app.registerMethod(methodName, (...params) => {
+                        return method(...params, app);
+                    });
+                });
+            });
         });
     },
 };

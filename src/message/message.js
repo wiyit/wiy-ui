@@ -24,7 +24,7 @@ function getLayer(position) {
     return layer;
 }
 
-export default {
+const define = {
     template: import('./message.html'),
     style: import('./message.scss'),
     data: {
@@ -70,7 +70,7 @@ export default {
             });
 
             const duration = this.attr('duration') || 3000;
-            if (duration > 0) {
+            if (duration >= 0) {
                 setTimeout(() => {
                     this.visible = false;
                 }, duration);
@@ -79,5 +79,23 @@ export default {
         unmount(data) {
             data.element.remove();//移除当前组件对应的标签
         },
+    },
+};
+
+export default define;
+export const methods = {
+    showMessage(options, app) {
+        const element = document.createElement('message-component');
+        options.duration && element.setAttribute('duration', options.duration);
+        options.theme && element.setAttribute('theme', options.theme);
+        element.setAttribute('position', options.position || 'top');
+        options.closable && element.setAttribute('closable', '');
+        element.innerHTML = options.content;
+
+        app.newComponent({
+            components: {
+                'message-component': define,
+            },
+        }).renderElement(element);
     },
 };

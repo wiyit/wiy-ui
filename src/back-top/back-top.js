@@ -8,7 +8,7 @@ export default {
     methods: {
         onButtonClick() {
             const container = this.getContainer();
-            const duration = this.attr('duration') || 200;
+            const duration = Math.max(this.attr('duration') || 200, 0);
             const end = 0;
             const start = container.scrollY || container.scrollTop;
             const distance = end - start;
