@@ -20,7 +20,7 @@ export default {
                 if (container.clientWidth && container.clientHeight) {
                     Object.defineProperty(this, 'chart', {
                         writable: false,
-                        value: echarts.init(container),
+                        value: echarts.init(container, this.attr('theme')),
                     });
 
                     this.observe(() => {
@@ -31,5 +31,10 @@ export default {
                 }
             }).observe(container);
         },
+    },
+};
+export const methods = {
+    registerChartTheme(name, theme) {
+        echarts.registerTheme(name, theme);
     },
 };

@@ -35,15 +35,14 @@ const components = {
 };
 
 export default {
-    install(app) {
-        Object.entries(components).forEach(([componentName, component]) => {
+    async install(app) {
+        for (let [componentName, component] of Object.entries(components)) {
             app.registerComponent(componentName, component);
 
-            component.then(module => {
-                Object.entries(module.methods || {}).forEach(([methodName, method]) => {
-                    app.registerMethod(methodName, method);
-                });
-            });
-        });
+            const methods = (await component).methods || {};
+            for (let [methodName, method] of Object.entries(methods)) {
+                app.registerMethod(methodName, method);
+            }
+        }
     },
 };

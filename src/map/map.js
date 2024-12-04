@@ -59,11 +59,11 @@ export default {
 
                     const center = this.attr('center') || '116.403748,39.915055';//默认天安门
                     const zoom = this.attr('zoom') || 10;
-                    const centerPoint = new BMapGL.Point(...center.split(',').map(v => {
-                        return parseFloat(v);
-                    }));
+                    const tilt = this.attr('tilt') || 0;
+                    const centerPoint = new BMapGL.Point(...center.split(',').map(parseFloat));
                     this.map.centerAndZoom(centerPoint, zoom);
-
+                    this.map.setZoom(zoom);//缩放到精确的数值
+                    this.map.setTilt(tilt);
                     this.trigger('create');
                 }
             }).observe(container);
