@@ -32,9 +32,7 @@ export default {
         layers: [],
     },
     lifecycle: {
-        async mount() {
-            await loadBMapGL(this.attr('ak'));
-
+        mount() {
             const container = this.getElement('container');
 
             const update = () => {
@@ -71,9 +69,11 @@ export default {
                 }
             };
 
-            new ResizeObserver(() => {
-                requestAnimationFrame(update);
-            }).observe(container);
+            loadBMapGL(this.attr('ak')).then(() => {
+                new ResizeObserver(() => {
+                    requestAnimationFrame(update);
+                }).observe(container);
+            });
         },
         unmount() {
             this.view && this.view.destroy();
