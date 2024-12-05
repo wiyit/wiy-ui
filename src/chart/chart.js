@@ -16,9 +16,11 @@ export default {
                 const height = container.clientHeight;
 
                 if (this.chart) {//有图表
+                    if (this.chart.isDisposed()) {//图表被销毁
+                        return;
+                    }
                     if (width != this.chart.getWidth() || height != this.chart.getHeight()) {//图表大小改变，则重置大小
                         this.chart.resize();
-                        return;
                     }
                 } else {//没有图表
                     if (width > 0 && height > 0) {//图表变为可见，则初始化图表
