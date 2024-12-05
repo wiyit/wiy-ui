@@ -37,36 +37,47 @@ export default {
 
             const container = this.getElement('container');
 
+            const update = () => {
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+
+                if (this.map) {//有地图
+                } else {//没有地图
+                    if (width > 0 && height > 0) {//地图变为可见，则初始化地图
+                        // 创建地图实例
+                        Object.defineProperty(this, 'map', {
+                            writable: false,
+                            value: new BMapGL.Map(container),
+                        });
+
+                        // 创建MapVGL图层管理器
+                        Object.defineProperty(this, 'view', {
+                            writable: false,
+                            value: new mapvgl.View({
+                                map: this.map,
+                            }),
+                        });
+
+                        const center = this.attr('center') || '116.403748,39.915055';//默认天安门
+                        const zoom = this.attr('zoom') || 10;
+                        const tilt = this.attr('tilt') || 0;
+                        const centerPoint = new BMapGL.Point(...center.split(',').map(parseFloat));
+                        this.map.centerAndZoom(centerPoint, zoom);
+                        this.map.setZoom(zoom);//缩放到精确的数值
+                        this.map.setTilt(tilt);
+                        this.map.enableResizeOnCenter();
+                        this.trigger('create');
+                    }
+                }
+            };
+
             new ResizeObserver(() => {
-                if (this.map) {
-                    return;
-                }
-
-                if (container.clientWidth && container.clientHeight) {
-                    // 创建地图实例
-                    Object.defineProperty(this, 'map', {
-                        writable: false,
-                        value: new BMapGL.Map(container),
-                    });
-
-                    // 创建MapVGL图层管理器
-                    Object.defineProperty(this, 'view', {
-                        writable: false,
-                        value: new mapvgl.View({
-                            map: this.map,
-                        }),
-                    });
-
-                    const center = this.attr('center') || '116.403748,39.915055';//默认天安门
-                    const zoom = this.attr('zoom') || 10;
-                    const tilt = this.attr('tilt') || 0;
-                    const centerPoint = new BMapGL.Point(...center.split(',').map(parseFloat));
-                    this.map.centerAndZoom(centerPoint, zoom);
-                    this.map.setZoom(zoom);//缩放到精确的数值
-                    this.map.setTilt(tilt);
-                    this.trigger('create');
-                }
+                requestAnimationFrame(update);
             }).observe(container);
+        },
+        unmount() {
+            this.view && this.view.destroy();
+            this.map && this.map.destroy();
         },
     },
 };
