@@ -1,0 +1,71 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    gap: 4px;
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+
+        .item {
+            display: flex;
+            align-items: center;
+            padding: 7px 16px;
+            border-radius: 3px;
+            gap: 8px;
+            cursor: pointer;
+            user-select: none;
+
+            &.active {
+                color: var(--wiy-menus-item-text-color-active);
+                background-color: var(--wiy-menus-item-color-active);
+                cursor: auto;
+            }
+
+            &:not(.active):hover {
+                background-color: var(--wiy-menus-item-color-hover);
+            }
+
+            .name {
+                flex-grow: 1;
+            }
+
+            .angle {
+                transition: transform 0.3s ease;
+            }
+
+            &.opened {
+                .angle {
+                    transform: scaleY(-1);
+                }
+
+                &~sub-menus {
+                    height: auto;
+                    opacity: 1;
+                }
+            }
+        }
+
+        sub-menus {
+            padding-left: 1em;
+            font-size: 0.95em;
+            transition: opacity 0.3s ease;
+            overflow: hidden;
+            height: 0;
+            opacity: 0;
+        }
+    }
+}
+
+:host([align=center]) {
+    .item {
+        justify-content: center;
+    }
+}
+
+:host([align=right]) {
+    .item {
+        justify-content: flex-end;
+    }
+}
