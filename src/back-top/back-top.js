@@ -6,11 +6,11 @@ export default {
         container: window,
     },
     methods: {
-        onButtonClick() {
+        backTop() {
             const container = this.getContainer();
             const duration = Math.max(this.attr('duration') || 200, 0);
             const end = 0;
-            const start = container.scrollY || container.scrollTop;
+            const start = container.scrollY || container.scrollTop || 0;
             const distance = end - start;
             const startTime = performance.now();
             const scroll = (timestamp) => {
