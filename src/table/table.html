@@ -19,9 +19,7 @@
                         margin: 4px 6px;
                     }
                 </style>
-                <template wiy:slot="content">
-                    <wiy-menus wiy:data-items="this.getOperations(row)"></wiy-menus>
-                </template>
+                <wiy-menus wiy:slot="content" wiy:data-items="this.getOperations(row)"></wiy-menus>
             </wiy-dropdown>
         </div>
     </template>
