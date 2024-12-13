@@ -13,12 +13,7 @@
         </div>
         <div class="operation-cell">
             <wiy-dropdown wiy:if="this.getOperations(row)">
-                <div id="title">操作</div>
-                <style>
-                    #title {
-                        margin: 4px 6px;
-                    }
-                </style>
+                <div class="title">操作</div>
                 <wiy-menus wiy:slot="content" wiy:data-items="this.getOperations(row)"></wiy-menus>
             </wiy-dropdown>
         </div>

@@ -49,6 +49,10 @@
     user-select: none;
 }
 
+.operation-cell .title {
+    margin: 4px 6px;
+}
+
 .h-align-left {
     justify-content: flex-start !important;
 }
