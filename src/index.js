@@ -32,6 +32,7 @@ const components = {
     'wiy-tabs': import('./tabs/tabs.js'),
     'wiy-textarea': import('./textarea/textarea.js'),
     'wiy-tooltip': import('./tooltip/tooltip.js'),
+    'wiy-video': import('./video/video.js'),
 };
 
 export default {
