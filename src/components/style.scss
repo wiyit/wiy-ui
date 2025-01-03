@@ -1,0 +1,100 @@
+:root {
+    --wiy-button-color: var(--bg-color-component);
+    --wiy-button-color-hover: var(--bg-color-component-hover);
+    --wiy-button-color-active: var(--bg-color-component-active);
+    --wiy-button-text-color: var(--text-color-primary);
+    --wiy-button-primary-color: var(--brand-color);
+    --wiy-button-primary-color-hover: var(--brand-color-hover);
+    --wiy-button-primary-color-active: var(--brand-color-active);
+    --wiy-button-primary-text-color: var(--text-color-anti);
+    --wiy-button-danger-color: var(--error-color);
+    --wiy-button-danger-color-hover: var(--error-color-hover);
+    --wiy-button-danger-color-active: var(--error-color-active);
+    --wiy-button-danger-text-color: var(--text-color-anti);
+
+    --wiy-input-color: var(--bg-color-container);
+    --wiy-input-border-color: var(--component-border);
+    --wiy-input-border-color-hover: var(--brand-color);
+    --wiy-input-border-color-focus: var(--brand-color);
+    --wiy-input-focus-shadow: var(--focus-shadow);
+
+    --wiy-textarea-color: var(--bg-color-container);
+    --wiy-textarea-border-color: var(--component-border);
+    --wiy-textarea-border-color-hover: var(--brand-color);
+    --wiy-textarea-border-color-focus: var(--brand-color);
+    --wiy-textarea-focus-shadow: var(--focus-shadow);
+
+    --wiy-menus-item-color-active: var(--brand-color-light);
+    --wiy-menus-item-text-color-active: var(--brand-color);
+    --wiy-menus-item-color-hover: var(--bg-color-container-hover);
+
+    --wiy-table-border-color: var(--component-stroke);
+    --wiy-table-header-text-color: var(--text-color-placeholder);
+    --wiy-table-number-text-color: var(--text-color-secondary);
+    --wiy-table-header-color: var(--bg-color-secondarycontainer);
+
+    --wiy-pagination-text-color: var(--text-color-secondary);
+
+    --wiy-form-label-color: var(--text-color-secondary);
+    --wiy-form-desc-color: var(--text-color-secondary);
+    --wiy-form-desc-border-color: var(--component-border);
+
+    --wiy-file-picker-file-name-color: var(--text-color-primary);
+    --wiy-file-picker-file-name-color-hover: var(--brand-color-hover);
+
+    --wiy-select-border-color: var(--component-border);
+    --wiy-select-border-color-hover: var(--brand-color);
+    --wiy-select-border-color-focus: var(--brand-color);
+    --wiy-select-focus-shadow: var(--focus-shadow);
+
+    --wiy-tabs-tab-text-color-active: var(--brand-color);
+    --wiy-tabs-tab-text-color-hover: var(--brand-color-hover);
+    --wiy-tabs-tab-color-hover: var(--bg-color-container-hover);
+    --wiy-tabs-tab-marker-color: var(--brand-color);
+
+    --wiy-dropdown-color-hover: var(--bg-color-container-hover);
+    --wiy-dropdown-color-opened: var(--bg-color-container-hover);
+
+    --wiy-link-color: var(--text-color-primary);
+    --wiy-link-color-hover: var(--brand-color-hover);
+    --wiy-link-color-active: var(--brand-color-active);
+    --wiy-link-primary-color: var(--brand-color);
+    --wiy-link-primary-color-hover: var(--brand-color-hover);
+    --wiy-link-primary-color-active: var(--brand-color-active);
+    --wiy-link-danger-color: var(--error-color);
+    --wiy-link-danger-color-hover: var(--error-color-hover);
+    --wiy-link-danger-color-active: var(--error-color-active);
+
+    --wiy-empty-icon-color: var(--text-color-placeholder);
+    --wiy-empty-title-color: var(--text-color-secondary);
+
+    --wiy-back-top-color-hover: var(--bg-color-container-hover);
+    --wiy-back-top-icon-color: var(--text-color-primary);
+    --wiy-back-top-title-color: var(--text-color-secondary);
+    --wiy-back-top-border-color: var(--component-border);
+
+    --wiy-loading-text-color: var(--brand-color);
+
+    --wiy-divider-color: var(--component-stroke);
+    --wiy-divider-text-color: var(--text-color-primary);
+
+    --wiy-message-border-color: var(--component-border);
+    --wiy-message-text-color: var(--text-color-primary);
+    --wiy-message-icon-color-info: var(--brand-color);
+    --wiy-message-icon-color-success: var(--success-color);
+    --wiy-message-icon-color-warning: var(--warning-color);
+    --wiy-message-icon-color-error: var(--error-color);
+    --wiy-message-close-color: var(--text-color-secondary);
+
+    --wiy-rate-color: var(--bg-color-component);
+    --wiy-rate-color-hover: var(--warning-color);
+
+    --wiy-badge-color: var(--error-color);
+    --wiy-badge-text-color: var(--text-color-anti);
+
+    --wiy-code-color: var(--bg-color-container);
+    --wiy-code-border-color: var(--component-border);
+    --wiy-code-border-color-hover: var(--brand-color);
+    --wiy-code-border-color-focus: var(--brand-color);
+    --wiy-code-focus-shadow: var(--focus-shadow);
+}

@@ -1,0 +1,26 @@
+@import url('../components/style.scss');
+
+:root {
+    --brand-color: #0052D9;
+    --brand-color-light: #F2F3FF;
+    --brand-color-hover: #366EF4;
+    --brand-color-active: #003CAB;
+    --bg-color-component: #E7E7E7;
+    --bg-color-component-hover: #DCDCDC;
+    --bg-color-component-active: #A6A6A6;
+    --bg-color-container: #FFFFFF;
+    --bg-color-container-hover: #F3F3F3;
+    --bg-color-secondarycontainer: #F3F3F3;
+    --component-border: #DCDCDC;
+    --component-stroke: #E7E7E7;
+    --success-color: #2BA471;
+    --warning-color: #E37318;
+    --error-color: #D54941;
+    --error-color-hover: #F6685D;
+    --error-color-active: #AD352F;
+    --text-color-primary: rgba(0, 0, 0, 0.9);
+    --text-color-anti: rgba(255, 255, 255, 0.9);
+    --text-color-placeholder: rgba(0, 0, 0, 0.4);
+    --text-color-secondary: rgba(0, 0, 0, 0.6);
+    --focus-shadow: 0 0 0 2px #D9E1FF;
+}
