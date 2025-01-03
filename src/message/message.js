@@ -24,7 +24,7 @@ function getLayer(position) {
     return layer;
 }
 
-const define = {
+export default {
     template: import('./message.html'),
     style: import('./message.scss'),
     data: {
@@ -81,8 +81,6 @@ const define = {
         },
     },
 };
-
-export default define;
 export const methods = {
     showMessage(options) {
         const element = document.createElement('wiy-message');
@@ -94,7 +92,7 @@ export const methods = {
 
         this.newComponent({
             components: {
-                'wiy-message': define,
+                'wiy-message': import('./message.js'),
             },
         }).renderElement(element);
     },
