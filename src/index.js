@@ -12,6 +12,7 @@ const components = {
     'wiy-dropdown': import('./components/dropdown/dropdown.js'),
     'wiy-empty': import('./components/empty/empty.js'),
     'wiy-file-picker': import('./components/file-picker/file-picker.js'),
+    'wiy-flex': import('./components/flex/flex.js'),
     'wiy-form': import('./components/form/form.js'),
     'wiy-icon': import('./components/icon/icon.js'),
     'wiy-image': import('./components/image/image.js'),
