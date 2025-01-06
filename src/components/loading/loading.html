@@ -2,7 +2,7 @@
     <slot></slot>
 </div>
 <dialog id="mask" wiy:attr-visible="this.loading ? '' : undefined"
-    wiy:attr-static="!this.hasSlotTemplate('') ? '' : undefined">
+    wiy:attr-static="!this.hasSlotTemplate('') && !this.hasAttr('fullscreen') ? '' : undefined">
     <wiy-icon name="{{this.attr('icon') || 'spinner'}}" spin></wiy-icon>
     {{this.attr('text') || '加载中...'}}
 </dialog>
