@@ -12,6 +12,8 @@
         border-right: 1px solid lightgray;
         padding: 10px 0;
         gap: 8px;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
     .tab {
@@ -33,6 +35,12 @@
     display: flex;
     border-bottom: 1px solid lightgray;
     padding: 0 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .tab {
@@ -42,6 +50,7 @@
     user-select: none;
     border: 1px solid lightgray;
     border-bottom: none;
+    flex-shrink: 0;
 }
 
 .tab:first-of-type {
