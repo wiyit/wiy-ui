@@ -10,6 +10,7 @@ const components = {
     'wiy-dialog': import('./components/dialog/dialog.js'),
     'wiy-divider': import('./components/divider/divider.js'),
     'wiy-dropdown': import('./components/dropdown/dropdown.js'),
+    'wiy-ellipsis': import('./components/ellipsis/ellipsis.js'),
     'wiy-empty': import('./components/empty/empty.js'),
     'wiy-file-picker': import('./components/file-picker/file-picker.js'),
     'wiy-flex': import('./components/flex/flex.js'),
