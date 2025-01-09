@@ -63,8 +63,8 @@ export default {
                 return this.visible;
             }, (result) => {
                 if (!result) {
-                    setTimeout(() => {//消息消失后unmount当前组件
-                        this.unmount();
+                    setTimeout(() => {//消息消失后destroy当前组件
+                        this.destroy();
                     }, 500);
                 }
             });
