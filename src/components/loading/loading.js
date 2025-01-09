@@ -26,5 +26,9 @@ export default {
                 });
             }
         },
+        beforeUnmount() {
+            const mask = this.getElement('mask');
+            mask.close();
+        },
     },
 };

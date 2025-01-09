@@ -21,4 +21,9 @@ export default {
             dialog.close();
         },
     },
+    lifecycle: {
+        beforeUnmount() {
+            this.close();
+        },
+    },
 };
