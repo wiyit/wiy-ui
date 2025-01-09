@@ -1,6 +1,6 @@
 <dialog id="dialog">
     <div id="head">
-        <div id="title">{{this.title || ''}}</div>
+        <div id="title">{{this.title || this.attr('title') || ''}}</div>
         <wiy-icon id="close" name="close" wiy:onclick="this.onCloseClick"></wiy-icon>
     </div>
     <div id="content">
