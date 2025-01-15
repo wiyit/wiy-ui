@@ -1,4 +1,4 @@
 <video id="video" wiy:attr-controls="this.hasAttr('controls') ? '' : undefined"
     wiy:attr-autoplay="this.hasAttr('autoplay') ? '' : undefined"
     wiy:attr-muted="this.hasAttr('muted') ? '' : undefined"
-    wiy:attr-src="this.src || this.attr('src') || this.attr('default')"></video>
+    wiy:attr-src="this.src || this.attr('src') || this.attr('default')" wiy:onended="this.trigger('ended')"></video>
