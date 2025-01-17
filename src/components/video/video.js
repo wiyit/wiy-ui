@@ -4,4 +4,12 @@ export default {
     data: {
         src: undefined,
     },
+    lifecycle: {
+        mount() {
+            if (this.hasAttr('autoplay')) {
+                const video = this.getElement('video');
+                video.muted = true;
+            }
+        },
+    },
 };
