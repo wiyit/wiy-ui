@@ -1,9 +1,9 @@
 <img wiy:attr-src="this.src || this.attr('src') || this.attr('default')" />
 <dialog id="preview" wiy:if="this.srcList.length">
-    <wiy-flex id="preview-container" ai="center" jc="space-between">
-        <wiy-icon class="icon" name="angle-left" wiy:onclick="this.current--"></wiy-icon>
-        <wiy-image id="preview-img" wiy:data-src="this.getCurrentPreviewSrc()"
-            wiy:onclick="this.closePreview"></wiy-image>
-        <wiy-icon class="icon" name="angle-right" wiy:onclick="this.current++"></wiy-icon>
+    <wiy-flex id="preview-container" ai="center">
+        <wiy-icon id="close" class="icon" name="circle-xmark" wiy:onclick="this.closePreview"></wiy-icon>
+        <wiy-icon id="left" class="icon" name="circle-chevron-left" wiy:onclick="this.current--"></wiy-icon>
+        <wiy-image id="preview-img" wiy:data-src="this.getCurrentPreviewSrc()"></wiy-image>
+        <wiy-icon id="right" class="icon" name="circle-chevron-right" wiy:onclick="this.current++"></wiy-icon>
     </wiy-flex>
 </dialog>
