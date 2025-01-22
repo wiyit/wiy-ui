@@ -15,6 +15,7 @@ const components = {
     'wiy-file-picker': import('./components/file-picker/file-picker.js'),
     'wiy-flex': import('./components/flex/flex.js'),
     'wiy-form': import('./components/form/form.js'),
+    'wiy-frame': import('./components/frame/frame.js'),
     'wiy-icon': import('./components/icon/icon.js'),
     'wiy-image': import('./components/image/image.js'),
     'wiy-input': import('./components/input/input.js'),
