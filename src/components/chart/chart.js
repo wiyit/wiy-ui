@@ -61,4 +61,10 @@ export const methods = {
     registerChartTheme(name, theme) {
         echarts.registerTheme(name, theme);
     },
+    registerChartTransform(type, transform) {
+        echarts.registerTransform({
+            type,
+            transform,
+        });
+    },
 };
