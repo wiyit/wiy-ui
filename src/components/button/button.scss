@@ -26,6 +26,10 @@
         &:active {
             background-color: var(--wiy-button-color-active);
         }
+
+        &:disabled {
+            pointer-events: none;
+        }
     }
 }
 

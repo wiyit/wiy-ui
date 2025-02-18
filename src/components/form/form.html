@@ -44,6 +44,9 @@
                     <wiy-rate wiy:if="item.type == 'rate'" wiy:data-score="this.data[item.name]"
                         wiy:onchange="this.onItemValueChange(item)" wiy:style="item.style"
                         wiy:attr-max="item.max"></wiy-rate>
+                    <wiy-button wiy:if="item.type == 'button'" wiy:attr-theme="item.theme" wiy:attr-icon="item.icon"
+                        wiy:attr-icon-spin="item.iconSpin ? '' : undefined" wiy:data-disabled="item.disabled"
+                        wiy:style="item.style" wiy:onclick="e => this.onButtonClick(e, item)">{{item.text}}</wiy-button>
                 </div>
             </template>
         </template>

@@ -21,5 +21,8 @@ export default {
         onFilePickerFileClick(e, item) {
             item.onfileclick && item.onfileclick(this, item, e.data.file);
         },
+        onButtonClick(e, item) {
+            item.onclick && item.onclick(this, item);
+        },
     },
 };
