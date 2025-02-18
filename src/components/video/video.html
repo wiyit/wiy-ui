@@ -1,3 +1,4 @@
-<video id="video" wiy:attr-controls="this.hasAttr('controls') ? '' : undefined"
-    wiy:attr-autoplay="this.hasAttr('autoplay') ? '' : undefined"
-    wiy:attr-src="this.src || this.attr('src') || this.attr('default')" wiy:onended="this.trigger('ended')"></video>
+<video id="video" wiy:attr-controls="this.hasAttr('controls') ? '' : undefined" controlslist="nodownload"
+    wiy:attr-src="this.src || this.attr('src') || this.attr('default')"
+    wiy:attr-poster="this.poster || this.attr('poster')" wiy:onended="this.trigger('ended')"
+    wiy:oncontextmenu="this.oncontextmenu"></video>
