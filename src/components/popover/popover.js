@@ -34,6 +34,9 @@ export default {
                     this.observe(() => {
                         return this.visible;
                     }, (result) => {
+                        if (!popoverContainer.isConnected) {
+                            return;
+                        }
                         if (result) {
                             popoverContainer.showPopover();
                         } else {
