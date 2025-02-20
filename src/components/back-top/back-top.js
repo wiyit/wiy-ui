@@ -36,10 +36,6 @@ export default {
             return window;
         },
         needShow() {
-            if (!this.getElement()) {
-                return false;
-            }
-
             const container = this.getContainer();
             const showHeight = this.attr('show-height') || 400;
             return (container.scrollY || container.scrollTop) >= showHeight;
