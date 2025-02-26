@@ -14,6 +14,7 @@ const components = {
     'wiy-empty': import('./components/empty/empty.js'),
     'wiy-file-picker': import('./components/file-picker/file-picker.js'),
     'wiy-flex': import('./components/flex/flex.js'),
+    'wiy-floater': import('./components/floater/floater.js'),
     'wiy-form': import('./components/form/form.js'),
     'wiy-frame': import('./components/frame/frame.js'),
     'wiy-icon': import('./components/icon/icon.js'),

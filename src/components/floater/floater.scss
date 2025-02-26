@@ -1,0 +1,22 @@
+:host {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    #container {
+        position: relative;
+
+        #close {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            cursor: pointer;
+            color: gray;
+
+            &:hover {
+                transform: scale(1.2);
+                color: var(--wiy-floater-close-color-hover);
+            }
+        }
+    }
+}
