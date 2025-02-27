@@ -1,8 +1,11 @@
 :host {
     display: flex;
     align-items: center;
-    gap: 20px;
-    height: 32px;
+    padding: 6px 0;
+    box-sizing: border-box;
+    gap: 10px 20px;
+    min-height: 32px;
+    flex-wrap: wrap;
 }
 
 .option {
@@ -25,4 +28,5 @@ input:focus {
 label {
     cursor: pointer;
     padding-left: 6px;
+    width: max-content;
 }
