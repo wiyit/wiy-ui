@@ -18,13 +18,15 @@ export default {
                 this.observe(() => {
                     return this.options;
                 }, (result) => {
-                    this.layer.setOptions(result);
+                    const options = this.raw(result);
+                    this.layer.setOptions(options);
                 });
 
                 this.observe(() => {
                     return this.data;
                 }, (result) => {
-                    this.layer.setData(result);
+                    const data = this.raw(result);
+                    this.layer.setData(data);
                 });
 
                 parent.view.addLayer(this.layer);
