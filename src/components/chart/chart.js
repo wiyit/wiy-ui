@@ -51,7 +51,7 @@ export default {
                 requestAnimationFrame(update);
             }).observe(container);
         },
-        destory() {
+        destroy() {
             this.chart && this.chart.dispose();
         },
     },
