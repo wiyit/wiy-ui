@@ -51,6 +51,18 @@
     }
 }
 
+:host([popover-pos=left]) {
+    #popover-container {
+        left: auto;
+        right: 100%;
+        top: 0;
+    }
+
+    #popover {
+        margin-right: 4px;
+    }
+}
+
 :host([popover-pos=mouse]) {
     #popover {
         position: fixed;
