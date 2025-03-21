@@ -10,3 +10,11 @@
         object-fit: cover;
     }
 }
+
+:host([block]) {
+    display: block;
+
+    video {
+        display: block;
+    }
+}
