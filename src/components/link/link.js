@@ -3,9 +3,9 @@ export default {
     style: import('./link.scss'),
     methods: {
         onClick(e) {
-            const href = this.attr('href') || '';
+            const href = this.attr('href');
             const target = this.attr('target') || '_self';
-            if (href.startsWith('http://') || href.startsWith('https://')) {
+            if (!href || href.startsWith('http://') || href.startsWith('https://')) {
                 return;
             }
             if (target != '_self') {
