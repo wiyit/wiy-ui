@@ -3,6 +3,7 @@ const components = {
     'wiy-badge': import('./components/badge/badge.js'),
     'wiy-breadcrumb': import('./components/breadcrumb/breadcrumb.js'),
     'wiy-button': import('./components/button/button.js'),
+    'wiy-carousel': import('./components/carousel/carousel.js'),
     'wiy-chart': import('./components/chart/chart.js'),
     'wiy-checkbox': import('./components/checkbox/checkbox.js'),
     'wiy-checkbox-group': import('./components/checkbox-group/checkbox-group.js'),
