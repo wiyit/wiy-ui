@@ -6,8 +6,6 @@
     video {
         width: 100%;
         height: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
     }
 }
 
@@ -16,5 +14,36 @@
 
     video {
         display: block;
+    }
+}
+
+:host,
+:host([fit=fill]) {
+    video {
+        object-fit: fill;
+    }
+}
+
+:host([fit=contain]) {
+    video {
+        object-fit: contain;
+    }
+}
+
+:host([fit=cover]) {
+    video {
+        object-fit: cover;
+    }
+}
+
+:host([fit=none]) {
+    video {
+        object-fit: none;
+    }
+}
+
+:host([fit=scale-down]) {
+    video {
+        object-fit: scale-down;
     }
 }
