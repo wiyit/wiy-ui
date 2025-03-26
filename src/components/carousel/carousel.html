@@ -1,10 +1,12 @@
-<wiy-flex id="items">
-    <div class="item" wiy:for="this.items">
-        <wiy-image block blur-background fit="{{value.fit || 'contain'}}" wiy:if="value.type == 'image'"
-            wiy:data-src="value.src"></wiy-image>
-    </div>
-</wiy-flex>
-<wiy-flex id="controls" ai="center">
-    <wiy-icon id="left" class="icon" name="circle-chevron-left" wiy:onclick="this.goLeft()"></wiy-icon>
-    <wiy-icon id="right" class="icon" name="circle-chevron-right" wiy:onclick="this.goRight()"></wiy-icon>
-</wiy-flex>
+<div id="container" wiy:onmouseenter="this.onMouseEnter" wiy:onmouseleave="this.onMouseLeave">
+    <wiy-flex id="items" wiy:onscrollend="this.onScrollEnd">
+        <div id="item-{{key}}" class="item" wiy:for="this.items">
+            <wiy-image block blur-background fit="{{value.fit || 'contain'}}" wiy:if="value.type == 'image'"
+                wiy:data-src="value.src"></wiy-image>
+        </div>
+    </wiy-flex>
+    <wiy-flex id="controls" ai="center">
+        <wiy-icon id="left" class="icon" name="circle-chevron-left" wiy:onclick="this.goPrev()"></wiy-icon>
+        <wiy-icon id="right" class="icon" name="circle-chevron-right" wiy:onclick="this.goNext()"></wiy-icon>
+    </wiy-flex>
+</div>

@@ -1,49 +1,55 @@
 :host {
     display: block;
 
-    #items {
+    #container {
+        position: relative;
         width: 100%;
         height: 100%;
-        overflow: auto;
-        scroll-snap-type: x mandatory;
 
-        .item {
-            min-width: 100%;
-            scroll-snap-align: center;
+        #items {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            scroll-snap-type: x mandatory;
+
+            .item {
+                min-width: 100%;
+                scroll-snap-align: center;
+            }
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
         }
 
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-
-    #controls {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-
-        #left {
-            left: 0;
-        }
-
-        #right {
-            right: 0;
-        }
-
-        .icon {
+        #controls {
             position: absolute;
-            z-index: 1;
-            font-size: 2.5em;
-            line-height: 0;
-            color: lightgray;
-            background-color: white;
-            margin: 10px;
-            border-radius: 50%;
-            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            top: 0;
 
-            &:hover {
-                transform: scale(1.1);
+            #left {
+                left: 0;
+            }
+
+            #right {
+                right: 0;
+            }
+
+            .icon {
+                position: absolute;
+                z-index: 1;
+                font-size: 2.5em;
+                line-height: 0;
+                color: lightgray;
+                background-color: white;
+                margin: 10px;
+                border-radius: 50%;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
             }
         }
     }

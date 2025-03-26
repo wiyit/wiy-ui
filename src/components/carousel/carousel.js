@@ -3,31 +3,73 @@ export default {
     style: import('./carousel.scss'),
     data: {
         items: [],
+        active: 0,
     },
     methods: {
-        goLeft() {
-            const items = this.getElement('items');
-            items.scrollBy({
-                left: -1,
-                behavior: 'smooth',
-            });
+        goPrev() {
+            const count = this.items.length;
+            this.setActive((this.active - 1 + count) % count);
         },
-        goRight() {
+        goNext() {
+            const count = this.items.length;
+            this.setActive((this.active + 1 + count) % count);
+        },
+        setActive(index) {
             const items = this.getElement('items');
-            items.scrollBy({
-                left: 1,
+            const item = this.getElement(`item-${index}`);
+            items.scrollTo({
+                left: item.offsetLeft,
                 behavior: 'smooth',
             });
+            this.active = index;
+        },
+        play(index) {
+            this.pause();
+            if (typeof index != 'undefined') {
+                this.setActive(index);
+            }
+            this.autoplayIntervalId = setInterval(() => {
+                this.goNext();
+            }, this.attr('autoplay-interval') || 4000);
+        },
+        pause(index) {
+            if (typeof index != 'undefined') {
+                this.setActive(index);
+            }
+            clearInterval(this.autoplayIntervalId);
+        },
+        autoplay(delay) {
+            setTimeout(() => {
+                this.play();
+            }, delay || this.attr('autoplay-delay') || 0);
+        },
+        onScrollEnd() {
+            const items = this.getElement('items');
+            for (let index in this.items) {
+                const item = this.getElement(`item-${index}`);
+                if (item.offsetLeft == items.scrollLeft) {
+                    this.active = parseInt(index);
+                    return;
+                }
+            }
+        },
+        onMouseEnter() {
+            this.pause();
+        },
+        onMouseLeave() {
+            if (this.autoplayIntervalId) {
+                this.autoplay();
+            }
         },
     },
     lifecycle: {
         mount() {
-            this.autoplayIntervalId = setInterval(() => {
-                this.goRight();
-            }, 4000);
+            if (this.hasAttr('autoplay')) {
+                this.autoplay();
+            }
         },
-        unmount() {
-            clearInterval(this.autoplayIntervalId);
+        beforeUnmount() {
+            this.pause();
         },
     },
 };

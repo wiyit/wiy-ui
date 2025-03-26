@@ -31,6 +31,11 @@ export default {
             }
             video.pause();
         },
+        autoplay(delay) {
+            setTimeout(() => {
+                this.play();
+            }, delay || this.attr('autoplay-delay') || 0);
+        },
     },
     lifecycle: {
         mount() {
@@ -38,11 +43,12 @@ export default {
                 this.observe(() => {
                     return this.src;
                 }, (result) => {
-                    setTimeout(() => {
-                        this.play();
-                    }, this.attr('autoplay-delay') || 0);
+                    this.autoplay();
                 });
             }
+        },
+        beforeUnmount() {
+            this.pause();
         },
     },
 };
