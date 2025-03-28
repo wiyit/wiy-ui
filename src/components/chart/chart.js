@@ -33,9 +33,10 @@ export default {
                             this.trigger('rendered');
                         });
                         this.chart.on('selectchanged', (e) => {
-                            this.trigger('selectchanged', {
-                                selected: e.selected,
-                            }, e);
+                            this.trigger('selectchanged', e);
+                        });
+                        this.chart.on('click', (e) => {
+                            this.trigger('chartclick', e);
                         });
 
                         this.observe(() => {
