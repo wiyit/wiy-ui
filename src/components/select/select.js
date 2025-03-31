@@ -10,13 +10,16 @@ export default {
             const select = this.getElement('select');
             const noPrompt = this.hasAttr('no-prompt');
             if (select) {
+                const data = {};
                 this.options.forEach((option, index) => {
                     const o = select[index + (noPrompt ? 0 : 1)];
                     const selected = o.selected;
-                    this.data[option.value] = selected;
+                    data[option.value] = selected;
                 });
+                this.data = data;
             }
             this.trigger('change', {
+                data: this.data,
             });
         },
     },
