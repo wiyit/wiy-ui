@@ -1,5 +1,5 @@
 <select id="select" wiy:onchange="this.onInputChange">
-    <option value="">{{this.attr('prompt') || '请选择：'}}</option>
+    <option value="" wiy:if="!this.hasAttr('no-prompt')">{{this.attr('prompt') || '请选择：'}}</option>
     <option wiy:for="this.options" wiy:for.value="option" value="{{option.value}}"
         wiy:data-selected="this.data[option.value]" wiy:data-disabled="option.disabled">
         {{option.label || option.value}}
