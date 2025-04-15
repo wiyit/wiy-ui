@@ -6,6 +6,9 @@ export default {
         showPassword: false,
     },
     methods: {
+        getValue() {
+            return this.getElement('input').value;
+        },
         onInputChange() {
             this.trigger('change', {
                 text: this.text,
