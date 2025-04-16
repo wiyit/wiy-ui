@@ -9,10 +9,22 @@ export default {
         getValue() {
             return this.getElement('input').value;
         },
-        onInputChange() {
+        onInputChange(e) {
             this.trigger('change', {
-                text: this.text,
-            });
+                text: this.text = this.getValue(),
+            }, e);
+        },
+        onInputInput(e) {
+            if (!e.isComposing) {
+                this.trigger('change', {
+                    text: this.text = this.getValue(),
+                }, e);
+            }
+        },
+        onInputCompositionend(e) {
+            this.trigger('change', {
+                text: this.text = this.getValue(),
+            }, e);
         },
         onPasswordToggleClick() {
             const input = this.getElement('input');
