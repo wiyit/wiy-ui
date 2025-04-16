@@ -24,12 +24,26 @@ export default {
                 const popover = this.getElement('popover');
 
                 if (popoverContainer) {
-                    source.addEventListener('mousemove', (e) => {
-                        const x = e.clientX + 16;
-                        const y = e.clientY + 16;
+                    const offset = 16;
+                    const position = (x, y) => {
+                        if (x + popover.offsetWidth > window.innerWidth) {
+                            x = x - popover.offsetWidth - offset * 2;
+                        }
+                        if (y + popover.offsetHeight > window.innerHeight) {
+                            y = y - popover.offsetHeight - offset * 2;
+                        }
+
                         popover.style.left = x + 'px';
                         popover.style.top = y + 'px';
+                    }
+
+                    source.addEventListener('mousemove', (e) => {
+                        position(e.clientX + offset, e.clientY + offset);
                     });
+
+                    new ResizeObserver(() => {
+                        position(popover.offsetLeft, popover.offsetTop);
+                    }).observe(popover);
 
                     this.observe(() => {
                         return this.visible;
