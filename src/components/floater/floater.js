@@ -2,7 +2,7 @@ export default {
     template: import('./floater.html'),
     style: import('./floater.scss'),
     data: {
-        stopped: true,
+        stopped: false,
         visible: true,
     },
     methods: {
@@ -22,6 +22,8 @@ export default {
             let yPerStep = 1;
 
             const element = this.getElement();
+            const inWindow = this.hasAttr('in-window');//是否需要限制在窗口范围内
+
             const step = (time) => {
                 let parent = element.parentNode;
                 while (parent && !(parent instanceof HTMLElement)) {
@@ -37,21 +39,43 @@ export default {
                     const parentWidth = parent.offsetWidth;
                     const parentHeight = parent.offsetHeight;
 
+                    let leftMin = 0;
+                    let leftMax = parentWidth - width;
+                    let topMin = 0;
+                    let topMax = parentHeight - height;
+                    if (inWindow) {
+                        const parentClientTop = parent.getBoundingClientRect().top;
+                        const parentClientLeft = parent.getBoundingClientRect().left;
 
-                    let newLeft = left + xPerStep;
-                    if (newLeft < 0 || newLeft + width > parentWidth) {
+                        const windowWidth = window.innerWidth;
+                        const windowHeight = window.innerHeight;
+
+                        leftMin = Math.max(-parentClientLeft, leftMin);
+                        leftMax = Math.min(windowWidth - parentClientLeft - width, leftMax);
+                        topMin = Math.max(-parentClientTop, topMin);
+                        topMax = Math.min(windowHeight - parentClientTop - height, topMax);
+                    }
+
+                    const direction = [xPerStep, yPerStep];
+                    if (left + direction[0] < leftMin) {
+                        direction[0] = leftMin - left;
                         xPerStep = -xPerStep;
-                        newLeft = Math.min(left + xPerStep, parentWidth - width);
                     }
-
-                    let newTop = top + yPerStep;
-                    if (newTop < 0 || newTop + height > parentHeight) {
+                    if (left + direction[0] > leftMax) {
+                        direction[0] = leftMax - left;
+                        xPerStep = -xPerStep;
+                    }
+                    if (top + direction[1] < topMin) {
+                        direction[1] = topMin - top;
                         yPerStep = -yPerStep;
-                        newTop = Math.min(top + yPerStep, parentHeight - height);
+                    }
+                    if (top + direction[1] > topMax) {
+                        direction[1] = topMax - top;
+                        yPerStep = -yPerStep;
                     }
 
-                    element.style.left = `${newLeft}px`;
-                    element.style.top = `${newTop}px`;
+                    element.style.left = `${left + direction[0]}px`;
+                    element.style.top = `${top + direction[1]}px`;
                 }
 
                 requestAnimationFrame(step);
