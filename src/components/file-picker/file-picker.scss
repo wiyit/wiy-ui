@@ -1,0 +1,50 @@
+:host {
+    display: flex;
+    flex-direction: column;
+
+    #file {
+        display: none;
+    }
+
+    #button {
+        width: max-content;
+    }
+
+    #files {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 6px;
+
+        .file {
+            font-size: 0.9em;
+            display: flex;
+            gap: 6px;
+
+            .delete {
+                flex-shrink: 0;
+                cursor: pointer;
+                color: red;
+
+                &:hover {
+                    color: rgb(64, 158, 255);
+                }
+            }
+
+            .file-name {
+                cursor: pointer;
+                color: var(--wiy-file-picker-file-name-color);
+
+                &:hover {
+                    color: var(--wiy-file-picker-file-name-color-hover);
+                }
+            }
+        }
+    }
+
+    #tips {
+        margin-top: 4px;
+        font-size: 13px;
+        color: var(--wiy-file-picker-tips-color);
+    }
+}

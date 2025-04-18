@@ -35,7 +35,7 @@
                         wiy:data-data="this.data[item.name]" wiy:onchange="this.onItemValueChange(item)"
                         wiy:style="item.style" wiy:attr-prompt="item.prompt"></wiy-select>
                     <wiy-file-picker wiy:if="item.type == 'file-picker'" wiy:data-files="this.data[item.name]"
-                        wiy:onchange="this.onItemValueChange(item)"
+                        wiy:data-tips="item.tips" wiy:onchange="this.onItemValueChange(item)"
                         wiy:onfileclick="e => this.onFilePickerFileClick(e, item)"
                         wiy:style="item.style"></wiy-file-picker>
                     <wiy-textarea wiy:if="item.type == 'textarea'" wiy:data-text="this.data[item.name]"

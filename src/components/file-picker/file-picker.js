@@ -1,8 +1,9 @@
 export default {
     template: import('./file-picker.html'),
-    style: import('./file-picker.css'),
+    style: import('./file-picker.scss'),
     data: {
         files: [],
+        tips: undefined,
     },
     methods: {
         onButtonClick() {
