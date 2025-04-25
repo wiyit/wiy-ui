@@ -45,7 +45,11 @@ export default {
                         // 创建地图实例
                         Object.defineProperty(this, 'map', {
                             writable: false,
-                            value: new BMapGL.Map(container),
+                            value: new BMapGL.Map(container, {
+                                ...(this.hasAttr('no-background') ? {
+                                    backgroundColor: [0, 0, 0, 0],
+                                } : undefined),
+                            }),
                         });
 
                         // 创建MapVGL图层管理器

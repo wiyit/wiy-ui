@@ -14,3 +14,9 @@
         }
     }
 }
+
+:host([no-background]) {
+    #container {
+        background: none !important;
+    }
+}
