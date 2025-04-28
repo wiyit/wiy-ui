@@ -66,5 +66,6 @@
 :host([popover-pos=mouse]) {
     #popover {
         position: fixed;
+        pointer-events: none;
     }
 }
