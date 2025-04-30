@@ -10,15 +10,15 @@ export default {
         },
         showModal() {
             const dialog = this.getElement('dialog');
-            dialog.showModal();
+            !dialog.open && dialog.showModal();
         },
         show() {
             const dialog = this.getElement('dialog');
-            dialog.show();
+            !dialog.open && dialog.show();
         },
         close() {
             const dialog = this.getElement('dialog');
-            dialog.close();
+            dialog.open && dialog.close();
         },
     },
     lifecycle: {
