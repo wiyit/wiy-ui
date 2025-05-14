@@ -49,9 +49,9 @@ export default {
                         return this.visible;
                     }, (result) => {
                         if (result) {
-                            popoverContainer.showPopover();
+                            !popoverContainer.matches(":popover-open") && popoverContainer.showPopover();
                         } else {
-                            popoverContainer.hidePopover();
+                            popoverContainer.matches(":popover-open") && popoverContainer.hidePopover();
                         }
                     });
                 }

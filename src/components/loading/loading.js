@@ -19,16 +19,16 @@ export default {
                     return this.loading;
                 }, (result) => {
                     if (result) {
-                        mask.showModal();
+                        !mask.open && mask.showModal();
                     } else {
-                        mask.close();
+                        mask.open && mask.close();
                     }
                 });
             }
         },
         beforeUnmount() {
             const mask = this.getElement('mask');
-            mask.close();
+            mask.open && mask.close();
         },
     },
 };

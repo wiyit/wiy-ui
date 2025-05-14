@@ -14,7 +14,7 @@ export default {
         closePreview(e) {
             e && e.stopPropagation();
             const preview = this.getElement('preview');
-            preview && preview.close();
+            preview && preview.open && preview.close();
         },
     },
     lifecycle: {
@@ -22,7 +22,7 @@ export default {
             const element = this.getElement();
             element.addEventListener('click', () => {
                 const preview = this.getElement('preview');
-                preview && preview.showModal();
+                preview && !preview.open && preview.showModal();
             });
         },
         beforeUnmount() {
