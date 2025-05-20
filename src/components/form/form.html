@@ -6,7 +6,7 @@
     <template wiy:for="this.items" wiy:for.value="item">
         <template wiy:if="this.needShow(item)">
             <template wiy:if="item.isGroup">
-                <label class="group-label">{{item.label}}</label>
+                <wiy-pre class="group-label" wiy:data-text="item.label"></wiy-pre>
             </template>
             <template wiy:if="item.newline">
                 <div class="newline"></div>
@@ -14,7 +14,7 @@
             <template wiy:if="!item.isGroup && !item.newline">
                 <label class="label">
                     <span wiy:if="item.required" class="required">*</span>
-                    <span class="label-name">{{item.label || item.name}}</span>
+                    <wiy-pre class="label-name" wiy:data-text="item.label || item.name"></wiy-pre>
                 </label>
                 <div class="value">
                     <div class="info" wiy:if="!item.type" wiy:style="item.style">
