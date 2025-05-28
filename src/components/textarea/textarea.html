@@ -1,2 +1,2 @@
-<textarea wiy:data="this.text" wiy:onchange="this.onInputChange"
-    wiy:attr-placeholder="this.attr('placeholder')"></textarea>
+<textarea id="textarea" wiy:data="this.text" wiy:onchange="this.onInputChange" wiy:oninput="this.onInputInput"
+    wiy:oncompositionend="this.onInputCompositionend" wiy:attr-placeholder="this.attr('placeholder')"></textarea>

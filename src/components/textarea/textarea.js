@@ -5,11 +5,26 @@ export default {
         text: '',
     },
     methods: {
-        onInputChange() {
+        getValue() {
+            return this.getElement('textarea').value;
+        },
+        onInputChange(e) {
             this.trigger('change', {
-                text: this.text,
-            });
-        }
+                text: this.text = this.getValue(),
+            }, e);
+        },
+        onInputInput(e) {
+            if (!e.isComposing) {
+                this.trigger('change', {
+                    text: this.text = this.getValue(),
+                }, e);
+            }
+        },
+        onInputCompositionend(e) {
+            this.trigger('change', {
+                text: this.text = this.getValue(),
+            }, e);
+        },
     },
     lifecycle: {
         init() {
