@@ -21,6 +21,7 @@ const components = {
     'wiy-icon': import('./components/icon/icon.js'),
     'wiy-image': import('./components/image/image.js'),
     'wiy-input': import('./components/input/input.js'),
+    'wiy-keep-aspect-radio': import('./components/keep-aspect-radio/keep-aspect-radio.js'),
     'wiy-link': import('./components/link/link.js'),
     'wiy-loading': import('./components/loading/loading.js'),
     'wiy-map': import('./components/map/map.js'),
