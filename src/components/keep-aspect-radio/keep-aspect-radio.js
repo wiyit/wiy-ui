@@ -8,7 +8,7 @@ export default {
 
             const transform = () => {
                 const aspectRatio = Math.min(outer.offsetWidth / inner.offsetWidth, outer.offsetHeight / inner.offsetHeight);
-                outer.style.transform = `scale(${aspectRatio})`;
+                inner.style.transform = `scale(${aspectRatio})`;
             };
 
             const observer = new ResizeObserver(transform);
