@@ -4,7 +4,9 @@ export default {
     lifecycle: {
         mount() {
             const element = this.getElement();
-            element.style.gap = this.attr('gap') || '0';
+            if (this.hasAttr('gap')) {
+                element.style.gap = this.attr('gap');
+            }
         }
     }
 };
