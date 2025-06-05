@@ -1,9 +1,11 @@
 <div class="menu" wiy:for="this.items" wiy:for.value="menu">
-    <div class="item {{this.isOpened(menu) ? 'opened' : ''}} {{this.isActive(menu) ? 'active' : ''}}"
-        wiy:onclick="this.onItemClick(menu)">
-        <wiy-icon name="{{menu.icon}}" wiy:if="menu.icon"></wiy-icon>
-        <div class="name">{{menu.name}}</div>
-        <wiy-icon class="angle" wiy:if="menu.sub && menu.sub.length>0" name="angle-down"></wiy-icon>
-    </div>
-    <sub-menus wiy:data-items="menu.sub"></sub-menus>
+    <template wiy:if="this.needShow(menu)">
+        <div class="item {{this.isOpened(menu) ? 'opened' : ''}} {{this.isActive(menu) ? 'active' : ''}}"
+            wiy:onclick="this.onItemClick(menu)">
+            <wiy-icon name="{{menu.icon}}" wiy:if="menu.icon"></wiy-icon>
+            <div class="name">{{menu.name}}</div>
+            <wiy-icon class="angle" wiy:if="menu.sub && menu.sub.length>0" name="angle-down"></wiy-icon>
+        </div>
+        <sub-menus wiy:data-items="menu.sub"></sub-menus>
+    </template>
 </div>
