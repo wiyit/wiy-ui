@@ -37,7 +37,6 @@ export default {
     lifecycle: {
         init() {
             this.trigger('datainit', {
-                options: this.options,
                 data: this.data,
             });
         },
