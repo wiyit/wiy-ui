@@ -1,0 +1,29 @@
+:host {
+    display: flex;
+    align-items: center;
+    padding: 6px 0;
+    box-sizing: border-box;
+    gap: 10px 20px;
+    min-height: 32px;
+    flex-wrap: wrap;
+
+    .option {
+        input {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            margin: 0;
+            flex-shrink: 0;
+
+            &:focus {
+                outline: 1px solid rgb(1, 204, 255);
+            }
+        }
+
+        label {
+            cursor: pointer;
+            padding-left: 6px;
+            width: max-content;
+        }
+    }
+}

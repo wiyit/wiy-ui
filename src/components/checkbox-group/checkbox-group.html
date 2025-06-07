@@ -1,5 +1,5 @@
-<div class="option" wiy:for="this.options" wiy:for.value="option">
-    <input id="checkbox-{{key}}" name="checkbox" type="checkbox" wiy:data="this.data[option.value]"
-        wiy:onchange="this.onInputChange" />
+<wiy-flex class="option" ai="center" wiy:for="this.getOptions()" wiy:for.value="option">
+    <input id="checkbox-{{key}}" type="checkbox" wiy:data="this.data.includes(option.value)"
+        wiy:onchange="e => this.onInputChange(e, option.value)" />
     <label for="checkbox-{{key}}">{{option.label || option.value}}</label>
-</div>
+</wiy-flex>
