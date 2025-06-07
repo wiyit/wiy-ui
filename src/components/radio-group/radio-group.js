@@ -1,24 +1,27 @@
 export default {
     template: import('./radio-group.html'),
-    style: import('./radio-group.css'),
+    style: import('./radio-group.scss'),
     data: {
         options: [],
-        data: {},
+        data: undefined,
     },
     methods: {
-        onInputChange(key) {
-            this.options.forEach((option, index) => {
-                const checked = index == key;
-                this.data[option.value] = checked;
-            });
+        getOptions() {
+            const options = this.options;
+            if (typeof options == 'function') {
+                return options();
+            }
+            return options;
+        },
+        onInputChange(e, value) {
             this.trigger('change', {
+                data: this.data = value,
             });
         },
     },
     lifecycle: {
         init() {
             this.trigger('datainit', {
-                options: this.options,
                 data: this.data,
             });
         },
