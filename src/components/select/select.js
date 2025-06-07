@@ -3,30 +3,26 @@ export default {
     style: import('./select.scss'),
     data: {
         options: [],
-        data: {},
+        data: undefined,
     },
     methods: {
-        onInputChange() {
-            const select = this.getElement('select');
-            const noPrompt = this.hasAttr('no-prompt');
-            if (select) {
-                const data = {};
-                this.options.forEach((option, index) => {
-                    const o = select[index + (noPrompt ? 0 : 1)];
-                    const selected = o.selected;
-                    data[option.value] = selected;
-                });
-                this.data = data;
+        getOptions() {
+            const options = this.options;
+            if (typeof options == 'function') {
+                return options();
             }
+            return options;
+        },
+        onSelectChange(e) {
+            const { options } = e.target;
             this.trigger('change', {
-                data: this.data,
+                data: this.data = options[options.selectedIndex].v || null,
             });
         },
     },
     lifecycle: {
         init() {
             this.trigger('datainit', {
-                options: this.options,
                 data: this.data,
             });
         },
