@@ -1,6 +1,6 @@
 export default {
     template: import('./dialog.html'),
-    style: import('./dialog.css'),
+    style: import('./dialog.scss'),
     data: {
         title: undefined,
     },

@@ -1,0 +1,42 @@
+:host {
+    display: block;
+
+    dialog[open] {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid gray;
+        border-radius: 8px;
+        padding: 0;
+        outline: none;
+        box-shadow: 0 0 6px gray;
+        background-color: white;
+
+        #head {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-bottom: 1px solid lightgray;
+            user-select: none;
+
+            #title {
+                font-weight: bold;
+            }
+
+            #close {
+                cursor: pointer;
+
+                &:hover {
+                    color: rgb(64, 158, 255);
+                }
+            }
+        }
+
+        #content {
+            overflow: auto;
+        }
+    }
+}
