@@ -10,12 +10,15 @@ export default {
     },
     methods: {
         onOperationClick(operation) {
-            operation.onclick && operation.onclick(this);
+            operation.onclick && operation.onclick(this, operation);
+        },
+        needShowOperation(operation) {
+            return !operation.when || operation.when(this, operation);
         },
         onItemValueChange(item) {
             item.onchange && item.onchange(this, item);
         },
-        needShow(item) {
+        needShowItem(item) {
             return !item.when || item.when(this, item);
         },
         onFilePickerFileClick(e, item) {

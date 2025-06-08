@@ -4,7 +4,7 @@
 </div>
 <div id="items">
     <template wiy:for="this.items" wiy:for.value="item">
-        <template wiy:if="this.needShow(item)">
+        <template wiy:if="this.needShowItem(item)">
             <template wiy:if="item.isGroup">
                 <wiy-pre class="group-label" wiy:data-text="item.label"></wiy-pre>
             </template>
@@ -53,6 +53,10 @@
     </template>
 </div>
 <div id="operations">
-    <wiy-button wiy:for="this.operations" wiy:for.value="operation" wiy:attr-theme="operation.theme"
-        wiy:attr-icon="operation.icon" wiy:onclick="this.onOperationClick(operation)">{{operation.name}}</wiy-button>
+    <template wiy:for="this.operations" wiy:for.value="operation">
+        <wiy-button wiy:if="this.needShowOperation(operation)" wiy:attr-theme="operation.theme"
+            wiy:attr-icon="operation.icon" wiy:onclick="this.onOperationClick(operation)">
+            {{operation.name}}
+        </wiy-button>
+    </template>
 </div>
