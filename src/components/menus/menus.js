@@ -8,6 +8,13 @@ export default {
         items: [],
     },
     methods: {
+        getItems() {
+            const items = this.items;
+            if (typeof items == 'function') {
+                return items();
+            }
+            return items;
+        },
         isOpened(menu) {
             return menu.sub && menu.sub.length > 0 && menu.subShow;
         },
