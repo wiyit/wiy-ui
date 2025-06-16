@@ -6,12 +6,9 @@ export default {
         data: undefined,
     },
     methods: {
-        getOptions() {
-            const options = this.options;
-            if (typeof options == 'function') {
-                return options();
-            }
-            return options;
+        async getOptions() {
+            this.actualOptions = await this.actual(this.options);
+            return this.actualOptions;//返回响应式结果
         },
         onInputChange(e, value) {
             this.trigger('change', {

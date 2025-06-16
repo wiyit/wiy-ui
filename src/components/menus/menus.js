@@ -8,12 +8,9 @@ export default {
         items: [],
     },
     methods: {
-        getItems() {
-            const items = this.items;
-            if (typeof items == 'function') {
-                return items();
-            }
-            return items;
+        async getItems() {
+            this.actualItems = await this.actual(this.items);
+            return this.actualItems;//返回响应式结果
         },
         isOpened(menu) {
             return menu.sub && menu.sub.length > 0 && menu.subShow;
