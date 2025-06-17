@@ -23,5 +23,13 @@ export default {
                 data: this.data,
             });
         },
+        mount() {
+            const select = this.getElement('select');
+            this.observe(() => {
+                return this.actualOptions.findIndex(o => o.value === this.data);
+            }, (result) => {
+                select.value = result;
+            });
+        },
     },
 };

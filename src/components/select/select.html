@@ -1,5 +1,4 @@
-<select wiy:let-options="this.getOptions()" wiy:data="options.findIndex(o => o.value === this.data)"
-    wiy:onchange="this.onSelectChange">
+<select id="select" wiy:let-options="this.getOptions()" wiy:onchange="this.onSelectChange">
     <option value="-1" wiy:if="!this.hasAttr('no-prompt')">{{this.attr('prompt') || '请选择：'}}</option>
     <option wiy:for="options" wiy:for.value="option" value="{{key}}" wiy:data-v="option.value"
         wiy:data-disabled="option.disabled">
