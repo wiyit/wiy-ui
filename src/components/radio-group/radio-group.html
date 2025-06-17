@@ -4,7 +4,8 @@
     <label for="radio-{{key}}">{{option.label || option.value}}</label>
 </wiy-flex>
 <wiy-flex id="other" class="option" ai="center" wiy:let-isother="this.isOther()">
-    <input id="radio-other" name="radio" type="radio" wiy:data="isother" />
+    <input id="radio-other" name="radio" type="radio" wiy:data="!!isother"
+        wiy:onchange="e => this.onInputChange(e, '')" />
     <label for="radio-other">
         <wiy-flex ai="center">
             其他：
