@@ -3,3 +3,13 @@
         wiy:onchange="e => this.onInputChange(e, option.value)" />
     <label for="radio-{{key}}">{{option.label || option.value}}</label>
 </wiy-flex>
+<wiy-flex id="other" class="option" ai="center" wiy:let-isother="this.isOther()">
+    <input id="radio-other" name="radio" type="radio" wiy:data="isother" />
+    <label for="radio-other">
+        <wiy-flex ai="center">
+            其他：
+            <wiy-input placeholder="请输入" wiy:data-text="isother ? this.data : ''"
+                wiy:onchange="e => this.onInputChange(e, e.data.text)"></wiy-input>
+        </wiy-flex>
+    </label>
+</wiy-flex>

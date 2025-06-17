@@ -27,7 +27,8 @@
                         wiy:attr-icon="item.icon" wiy:ondestroy="this.onItemDestroy(item)"></wiy-input>
                     <wiy-radio-group wiy:if="item.type == 'radio-group'" wiy:data-options="item.options"
                         wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
-                        wiy:style="item.style" wiy:ondestroy="this.onItemDestroy(item)"></wiy-radio-group>
+                        wiy:style="item.style" wiy:ondestroy="this.onItemDestroy(item)"
+                        wiy:attr-allow-other="item.allowOther ? '' : undefined"></wiy-radio-group>
                     <wiy-checkbox-group wiy:if="item.type == 'checkbox-group'" wiy:data-options="item.options"
                         wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
                         wiy:style="item.style" wiy:ondestroy="this.onItemDestroy(item)"></wiy-checkbox-group>

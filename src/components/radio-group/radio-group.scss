@@ -26,4 +26,14 @@
             width: max-content;
         }
     }
+
+    #other {
+        display: none;
+    }
+}
+
+:host([allow-other]) {
+    #other {
+        display: flex;
+    }
 }
