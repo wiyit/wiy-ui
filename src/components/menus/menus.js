@@ -16,14 +16,14 @@ export default {
             return menu.sub && menu.sub.length > 0 && menu.subShow;
         },
         isActive(menu) {
-            return menu.isActive && menu.isActive(this);
+            return menu.isActive && menu.isActive(this, menu);
         },
         needShow(menu) {
             return !menu.when || menu.when(this, menu);
         },
         onItemClick(menu) {
             menu.subShow = !menu.subShow;
-            menu.onclick && menu.onclick(this);
+            menu.onclick && menu.onclick(this, menu);
         },
     },
 };
