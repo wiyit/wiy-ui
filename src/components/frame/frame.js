@@ -8,11 +8,8 @@ export default {
         mount() {
             const element = this.getElement();
 
-            window.addEventListener('message', (e) => {
-                if (!e.data) {
-                    return;
-                }
-                const data = e.data['wiy-frame'];
+            window.addEventListener('message', this.messageEventListener = (e) => {
+                const data = e?.data?.['wiy-frame'];
                 if (!data) {
                     return;
                 }
@@ -21,6 +18,9 @@ export default {
                     element.style.height = data.height + 'px';
                 }
             });
+        },
+        unmount() {
+            window.removeEventListener('message', this.messageEventListener);
         },
     },
 };
