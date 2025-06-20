@@ -43,13 +43,10 @@ const components = {
 
 export default {
     async install(app) {
-        for (let [componentName, component] of Object.entries(components)) {
-            app.registerComponent(componentName, component);
-
+        app.registerComponents(components);
+        for (let component of Object.values(components)) {
             const methods = (await component).methods || {};
-            for (let [methodName, method] of Object.entries(methods)) {
-                app.registerMethod(methodName, method);
-            }
+            app.registerMethods(methods);
         }
     },
 };
