@@ -1,6 +1,6 @@
 export default {
     template: import('./pagination.html'),
-    style: import('./pagination.css'),
+    style: import('./pagination.scss'),
     data: {
         total: 0,
         current: 1,

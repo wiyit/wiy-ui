@@ -18,6 +18,7 @@
             user-select: none;
 
             &.active {
+                font-weight: bold;
                 color: var(--wiy-menus-item-text-color-active);
                 background-color: var(--wiy-menus-item-color-active);
                 cursor: auto;
@@ -49,7 +50,6 @@
 
         sub-menus {
             padding-left: 1em;
-            font-size: 0.95em;
             transition: opacity 0.3s ease;
             overflow: hidden;
             height: 0;
