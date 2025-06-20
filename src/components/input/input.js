@@ -16,13 +16,13 @@ export default {
         },
         onInputInput(e) {
             if (!e.isComposing) {
-                this.trigger('change', {
+                this.trigger('textchange', {
                     text: this.text = this.getValue(),
                 }, e);
             }
         },
         onInputCompositionend(e) {
-            this.trigger('change', {
+            this.trigger('textchange', {
                 text: this.text = this.getValue(),
             }, e);
         },
