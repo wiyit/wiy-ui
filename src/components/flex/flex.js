@@ -4,8 +4,8 @@ export default {
     lifecycle: {
         mount() {
             const element = this.getElement();
-            if (this.hasAttr('gap')) {
-                element.style.gap = this.attr('gap');
+            if (this.hasAttr('g')) {
+                element.style.gap = this.attr('g');
             }
         }
     }
