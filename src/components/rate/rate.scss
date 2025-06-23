@@ -27,3 +27,7 @@
         width: max-content;
     }
 }
+
+:host([disabled]) {
+    pointer-events: none;
+}
