@@ -18,6 +18,7 @@ const components = {
     'wiy-floater': import('./components/floater/floater.js'),
     'wiy-form': import('./components/form/form.js'),
     'wiy-frame': import('./components/frame/frame.js'),
+    'wiy-grid': import('./components/grid/grid.js'),
     'wiy-icon': import('./components/icon/icon.js'),
     'wiy-image': import('./components/image/image.js'),
     'wiy-input': import('./components/input/input.js'),
