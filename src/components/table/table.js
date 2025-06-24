@@ -1,10 +1,11 @@
 export default {
     template: import('./table.html'),
-    style: import('./table.css'),
+    style: import('./table.scss'),
     data: {
         columns: [],
         data: [],
         operations: undefined,
+        startRowNumber: 1,
     },
     methods: {
         getColumn(column) {

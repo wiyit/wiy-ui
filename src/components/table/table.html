@@ -6,15 +6,15 @@
     <div class="head-cell">操作</div>
 
     <template wiy:for="this.data" wiy:for.value="row" wiy:for.key="rowIndex">
-        <div class="number-cell"></div>
+        <div class="number-cell">{{this.startRowNumber + rowIndex}}</div>
         <div class="{{this.getClasses(column)}}" wiy:for="this.columns" wiy:for.value="column" wiy:for.key="columnIndex"
             wiy:onclick="this.onCellClick(row, column, rowIndex, columnIndex)">
             {{this.getItem(row, column, rowIndex, columnIndex)}}
         </div>
-        <div class="operation-cell">
-            <wiy-dropdown wiy:if="this.getOperations(row)">
+        <div class="operation-cell" wiy:let-operations="this.getOperations(row)">
+            <wiy-dropdown wiy:if="operations">
                 <div class="title">操作</div>
-                <wiy-menus wiy:slot="content" wiy:data-items="this.getOperations(row)"></wiy-menus>
+                <wiy-menus wiy:slot="content" wiy:data-items="operations"></wiy-menus>
             </wiy-dropdown>
         </div>
     </template>
