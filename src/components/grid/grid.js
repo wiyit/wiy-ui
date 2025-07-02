@@ -13,8 +13,11 @@ export default {
             if (this.hasAttr('cg')) {
                 element.style.columnGap = this.attr('cg');
             }
-            if (this.hasAttr('gtc')) {
-                element.style.gridTemplateColumns = this.attr('gtc');
+            if (this.hasAttr('tr')) {
+                element.style.gridTemplateRows = this.attr('tr');
+            }
+            if (this.hasAttr('tc')) {
+                element.style.gridTemplateColumns = this.attr('tc');
             }
         }
     }

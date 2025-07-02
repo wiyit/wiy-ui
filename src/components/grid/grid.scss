@@ -1,3 +1,127 @@
 :host {
     display: grid;
 }
+
+:host([ji=start]) {
+    justify-items: start;
+}
+
+:host([ji=end]) {
+    justify-items: end;
+}
+
+:host([ji=center]) {
+    justify-items: center;
+}
+
+:host([ji=stretch]) {
+    justify-items: stretch;
+}
+
+:host([ai=start]) {
+    align-items: start;
+}
+
+:host([ai=end]) {
+    align-items: end;
+}
+
+:host([ai=center]) {
+    align-items: center;
+}
+
+:host([ai=stretch]) {
+    align-items: stretch;
+}
+
+:host([ai=baseline]) {
+    align-items: baseline;
+}
+
+:host([jc=start]) {
+    justify-content: start;
+}
+
+:host([jc=end]) {
+    justify-content: end;
+}
+
+:host([jc=center]) {
+    justify-content: center;
+}
+
+:host([jc=stretch]) {
+    justify-content: stretch;
+}
+
+:host([jc=space-around]) {
+    justify-content: space-around;
+}
+
+:host([jc=space-between]) {
+    justify-content: space-between;
+}
+
+:host([jc=space-evenly]) {
+    justify-content: space-evenly;
+}
+
+:host([ac=start]) {
+    align-content: start;
+}
+
+:host([ac=end]) {
+    align-content: end;
+}
+
+:host([ac=center]) {
+    align-content: center;
+}
+
+:host([ac=stretch]) {
+    align-content: stretch;
+}
+
+:host([ac=space-around]) {
+    align-content: space-around;
+}
+
+:host([ac=space-between]) {
+    align-content: space-between;
+}
+
+:host([ac=space-evenly]) {
+    align-content: space-evenly;
+}
+
+::slotted([js=start]) {
+    justify-self: start;
+}
+
+::slotted([js=end]) {
+    justify-self: end;
+}
+
+::slotted([js=center]) {
+    justify-self: center;
+}
+
+::slotted([js=stretch]) {
+    justify-self: stretch;
+}
+
+::slotted([as=start]) {
+    align-self: start;
+}
+
+::slotted([as=end]) {
+    align-self: end;
+}
+
+::slotted([as=center]) {
+    align-self: center;
+}
+
+::slotted([as=stretch]) {
+    align-self: stretch;
+}
