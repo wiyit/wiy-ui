@@ -9,7 +9,7 @@
     <label for="checkbox-other">
         <wiy-flex ai="center">
             其他：
-            <wiy-input placeholder="请输入" wiy:data-text="otherdata?.join(',')"
+            <wiy-input placeholder="请输入" wiy:data-text="otherdata?.toString()"
                 wiy:onchange="e => this.onOtherChange(e, e.data.text ? [e.data.text] : [])"></wiy-input>
         </wiy-flex>
     </label>
