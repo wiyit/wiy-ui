@@ -3,3 +3,14 @@
         wiy:onchange="e => this.onInputChange(e, option.value)" />
     <label for="checkbox-{{key}}">{{option.label || option.value}}</label>
 </wiy-flex>
+<wiy-flex id="other" class="option" ai="center" wiy:let-otherdata="this.getOtherData()">
+    <input id="checkbox-other" type="radio" wiy:data="!!otherdata?.length"
+        wiy:onchange="e => this.onOtherChange(e, null)" />
+    <label for="checkbox-other">
+        <wiy-flex ai="center">
+            其他：
+            <wiy-input placeholder="请输入" wiy:data-text="otherdata?.join(',')"
+                wiy:onchange="e => this.onOtherChange(e, e.data.text ? [e.data.text] : [])"></wiy-input>
+        </wiy-flex>
+    </label>
+</wiy-flex>

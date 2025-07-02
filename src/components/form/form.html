@@ -31,7 +31,8 @@
                         wiy:attr-allow-other="item.allowOther ? '' : undefined"></wiy-radio-group>
                     <wiy-checkbox-group wiy:if="item.type == 'checkbox-group'" wiy:data-options="item.options"
                         wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
-                        wiy:style="item.style" wiy:ondestroy="this.onItemDestroy(item)"></wiy-checkbox-group>
+                        wiy:style="item.style" wiy:ondestroy="this.onItemDestroy(item)"
+                        wiy:attr-allow-other="item.allowOther ? '' : undefined"></wiy-checkbox-group>
                     <wiy-select wiy:if="item.type == 'select'" wiy:data-options="item.options"
                         wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
                         wiy:style="item.style" wiy:attr-prompt="item.prompt"
