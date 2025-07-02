@@ -15,7 +15,7 @@ export default {
             const router = this.getApp().getRouter();
             if (router.isInternalLink(href)) {//在路由范围内
                 e.preventDefault();
-                router.go(router.toRelativePath(href), undefined, false);
+                router.go(router.toRelativePath(href));
             }
         },
     },
