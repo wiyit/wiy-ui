@@ -1,4 +1,4 @@
-<dialog id="dialog">
+<dialog id="dialog" wiy:onclose="this.trigger('close')">
     <div id="head">
         <div id="title">{{this.title || this.attr('title') || ''}}</div>
         <wiy-icon id="close" name="close" wiy:onclick="this.onCloseClick"></wiy-icon>
