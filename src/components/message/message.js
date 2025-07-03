@@ -1,26 +1,25 @@
 function getLayer(position) {
     const layerId = `wiy-message-layer-${position}`;
     let layer = document.getElementById(layerId);
-    if (layer) {
-        return layer;
+    if (!layer) {
+        layer = document.createElement('div');
+        layer.setAttribute('id', layerId);
+        layer.setAttribute('popover', 'manual');
+        layer.style = 'width:100vw;height:100vh;margin:0;padding:10px;box-sizing:border-box;border:none;overflow:visible;background:none;display:flex;flex-direction:column;pointer-events:none;position:fixed;top:0;left:0;';
+        switch (position) {
+            case 'right-top':
+                layer.style.alignItems = 'flex-end';
+                break;
+            case 'top':
+            default:
+                layer.style.alignItems = 'center';
+                break;
+        }
+        document.body.appendChild(layer);
     }
 
-    layer = document.createElement('div');
-    layer.setAttribute('id', layerId);
-    layer.setAttribute('popover', 'manual');
-    layer.style = 'width:100vw;height:100vh;margin:0;padding:10px;box-sizing:border-box;border:none;overflow:visible;background:none;display:flex;flex-direction:column;pointer-events:none;';
-    switch (position) {
-        case 'right-top':
-            layer.style.alignItems = 'flex-end';
-            break;
-        case 'top':
-        default:
-            layer.style.alignItems = 'center';
-            break;
-    }
-    document.body.appendChild(layer);
-
-    layer.showPopover();
+    layer.matches(":popover-open") && layer.hidePopover();
+    !layer.matches(":popover-open") && layer.showPopover();
     return layer;
 }
 
