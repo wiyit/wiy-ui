@@ -17,13 +17,13 @@ export default {
         onInputInput(e) {
             if (!e.isComposing) {
                 this.trigger('textchange', {
-                    text: this.text = this.getValue(),
+                    text: this.getValue(),
                 }, e);
             }
         },
         onInputCompositionend(e) {
             this.trigger('textchange', {
-                text: this.text = this.getValue(),
+                text: this.getValue(),
             }, e);
         },
         onPasswordToggleClick() {
