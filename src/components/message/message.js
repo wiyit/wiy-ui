@@ -89,6 +89,17 @@ export const methods = {
         options.closable && element.setAttribute('closable', '');
         element.innerHTML = options.content;
 
+        if (typeof HTMLElement?.prototype?.showPopover != 'function') {
+            element.setAttribute('duration', -1);
+            element.removeAttribute('position');
+            element.removeAttribute('closable');
+            this.showDialog({
+                title: '提示',
+                content: element.outerHTML,
+            });
+            return;
+        }
+
         this.newComponent({
             components: {
                 'wiy-message': import('./message.js'),
