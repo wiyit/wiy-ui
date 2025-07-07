@@ -17,43 +17,47 @@
                     <wiy-pre class="label-name" wiy:data-text="item.label || item.name"></wiy-pre>
                 </label>
                 <div class="value">
-                    <div class="info" wiy:if="!item.type" wiy:style="item.style">
-                        <template wiy:if="!item.isHtml">{{data[item.name] || ''}}</template>
-                        <div wiy:if="item.isHtml" wiy:html="data[item.name] || ''"></div>
-                    </div>
-                    <wiy-input wiy:if="item.type == 'input'" wiy:data-text="data[item.name]"
-                        wiy:onchange="this.onItemValueChange(item)" wiy:style="item.style"
-                        type="{{item.subType || 'text'}}" wiy:attr-placeholder="item.placeholder"
-                        wiy:attr-icon="item.icon" wiy:ondestroy="this.onItemDestroy(item)"></wiy-input>
-                    <wiy-radio-group wiy:if="item.type == 'radio-group'" wiy:data-options="item.options"
-                        wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
-                        wiy:style="item.style" wiy:ondestroy="this.onItemDestroy(item)"
-                        wiy:attr-allow-other="item.allowOther ? '' : undefined"></wiy-radio-group>
-                    <wiy-checkbox-group wiy:if="item.type == 'checkbox-group'" wiy:data-options="item.options"
-                        wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
-                        wiy:style="item.style" wiy:ondestroy="this.onItemDestroy(item)"
-                        wiy:attr-allow-other="item.allowOther ? '' : undefined"></wiy-checkbox-group>
-                    <wiy-select wiy:if="item.type == 'select'" wiy:data-options="item.options"
-                        wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
-                        wiy:style="item.style" wiy:attr-prompt="item.prompt"
-                        wiy:ondestroy="this.onItemDestroy(item)"></wiy-select>
-                    <wiy-file-picker wiy:if="item.type == 'file-picker'" wiy:data-files="data[item.name]"
-                        wiy:data-tips="item.tips" wiy:onchange="this.onItemValueChange(item)"
-                        wiy:onfileclick="e => this.onFilePickerFileClick(e, item)" wiy:style="item.style"
-                        wiy:ondestroy="this.onItemDestroy(item)"></wiy-file-picker>
-                    <wiy-textarea wiy:if="item.type == 'textarea'" wiy:data-text="data[item.name]"
-                        wiy:onchange="this.onItemValueChange(item)" wiy:style="item.style"
-                        wiy:attr-placeholder="item.placeholder" wiy:ondestroy="this.onItemDestroy(item)"></wiy-textarea>
-                    <wiy-rate wiy:if="item.type == 'rate'" wiy:data-score="data[item.name]"
-                        wiy:onchange="this.onItemValueChange(item)" wiy:style="item.style" wiy:attr-max="item.max"
-                        wiy:ondestroy="this.onItemDestroy(item)"></wiy-rate>
-                    <wiy-button wiy:if="item.type == 'button'" wiy:attr-theme="item.theme" wiy:attr-icon="item.icon"
-                        wiy:attr-icon-spin="item.iconSpin ? '' : undefined" wiy:data-disabled="item.disabled"
-                        wiy:style="item.style" wiy:onclick="e => this.onButtonClick(e, item)">{{item.text}}</wiy-button>
-                    <wiy-cascader wiy:if="item.type == 'cascader'" wiy:data-options="item.options"
-                        wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
-                        wiy:style="item.style" wiy:data-prompts="item.prompts"
-                        wiy:ondestroy="this.onItemDestroy(item)"></wiy-select>
+                    <slot name="value-{{item.name}}" wiy:data-form="this" wiy:data-item="item">
+                        <div class="info" wiy:if="!item.type" wiy:style="item.style">
+                            <template wiy:if="!item.isHtml">{{data[item.name] || ''}}</template>
+                            <div wiy:if="item.isHtml" wiy:html="data[item.name] || ''"></div>
+                        </div>
+                        <wiy-input wiy:if="item.type == 'input'" wiy:data-text="data[item.name]"
+                            wiy:onchange="this.onItemValueChange(item)" wiy:style="item.style"
+                            type="{{item.subType || 'text'}}" wiy:attr-placeholder="item.placeholder"
+                            wiy:attr-icon="item.icon" wiy:ondestroy="this.onItemDestroy(item)"></wiy-input>
+                        <wiy-radio-group wiy:if="item.type == 'radio-group'" wiy:data-options="item.options"
+                            wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
+                            wiy:style="item.style" wiy:ondestroy="this.onItemDestroy(item)"
+                            wiy:attr-allow-other="item.allowOther ? '' : undefined"></wiy-radio-group>
+                        <wiy-checkbox-group wiy:if="item.type == 'checkbox-group'" wiy:data-options="item.options"
+                            wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
+                            wiy:style="item.style" wiy:ondestroy="this.onItemDestroy(item)"
+                            wiy:attr-allow-other="item.allowOther ? '' : undefined"></wiy-checkbox-group>
+                        <wiy-select wiy:if="item.type == 'select'" wiy:data-options="item.options"
+                            wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
+                            wiy:style="item.style" wiy:attr-prompt="item.prompt"
+                            wiy:ondestroy="this.onItemDestroy(item)"></wiy-select>
+                        <wiy-file-picker wiy:if="item.type == 'file-picker'" wiy:data-files="data[item.name]"
+                            wiy:data-tips="item.tips" wiy:onchange="this.onItemValueChange(item)"
+                            wiy:onfileclick="e => this.onFilePickerFileClick(e, item)" wiy:style="item.style"
+                            wiy:ondestroy="this.onItemDestroy(item)"></wiy-file-picker>
+                        <wiy-textarea wiy:if="item.type == 'textarea'" wiy:data-text="data[item.name]"
+                            wiy:onchange="this.onItemValueChange(item)" wiy:style="item.style"
+                            wiy:attr-placeholder="item.placeholder"
+                            wiy:ondestroy="this.onItemDestroy(item)"></wiy-textarea>
+                        <wiy-rate wiy:if="item.type == 'rate'" wiy:data-score="data[item.name]"
+                            wiy:onchange="this.onItemValueChange(item)" wiy:style="item.style" wiy:attr-max="item.max"
+                            wiy:ondestroy="this.onItemDestroy(item)"></wiy-rate>
+                        <wiy-button wiy:if="item.type == 'button'" wiy:attr-theme="item.theme" wiy:attr-icon="item.icon"
+                            wiy:attr-icon-spin="item.iconSpin ? '' : undefined" wiy:data-disabled="item.disabled"
+                            wiy:style="item.style"
+                            wiy:onclick="e => this.onButtonClick(e, item)">{{item.text}}</wiy-button>
+                        <wiy-cascader wiy:if="item.type == 'cascader'" wiy:data-options="item.options"
+                            wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
+                            wiy:style="item.style" wiy:data-prompts="item.prompts"
+                            wiy:ondestroy="this.onItemDestroy(item)"></wiy-select>
+                    </slot>
                 </div>
             </template>
         </template>
