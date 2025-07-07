@@ -50,6 +50,10 @@
                     <wiy-button wiy:if="item.type == 'button'" wiy:attr-theme="item.theme" wiy:attr-icon="item.icon"
                         wiy:attr-icon-spin="item.iconSpin ? '' : undefined" wiy:data-disabled="item.disabled"
                         wiy:style="item.style" wiy:onclick="e => this.onButtonClick(e, item)">{{item.text}}</wiy-button>
+                    <wiy-cascader wiy:if="item.type == 'cascader'" wiy:data-options="item.options"
+                        wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
+                        wiy:style="item.style" wiy:data-prompts="item.prompts"
+                        wiy:ondestroy="this.onItemDestroy(item)"></wiy-select>
                 </div>
             </template>
         </template>

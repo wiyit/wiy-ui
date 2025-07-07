@@ -5,7 +5,7 @@ export default {
         'sub-cascader': import('./cascader.js'),
     },
     data: {
-        prompt: [],
+        prompts: [],
         options: [],
         data: [],
     },
