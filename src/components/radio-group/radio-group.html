@@ -3,14 +3,17 @@
         wiy:onchange="e => this.onInputChange(e, option.value)" />
     <label for="radio-{{key}}">{{option.label || option.value}}</label>
 </wiy-flex>
-<wiy-flex id="other" class="option" ai="center" wiy:let-otherdata="this.getOtherData()">
-    <input id="radio-other" name="radio" type="radio" wiy:data="!!otherdata"
+<wiy-flex id="other" class="option" ai="center" wiy:let-other-data="this.getOtherData()">
+    <input id="radio-other" name="radio" type="radio" wiy:data="!!otherData"
         wiy:onchange="e => this.onOtherChange(e, null)" />
     <label for="radio-other">
         <wiy-flex ai="center">
             其他：
-            <wiy-input placeholder="请输入" wiy:data-text="otherdata?.toString()"
-                wiy:onchange="e => this.onOtherChange(e, e.data.text ? e.data.text : null)"></wiy-input>
+            <slot name="other" wiy:data-value="otherData"
+                wiy:data-set-value="() => (value) => this.onOtherChange(null, value)">
+                <wiy-input placeholder="请输入" wiy:data-text="otherData?.toString()"
+                    wiy:onchange="e => this.onOtherChange(e, e.data.text ? e.data.text : null)"></wiy-input>
+            </slot>
         </wiy-flex>
     </label>
 </wiy-flex>
