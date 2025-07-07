@@ -4,6 +4,7 @@ const components = {
     'wiy-breadcrumb': import('./components/breadcrumb/breadcrumb.js'),
     'wiy-button': import('./components/button/button.js'),
     'wiy-carousel': import('./components/carousel/carousel.js'),
+    'wiy-cascader': import('./components/cascader/cascader.js'),
     'wiy-chart': import('./components/chart/chart.js'),
     'wiy-checkbox': import('./components/checkbox/checkbox.js'),
     'wiy-checkbox-group': import('./components/checkbox-group/checkbox-group.js'),
