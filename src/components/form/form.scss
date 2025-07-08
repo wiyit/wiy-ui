@@ -1,5 +1,7 @@
 :host {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     font-size: 14px;
 
     #title {
@@ -11,13 +13,11 @@
         color: var(--wiy-form-desc-color);
         border-left: 1px solid var(--wiy-form-desc-border-color);
         padding: 8px 7px;
-        margin-top: 10px;
     }
 
     #items {
         display: grid;
         gap: 8px 16px;
-        margin-top: 10px;
 
         .label {
             padding-top: 6px;
@@ -59,12 +59,16 @@
         .newline {
             grid-column: auto / -1;
         }
+
+        sub-form {
+            grid-column: 1 / -1;
+        }
     }
 
     #operations {
         display: flex;
         gap: 20px;
-        margin-top: 20px;
+        margin-top: 10px;
     }
 }
 

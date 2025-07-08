@@ -1,6 +1,9 @@
 export default {
     template: import('./form.html'),
     style: import('./form.scss'),
+    components: {
+        'sub-form': import('./form.js'),
+    },
     data: {
         title: '',
         desc: '',
@@ -42,6 +45,33 @@ export default {
         },
         onButtonClick(e, item) {
             item.onclick && item.onclick(this, item);
+        },
+        validate() {
+            const validateItem = (item) => {
+                if (item.type === 'form') {
+                    return validateItems(item.items);
+                }
+
+                const label = (item.label || item.name)?.trim();
+                const data = this.actualData[item.name];
+                if (item.required) {
+                    if (_.isUndefined(data) || _.isNull(data) || data.length === 0) {
+                        return {
+                            item,
+                            info: `${label}不能为空`,
+                        };
+                    }
+                }
+            };
+            const validateItems = (items) => {
+                for (let item of items) {
+                    const error = validateItem(item);
+                    if (error) {
+                        return error;
+                    }
+                }
+            };
+            return validateItems(this.actualItems);
         },
     },
 };

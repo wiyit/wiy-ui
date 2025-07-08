@@ -4,17 +4,22 @@
 </div>
 <div id="items" wiy:let-data="this.getData()">
     <template wiy:for="this.getItems()" wiy:for.value="item">
-        <template wiy:if="this.needShowItem(item)">
+        <template wiy:if="this.needShowItem(item)" wiy:let-label="item.label || item.name">
             <template wiy:if="item.isGroup">
-                <wiy-pre class="group-label" wiy:data-text="item.label"></wiy-pre>
+                <wiy-pre class="group-label" wiy:data-text="label"></wiy-pre>
             </template>
             <template wiy:if="item.newline">
                 <div class="newline"></div>
             </template>
-            <template wiy:if="!item.isGroup && !item.newline">
+            <template wiy:if="item.type == 'form'">
+                <wiy-pre class="group-label" wiy:if="label" wiy:data-text="label"></wiy-pre>
+                <sub-form wiy:data-items="item.items" wiy:data-data="data" wiy:attr-columns="item.columns"
+                    wiy:style="item.style"></sub-form>
+            </template>
+            <template wiy:if="!item.isGroup && !item.newline && item.type != 'form'">
                 <label class="label">
                     <span wiy:if="item.required" class="required">*</span>
-                    <wiy-pre class="label-name" wiy:data-text="item.label || item.name"></wiy-pre>
+                    <wiy-pre class="label-name" wiy:data-text="label"></wiy-pre>
                 </label>
                 <div class="value">
                     <slot name="value-{{item.name}}" wiy:data-form="this" wiy:data-item="item">
@@ -56,15 +61,15 @@
                         <wiy-cascader wiy:if="item.type == 'cascader'" wiy:data-options="item.options"
                             wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
                             wiy:style="item.style" wiy:data-prompts="item.prompts"
-                            wiy:ondestroy="this.onItemDestroy(item)"></wiy-select>
+                            wiy:ondestroy="this.onItemDestroy(item)"></wiy-cascader>
                     </slot>
                 </div>
             </template>
         </template>
     </template>
 </div>
-<div id="operations">
-    <template wiy:for="this.getOperations()" wiy:for.value="operation">
+<div id="operations" wiy:let-operations="this.getOperations()" wiy:if="operations?.length">
+    <template wiy:for="operations" wiy:for.value="operation">
         <wiy-button wiy:if="this.needShowOperation(operation)" wiy:attr-theme="operation.theme"
             wiy:attr-icon="operation.icon" wiy:onclick="this.onOperationClick(operation)">
             {{operation.name}}
