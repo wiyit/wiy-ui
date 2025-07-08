@@ -10,7 +10,7 @@
         <wiy-flex ai="center">
             其他：
             <slot name="other" wiy:data-value="otherData"
-                wiy:data-set-value="() => (value) => this.onOtherChange(null, value)">
+                wiy:method-set-value="(value) => this.onOtherChange(null, value)">
                 <wiy-input placeholder="请输入" wiy:data-text="otherData?.toString()"
                     wiy:onchange="e => this.onOtherChange(e, e.data.text ? e.data.text : null)"></wiy-input>
             </slot>
