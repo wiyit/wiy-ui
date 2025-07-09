@@ -24,7 +24,7 @@ export default {
     template: import('./map.html'),
     style: import('./map.scss'),
     components: {
-        'map-layer': import('./layer/layer.js'),
+        mapLayer: import('./layer/layer.js'),
     },
     data: {
         map: undefined,

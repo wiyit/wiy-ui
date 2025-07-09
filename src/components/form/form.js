@@ -1,9 +1,6 @@
 export default {
     template: import('./form.html'),
     style: import('./form.scss'),
-    components: {
-        'sub-form': import('./form.js'),
-    },
     data: {
         title: '',
         desc: '',

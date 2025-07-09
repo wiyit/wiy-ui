@@ -1,9 +1,6 @@
 export default {
     template: import('./menus.html'),
     style: import('./menus.scss'),
-    components: {
-        'sub-menus': import('./menus.js'),
-    },
     data: {
         items: [],
     },

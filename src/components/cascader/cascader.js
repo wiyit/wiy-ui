@@ -1,9 +1,6 @@
 export default {
     template: import('./cascader.html'),
     style: import('./cascader.scss'),
-    components: {
-        'sub-cascader': import('./cascader.js'),
-    },
     data: {
         prompts: [],
         options: [],

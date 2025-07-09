@@ -41,14 +41,14 @@
                     transform: scaleY(-1);
                 }
 
-                &~sub-menus {
+                &~wiy-menus {
                     height: auto;
                     opacity: 1;
                 }
             }
         }
 
-        sub-menus {
+        wiy-menus {
             padding-left: 1em;
             transition: opacity 0.3s ease;
             overflow: hidden;

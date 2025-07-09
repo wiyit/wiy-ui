@@ -101,9 +101,11 @@ export const methods = {
         }
 
         this.newComponent({
-            components: {
-                'wiy-message': import('./message.js'),
-            },
-        }).renderElement(element);
+            lifecycle: {
+                init() {
+                    this.renderElement(element);
+                }
+            }
+        });
     },
 };
