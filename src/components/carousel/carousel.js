@@ -17,11 +17,13 @@ export default {
         setActive(index) {
             const items = this.getElement('items');
             const item = this.getElement(`item-${index}`);
-            items.scrollTo({
-                left: item.offsetLeft,
-                behavior: 'smooth',
-            });
-            this.active = index;
+            if (item) {
+                items.scrollTo({
+                    left: item.offsetLeft,
+                    behavior: 'smooth',
+                });
+                this.active = index;
+            }
         },
         play(index) {
             this.pause();
