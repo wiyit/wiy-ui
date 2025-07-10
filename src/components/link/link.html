@@ -1,4 +1,5 @@
-<a wiy:attr-href="this.attr('href')" wiy:attr-target="this.attr('target')" wiy:onclick="this.onClick">
+<a wiy:let-href="this.href || this.attr('href')" wiy:attr-href="href" wiy:attr-target="this.attr('target')"
+    wiy:onclick="this.onClick">
     <wiy-icon wiy:if="this.attr('icon')" name="{{this.attr('icon')}}" wiy:attr-spin="this.attr('icon-spin')"></wiy-icon>
-    <slot>{{this.attr('href')}}</slot>
+    <slot>{{href}}</slot>
 </a>

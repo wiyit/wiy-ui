@@ -1,9 +1,12 @@
 export default {
     template: import('./link.html'),
     style: import('./link.scss'),
+    data: {
+        href: undefined,
+    },
     methods: {
         onClick(e) {
-            const href = this.attr('href');
+            const href = this.href || this.attr('href');
             const target = this.attr('target') || '_self';
             if (!href || href.startsWith('http://') || href.startsWith('https://')) {
                 return;
