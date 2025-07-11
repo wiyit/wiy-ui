@@ -9,6 +9,9 @@ export default {
             this.actualItems = await this.actual(this.items);
             return this.actualItems;//返回响应式结果
         },
+        getLevel() {
+            return parseInt(this.attr('level')) || 0;
+        },
         isOpened(menu) {
             return menu.sub && menu.sub.length > 0 && menu.subShow;
         },

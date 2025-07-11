@@ -5,15 +5,9 @@
     gap: 4px;
 
     .menu {
-        display: flex;
-        flex-direction: column;
-
         .item {
-            display: flex;
-            align-items: center;
             padding: 7px 16px;
             border-radius: 3px;
-            gap: 8px;
             cursor: pointer;
             user-select: none;
 
