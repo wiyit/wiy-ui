@@ -17,6 +17,8 @@ export default {
                 if (data.type == 'resize') {
                     element.style.height = data.height + 'px';
                 }
+
+                this.trigger('message', data);
             });
         },
         unmount() {
