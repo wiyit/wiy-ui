@@ -1,6 +1,9 @@
+import template from './radio.html';
+import style from './radio.css';
+
 export default {
-    template: import('./radio.html'),
-    style: import('./radio.css'),
+    template,
+    style,
     data: {
         checked: false,
     },

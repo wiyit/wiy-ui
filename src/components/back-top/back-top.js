@@ -1,6 +1,9 @@
+import template from './back-top.html';
+import style from './back-top.scss';
+
 export default {
-    template: import('./back-top.html'),
-    style: import('./back-top.scss'),
+    template,
+    style,
     data: {
         show: false,
         container: window,

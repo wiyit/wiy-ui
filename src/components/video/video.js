@@ -1,6 +1,9 @@
+import template from './video.html';
+import style from './video.scss';
+
 export default {
-    template: import('./video.html'),
-    style: import('./video.scss'),
+    template,
+    style,
     data: {
         src: undefined,
         poster: undefined,

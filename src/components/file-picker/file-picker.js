@@ -1,6 +1,9 @@
+import template from './file-picker.html';
+import style from './file-picker.scss';
+
 export default {
-    template: import('./file-picker.html'),
-    style: import('./file-picker.scss'),
+    template,
+    style,
     data: {
         files: [],
         tips: undefined,

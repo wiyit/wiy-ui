@@ -1,8 +1,10 @@
+import template from './chart.html';
+import style from './chart.scss';
 import * as echarts from 'echarts';
 
 export default {
-    template: import('./chart.html'),
-    style: import('./chart.scss'),
+    template,
+    style,
     data: {
         chart: undefined,
         option: {},

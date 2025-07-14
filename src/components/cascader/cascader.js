@@ -1,6 +1,9 @@
+import template from './cascader.html';
+import style from './cascader.scss';
+
 export default {
-    template: import('./cascader.html'),
-    style: import('./cascader.scss'),
+    template,
+    style,
     data: {
         prompts: [],
         options: [],

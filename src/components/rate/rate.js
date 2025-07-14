@@ -1,6 +1,9 @@
+import template from './rate.html';
+import style from './rate.scss';
+
 export default {
-    template: import('./rate.html'),
-    style: import('./rate.scss'),
+    template,
+    style,
     data: {
         score: undefined,
         showScore: undefined,

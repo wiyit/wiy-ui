@@ -1,4 +1,7 @@
+import template from './empty.html';
+import style from './empty.scss';
+
 export default {
-    template: import('./empty.html'),
-    style: import('./empty.scss'),
+    template,
+    style,
 };

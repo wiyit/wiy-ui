@@ -1,6 +1,9 @@
+import template from './select.html';
+import style from './select.scss';
+
 export default {
-    template: import('./select.html'),
-    style: import('./select.scss'),
+    template,
+    style,
     data: {
         options: [],
         data: undefined,

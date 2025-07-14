@@ -1,6 +1,9 @@
+import template from './frame.html';
+import style from './frame.scss';
+
 export default {
-    template: import('./frame.html'),
-    style: import('./frame.scss'),
+    template,
+    style,
     data: {
         src: undefined,
     },

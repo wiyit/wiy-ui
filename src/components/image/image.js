@@ -1,6 +1,9 @@
+import template from './image.html';
+import style from './image.scss';
+
 export default {
-    template: import('./image.html'),
-    style: import('./image.scss'),
+    template,
+    style,
     data: {
         src: undefined,
         srcList: [],

@@ -1,3 +1,5 @@
+import template from './code.html';
+import style from './code.scss';
 import { Compartment, EditorState } from '@codemirror/state';
 import { EditorView, keymap, lineNumbers } from '@codemirror/view';
 import { indentWithTab } from '@codemirror/commands';
@@ -16,8 +18,8 @@ const languages = oldLanguages.filter(desc => {
 }));
 
 export default {
-    template: import('./code.html'),
-    style: import('./code.scss'),
+    template,
+    style,
     data: {
         code: '',
         theme: undefined,

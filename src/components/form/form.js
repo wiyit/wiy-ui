@@ -1,6 +1,9 @@
+import template from './form.html';
+import style from './form.scss';
+
 export default {
-    template: import('./form.html'),
-    style: import('./form.scss'),
+    template,
+    style,
     data: {
         title: '',
         desc: '',

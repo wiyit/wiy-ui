@@ -1,6 +1,9 @@
+import template from './loading.html';
+import style from './loading.scss';
+
 export default {
-    template: import('./loading.html'),
-    style: import('./loading.scss'),
+    template,
+    style,
     data: {
         loading: false,
     },

@@ -1,6 +1,9 @@
+import template from './input.html';
+import style from './input.scss';
+
 export default {
-    template: import('./input.html'),
-    style: import('./input.scss'),
+    template,
+    style,
     data: {
         text: '',
         showPassword: false,

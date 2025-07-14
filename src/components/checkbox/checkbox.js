@@ -1,6 +1,9 @@
+import template from './checkbox.html';
+import style from './checkbox.css';
+
 export default {
-    template: import('./checkbox.html'),
-    style: import('./checkbox.css'),
+    template,
+    style,
     data: {
         checked: false,
     },

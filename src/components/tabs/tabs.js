@@ -1,6 +1,9 @@
+import template from './tabs.html';
+import style from './tabs.scss';
+
 export default {
-    template: import('./tabs.html'),
-    style: import('./tabs.scss'),
+    template,
+    style,
     data: {
         items: [],
         active: 0,

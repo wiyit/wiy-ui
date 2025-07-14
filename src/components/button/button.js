@@ -1,6 +1,9 @@
+import template from './button.html';
+import style from './button.scss';
+
 export default {
-    template: import('./button.html'),
-    style: import('./button.scss'),
+    template,
+    style,
     data: {
         disabled: false,
     },

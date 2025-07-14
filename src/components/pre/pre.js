@@ -1,6 +1,9 @@
+import template from './pre.html';
+import style from './pre.scss';
+
 export default {
-    template: import('./pre.html'),
-    style: import('./pre.scss'),
+    template,
+    style,
     data: {
         text: undefined,
     },

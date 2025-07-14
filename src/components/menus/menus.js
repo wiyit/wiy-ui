@@ -1,6 +1,9 @@
+import template from './menus.html';
+import style from './menus.scss';
+
 export default {
-    template: import('./menus.html'),
-    style: import('./menus.scss'),
+    template,
+    style,
     data: {
         items: [],
     },

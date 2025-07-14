@@ -1,3 +1,5 @@
+import template from './icon.html';
+import style from './icon.css';
 import { library, icon, config } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
@@ -7,8 +9,8 @@ config.autoAddCss = false;
 library.add(fas, far, fab);
 
 export default {
-    template: import('./icon.html'),
-    style: import('./icon.css'),
+    template,
+    style,
     methods: {
         getHtml() {
             const i = icon({

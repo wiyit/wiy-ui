@@ -1,6 +1,9 @@
+import template from './floater.html';
+import style from './floater.scss';
+
 export default {
-    template: import('./floater.html'),
-    style: import('./floater.scss'),
+    template,
+    style,
     data: {
         stopped: false,
         visible: true,

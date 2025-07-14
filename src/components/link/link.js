@@ -1,6 +1,9 @@
+import template from './link.html';
+import style from './link.scss';
+
 export default {
-    template: import('./link.html'),
-    style: import('./link.scss'),
+    template,
+    style,
     data: {
         href: undefined,
     },

@@ -1,6 +1,9 @@
+import template from './breadcrumb.html';
+import style from './breadcrumb.css';
+
 export default {
-    template: import('./breadcrumb.html'),
-    style: import('./breadcrumb.css'),
+    template,
+    style,
     data: {
         items: [],
     },

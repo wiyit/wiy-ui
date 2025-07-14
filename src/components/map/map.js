@@ -1,3 +1,5 @@
+import template from './map.html';
+import style from './map.scss';
 import * as mapvgl from 'mapvgl';
 
 const getComputedStyle_old = window.getComputedStyle;
@@ -21,10 +23,10 @@ function loadBMapGL(ak) {
 }
 
 export default {
-    template: import('./map.html'),
-    style: import('./map.scss'),
+    template,
+    style,
     components: {
-        mapLayer: import('./layer/layer.js'),
+        mapLayer: () => import('./layer/layer.js'),
     },
     data: {
         map: undefined,

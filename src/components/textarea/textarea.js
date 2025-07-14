@@ -1,6 +1,9 @@
+import template from './textarea.html';
+import style from './textarea.scss';
+
 export default {
-    template: import('./textarea.html'),
-    style: import('./textarea.scss'),
+    template,
+    style,
     data: {
         text: '',
     },

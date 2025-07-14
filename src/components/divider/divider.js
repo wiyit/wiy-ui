@@ -1,4 +1,7 @@
+import template from './divider.html';
+import style from './divider.scss';
+
 export default {
-    template: import('./divider.html'),
-    style: import('./divider.scss'),
+    template,
+    style,
 };

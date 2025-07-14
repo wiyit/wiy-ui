@@ -1,6 +1,9 @@
+import template from './carousel.html';
+import style from './carousel.scss';
+
 export default {
-    template: import('./carousel.html'),
-    style: import('./carousel.scss'),
+    template,
+    style,
     data: {
         items: [],
         active: 0,

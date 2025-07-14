@@ -1,6 +1,9 @@
+import template from './grid.html';
+import style from './grid.scss';
+
 export default {
-    template: import('./grid.html'),
-    style: import('./grid.scss'),
+    template,
+    style,
     lifecycle: {
         mount() {
             const element = this.getElement();

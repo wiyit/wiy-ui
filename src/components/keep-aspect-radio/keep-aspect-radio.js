@@ -1,6 +1,9 @@
+import template from './keep-aspect-radio.html';
+import style from './keep-aspect-radio.scss';
+
 export default {
-    template: import('./keep-aspect-radio.html'),
-    style: import('./keep-aspect-radio.scss'),
+    template,
+    style,
     lifecycle: {
         mount() {
             const outer = this.getElement('outer');

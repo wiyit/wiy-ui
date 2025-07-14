@@ -1,6 +1,9 @@
+import template from './dropdown.html';
+import style from './dropdown.scss';
+
 export default {
-    template: import('./dropdown.html'),
-    style: import('./dropdown.scss'),
+    template,
+    style,
     data: {
         contentShow: false,
     },

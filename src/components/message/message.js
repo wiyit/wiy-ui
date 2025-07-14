@@ -1,3 +1,6 @@
+import template from './message.html';
+import style from './message.scss';
+
 function getLayer(position) {
     const layerId = `wiy-message-layer-${position}`;
     let layer = document.getElementById(layerId);
@@ -24,8 +27,8 @@ function getLayer(position) {
 }
 
 export default {
-    template: import('./message.html'),
-    style: import('./message.scss'),
+    template,
+    style,
     data: {
         visible: false,
     },

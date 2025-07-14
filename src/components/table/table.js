@@ -1,6 +1,9 @@
+import template from './table.html';
+import style from './table.scss';
+
 export default {
-    template: import('./table.html'),
-    style: import('./table.scss'),
+    template,
+    style,
     data: {
         columns: [],
         data: [],

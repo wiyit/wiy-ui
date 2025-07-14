@@ -1,6 +1,9 @@
+import template from './flex.html';
+import style from './flex.scss';
+
 export default {
-    template: import('./flex.html'),
-    style: import('./flex.scss'),
+    template,
+    style,
     lifecycle: {
         mount() {
             const element = this.getElement();

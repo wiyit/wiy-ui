@@ -1,6 +1,9 @@
+import template from './radio-group.html';
+import style from './radio-group.scss';
+
 export default {
-    template: import('./radio-group.html'),
-    style: import('./radio-group.scss'),
+    template,
+    style,
     data: {
         options: [],
         data: undefined,

@@ -1,6 +1,9 @@
+import template from './popover.html';
+import style from './popover.scss';
+
 export default {
-    template: import('./popover.html'),
-    style: import('./popover.scss'),
+    template,
+    style,
     data: {
         visible: false,
     },

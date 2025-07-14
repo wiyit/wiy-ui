@@ -1,6 +1,9 @@
+import template from './ellipsis.html';
+import style from './ellipsis.scss';
+
 export default {
-    template: import('./ellipsis.html'),
-    style: import('./ellipsis.scss'),
+    template,
+    style,
     lifecycle: {
         mount() {
             const lines = this.attr('lines');

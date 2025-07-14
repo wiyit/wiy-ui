@@ -1,6 +1,9 @@
+import template from './checkbox-group.html';
+import style from './checkbox-group.scss';
+
 export default {
-    template: import('./checkbox-group.html'),
-    style: import('./checkbox-group.scss'),
+    template,
+    style,
     data: {
         options: [],
         data: [],
