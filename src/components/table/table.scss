@@ -40,8 +40,12 @@
         .operation-cell {
             user-select: none;
 
-            .title {
-                margin: 4px 6px;
+            wiy-dropdown {
+                z-index: unset; //允许下拉内容覆盖其他内容
+
+                .title {
+                    margin: 4px 6px;
+                }
             }
         }
 
