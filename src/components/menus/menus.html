@@ -1,7 +1,8 @@
 <template wiy:for="this.getItems()" wiy:for.value="menu" wiy:let-level="this.getLevel()">
-    <wiy-flex v class="menu" wiy:if="this.needShow(menu)">
-        <wiy-flex ai="center" g="8px" class="item" wiy:class-opened="this.isOpened(menu)"
-            wiy:class-active="this.isActive(menu)" wiy:onclick="this.onItemClick(menu)">
+    <wiy-flex v class="menu" wiy:if="this.needShow(menu)" wiy:let-opened="this.isOpened(menu)"
+        wiy:let-active="this.isActive(menu)">
+        <wiy-flex ai="center" g="8px" class="item" wiy:class-opened="opened" wiy:class-active="active"
+            wiy:onclick="this.onItemClick(menu)">
             <wiy-icon name="{{menu.icon}}" wiy:if="menu.icon"></wiy-icon>
             <div class="name">
                 <slot name="item-{{index}}">
@@ -10,6 +11,6 @@
             </div>
             <wiy-icon class="angle" wiy:if="menu.sub?.length > 0" name="angle-down"></wiy-icon>
         </wiy-flex>
-        <wiy-menus level="{{level + 1}}" wiy:data-items="menu.sub"></wiy-menus>
+        <wiy-menus level="{{level + 1}}" wiy:if="opened" wiy:data-items="menu.sub"></wiy-menus>
     </wiy-flex>
 </template>
