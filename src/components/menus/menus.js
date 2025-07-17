@@ -25,8 +25,16 @@ export default {
             return !menu.when || menu.when(this, menu);
         },
         onItemClick(menu) {
-            menu.subShow = !menu.subShow;
-            menu.onclick && menu.onclick(this, menu);
+            if (menu.onclick) {
+                menu.subShow = true;
+                menu.onclick(this, menu);
+            } else {
+                menu.subShow = !menu.subShow;
+            }
         },
+        onAngleClick(e, menu) {
+            e.stopPropagation();
+            menu.subShow = !menu.subShow;
+        }
     },
 };

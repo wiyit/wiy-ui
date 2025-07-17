@@ -9,7 +9,8 @@
                     {{menu.name}}
                 </slot>
             </div>
-            <wiy-icon class="angle" wiy:if="menu.sub?.length > 0" name="angle-down"></wiy-icon>
+            <wiy-icon class="angle" wiy:if="menu.sub?.length > 0" name="angle-down"
+                wiy:onclick="e => this.onAngleClick(e, menu)"></wiy-icon>
         </wiy-flex>
         <wiy-menus level="{{level + 1}}" wiy:if="opened" wiy:data-items="menu.sub"></wiy-menus>
     </wiy-flex>
