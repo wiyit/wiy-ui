@@ -71,7 +71,7 @@
 <div id="operations" wiy:let-operations="this.getOperations()" wiy:if="operations?.length">
     <template wiy:for="operations" wiy:for.value="operation">
         <wiy-button wiy:if="this.needShowOperation(operation)" wiy:attr-theme="operation.theme"
-            wiy:attr-icon="operation.icon" wiy:onclick="this.onOperationClick(operation)">
+            wiy:attr-icon="operation.icon" wiy:onclick="this.onOperationClick(operation)" wiy:style="operation.style">
             {{operation.name}}
         </wiy-button>
     </template>
