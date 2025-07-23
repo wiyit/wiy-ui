@@ -47,12 +47,12 @@ export default {
             item.onclick && item.onclick(this, item);
         },
         validate() {
-            const validateItem = (item) => {
+            const validateItem = (item, parentLabel = '') => {
+                const label = parentLabel + (item.label || item.name || '').trim();
                 if (item.type === 'form') {
-                    return validateItems(item.items);
+                    return validateItems(item.items, label);
                 }
 
-                const label = (item.label || item.name)?.trim();
                 const data = this.actualData[item.name];
                 if (item.required) {
                     if (_.isUndefined(data) || _.isNull(data) || data.length === 0) {
@@ -63,9 +63,9 @@ export default {
                     }
                 }
             };
-            const validateItems = (items) => {
+            const validateItems = (items, parentLabel = '') => {
                 for (let item of items) {
-                    const error = validateItem(item);
+                    const error = validateItem(item, parentLabel);
                     if (error) {
                         return error;
                     }
