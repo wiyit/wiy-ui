@@ -21,7 +21,7 @@
                     <span wiy:if="item.required" class="required">*</span>
                     <wiy-pre class="label-name" wiy:data-text="label"></wiy-pre>
                 </label>
-                <div class="value">
+                <div class="value" wiy:class-disabled="item.disabled">
                     <slot name="value-{{item.name}}" wiy:data-form="this" wiy:data-item="item">
                         <div class="info" wiy:if="!item.type" wiy:style="item.style">
                             <template wiy:if="!item.isHtml">{{data[item.name] || ''}}</template>

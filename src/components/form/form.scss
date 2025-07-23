@@ -39,6 +39,10 @@
             display: flex;
             padding-left: 8px;
 
+            &.disabled {
+                pointer-events: none;
+            }
+
             &>* {
                 width: 100%;
                 min-height: 32px;
