@@ -14,7 +14,7 @@
             <template wiy:if="item.type == 'form'">
                 <wiy-pre class="group-label" wiy:if="label" wiy:data-text="label"></wiy-pre>
                 <wiy-form wiy:data-items="item.items" wiy:data-data="data" wiy:attr-columns="item.columns"
-                    wiy:style="item.style"></wiy-form>
+                    wiy:style="item.style" wiy:attr-disabled="item.disabled ? '' : null"></wiy-form>
             </template>
             <template wiy:if="!item.isGroup && !item.newline && item.type != 'form'">
                 <label class="label">

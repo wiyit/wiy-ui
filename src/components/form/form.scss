@@ -144,3 +144,9 @@
         justify-content: center;
     }
 }
+
+:host([disabled]) {
+    #items {
+        pointer-events: none;
+    }
+}
