@@ -10,7 +10,7 @@ export default {
     },
     methods: {
         getValue() {
-            return this.getElement('input').value;
+            return this.getElement('input')?.value;
         },
         onInputChange(e) {
             this.trigger('change', {

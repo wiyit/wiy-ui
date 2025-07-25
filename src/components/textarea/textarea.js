@@ -9,7 +9,7 @@ export default {
     },
     methods: {
         getValue() {
-            return this.getElement('textarea').value;
+            return this.getElement('textarea')?.value;
         },
         onInputChange(e) {
             this.trigger('change', {
