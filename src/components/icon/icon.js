@@ -11,11 +11,15 @@ library.add(fas, far, fab);
 export default {
     template,
     style,
+    data: {
+        prefix: undefined,
+        name: undefined,
+    },
     methods: {
         getHtml() {
             const i = icon({
-                prefix: this.attr('prefix'),
-                iconName: this.attr('name'),
+                prefix: this.prefix || this.attr('prefix'),
+                iconName: this.name || this.attr('name'),
             }, {
                 classes: [
                     ...[this.hasAttr('spin') ? 'spin' : undefined],
