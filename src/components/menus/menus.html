@@ -3,7 +3,7 @@
         wiy:let-active="this.isActive(menu)">
         <wiy-flex ai="center" g="8px" class="item" wiy:class-opened="opened" wiy:class-active="active"
             wiy:onclick="this.onItemClick(menu)">
-            <wiy-icon wiy:attr-prefix="menu.iconPrefix" name="{{menu.icon}}" wiy:if="menu.icon"></wiy-icon>
+            <wiy-icon wiy:data-prefix="menu.iconPrefix" wiy:data-name="menu.icon" wiy:if="menu.icon"></wiy-icon>
             <div class="name">
                 <slot name="item-{{index}}">
                     {{menu.name}}
