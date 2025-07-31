@@ -16,10 +16,13 @@ export default {
             return parseInt(this.attr('level')) || 0;
         },
         isOpened(menu) {
-            return menu.sub && menu.sub.length > 0 && menu.subShow;
+            return menu.sub?.length && (menu.subShow || this.isSubActive(menu));
         },
         isActive(menu) {
             return menu.isActive && menu.isActive(this, menu);
+        },
+        isSubActive(menu) {
+            return menu.sub?.some(m => this.isActive(m) || this.isSubActive(m));
         },
         needShow(menu) {
             return !menu.when || menu.when(this, menu);
