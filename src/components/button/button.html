@@ -1,5 +1,6 @@
 <button wiy:attr-disabled="(this.disabled || this.hasAttr('disabled')) ? '' : undefined">
-    <wiy-icon wiy:if="this.attr('icon')" name="{{this.attr('icon')}}" wiy:attr-spin="this.attr('icon-spin')"></wiy-icon>
+    <wiy-icon wiy:if="this.attr('icon')" name="{{this.attr('icon')}}" wiy:attr-prefix="this.attr('icon-prefix')"
+        wiy:attr-spin="this.attr('icon-spin')"></wiy-icon>
     <div wiy:if="this.hasSlotTemplate('')">
         <slot></slot>
     </div>
