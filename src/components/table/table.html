@@ -1,22 +1,36 @@
-<div id="table" wiy:attr-style="this.getTableStyle()">
-    <div class="head-cell"></div>
-    <div class="head-cell" wiy:for="this.columns" wiy:for.value="column">
-        {{this.getColumn(column).name}}
-    </div>
-    <div class="head-cell">操作</div>
-
-    <template wiy:for="this.data" wiy:for.value="row" wiy:for.key="rowIndex">
-        <div class="number-cell">{{this.startRowNumber + rowIndex}}</div>
-        <div class="{{this.getClasses(column)}}" wiy:for="this.columns" wiy:for.value="column" wiy:for.key="columnIndex"
-            wiy:onclick="this.onCellClick(row, column, rowIndex, columnIndex)">
-            {{this.getItem(row, column, rowIndex, columnIndex)}}
-        </div>
-        <div class="operation-cell" wiy:let-operations="this.getOperations(row)">
-            <wiy-dropdown wiy:if="operations">
-                <div class="title">操作</div>
-                <wiy-menus wiy:slot="content" wiy:data-items="operations"></wiy-menus>
-            </wiy-dropdown>
-        </div>
-    </template>
-</div>
+<table wiy:let-columns="this.columns" wiy:let-data="this.data">
+    <thead>
+        <tr>
+            <th></th>
+            <th wiy:for="columns">
+                <div>{{value.name}}</div>
+            </th>
+            <th>
+                <div>操作</div>
+            </th>
+        </tr>
+    </thead>
+    <tbody wiy:class-row-clickable="!!this.onrowclick">
+        <tr wiy:for="data" wiy:for.index="rowIndex" wiy:for.value="row" wiy:onclick="this.onRowClick(row, rowIndex)">
+            <td class="number-cell">
+                <div>{{this.startRowNumber + rowIndex}}</div>
+            </td>
+            <td wiy:for="columns" wiy:for.index="columnIndex" wiy:for.value="column">
+                <div wiy:let-item="this.getItem(row, column, rowIndex, columnIndex)">
+                    <template wiy:if="!column.isHtml">{{item}}</template>
+                    <template wiy:if="column.isHtml" wiy:html="item"></template>
+                </div>
+            </td>
+            <td class="operation-cell" wiy:let-operations="this.getOperations(row)"
+                wiy:onclick="e => e.stopPropagation()">
+                <div>
+                    <wiy-dropdown wiy:if="operations">
+                        <div class="title">操作</div>
+                        <wiy-menus wiy:slot="content" wiy:data-items="operations"></wiy-menus>
+                    </wiy-dropdown>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
 <wiy-empty wiy:if="!this.data.length"></wiy-empty>
