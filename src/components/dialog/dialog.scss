@@ -40,3 +40,13 @@
         }
     }
 }
+
+:host([position=right]) {
+    dialog[open] {
+        height: 100vh;
+        max-height: 100vh;
+        min-width: 480px;
+        left: auto;
+        border-radius: 0;
+    }
+}
