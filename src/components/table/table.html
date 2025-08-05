@@ -1,4 +1,9 @@
 <table wiy:let-columns="this.columns" wiy:let-data="this.data">
+    <colgroup>
+        <col />
+        <col wiy:for="columns" wiy:style="value.style" />
+        <col />
+    </colgroup>
     <thead>
         <tr>
             <th></th>

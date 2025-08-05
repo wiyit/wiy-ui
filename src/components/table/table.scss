@@ -49,7 +49,10 @@
 
                 td {
                     &.number-cell {
+                        width: 0;
+
                         &>div {
+                            min-width: max-content;
                             justify-content: center;
                             user-select: none;
                             color: var(--wiy-table-number-text-color);
@@ -57,7 +60,10 @@
                     }
 
                     &.operation-cell {
+                        width: 0;
+
                         &>div {
+                            min-width: max-content;
                             user-select: none;
 
                             wiy-dropdown {
