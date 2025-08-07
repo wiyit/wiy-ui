@@ -14,7 +14,8 @@
         </tr>
     </thead>
     <tbody wiy:class-row-clickable="!!this.onrowclick">
-        <tr wiy:for="data" wiy:for.index="rowIndex" wiy:for.value="row" wiy:onclick="this.onRowClick(row, rowIndex)">
+        <tr wiy:for="data" wiy:for.index="rowIndex" wiy:for.value="row"
+            wiy:onclick="e => this.onRowClick(e, row, rowIndex)">
             <td class="number-cell">
                 <div>{{this.startRowNumber + rowIndex}}</div>
             </td>
@@ -24,10 +25,9 @@
                     <template wiy:if="column.isHtml" wiy:html="item"></template>
                 </div>
             </td>
-            <td class="operation-cell" wiy:let-operations="this.getOperations(row)"
-                wiy:onclick="e => e.stopPropagation()">
-                <div>
-                    <wiy-dropdown wiy:if="operations">
+            <td class="operation-cell" wiy:let-operations="this.getOperations(row)">
+                <div id="operations-{{rowIndex}}" wiy:if="operations">
+                    <wiy-dropdown>
                         <div class="title">操作</div>
                         <wiy-menus wiy:slot="content" wiy:data-items="operations"></wiy-menus>
                     </wiy-dropdown>

@@ -65,6 +65,7 @@
                         &>div {
                             min-width: max-content;
                             user-select: none;
+                            cursor: default;
 
                             wiy-dropdown {
                                 z-index: unset; //允许下拉内容覆盖其他内容

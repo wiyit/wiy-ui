@@ -32,7 +32,11 @@ export default {
 
             return value;
         },
-        onRowClick(row, rowIndex) {
+        onRowClick(e, row, rowIndex) {
+            const operationsElement = this.getElement(`operations-${rowIndex}`);
+            if (operationsElement && this.onEventPath(e, operationsElement)) {//操作列有内容时忽略点击事件
+                return;
+            }
             this.onrowclick && this.onrowclick(this, row, rowIndex);
         },
     },
