@@ -35,7 +35,7 @@ export default {
         beforeUnmount() {
             const parent = this.getParent();
             parent.view && this.layer && parent.view.removeLayer(this.layer);
-            parent.removeEventListener('create', this.parentCreateEventListener);
+            parent.off('create', this.parentCreateEventListener);
         },
     },
 };
