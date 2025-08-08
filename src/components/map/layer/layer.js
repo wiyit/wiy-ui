@@ -9,7 +9,7 @@ export default {
     lifecycle: {
         mount() {
             const parent = this.getParent();
-            parent.on('create', () => {
+            parent.on('create', this.parentCreateEventListener = () => {
                 Object.defineProperty(this, 'layer', {
                     writable: false,
                     value: new mapvgl[this.attr('type')](),
@@ -32,9 +32,10 @@ export default {
                 parent.view.addLayer(this.layer);
             });
         },
-        unmount(data) {
-            const parent = data.parent;
+        beforeUnmount() {
+            const parent = this.getParent();
             parent.view && this.layer && parent.view.removeLayer(this.layer);
+            parent.removeEventListener('create', this.parentCreateEventListener);
         },
     },
 };
