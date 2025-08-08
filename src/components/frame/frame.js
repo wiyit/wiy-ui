@@ -20,11 +20,11 @@ export default {
             const element = this.getElement();
 
             const iframe = this.getElement('iframe');
-            iframe.addEventListener('load', () => {
+            iframe.addEventListener('load', this.iframeLoadEventListener = () => {
                 this.trigger('load');
             });
 
-            window.addEventListener('message', this.messageEventListener = (e) => {
+            window.addEventListener('message', this.windowMessageEventListener = (e) => {
                 const data = e?.data?.['wiy-frame'];
                 if (!data) {
                     return;
@@ -37,8 +37,10 @@ export default {
                 this.trigger('message', data);
             });
         },
-        unmount() {
-            window.removeEventListener('message', this.messageEventListener);
+        beforeUnmount() {
+            const iframe = this.getElement('iframe');
+            iframe.removeEventListener('load', this.iframeLoadEventListener);
+            window.removeEventListener('message', this.windowMessageEventListener);
         },
     },
 };

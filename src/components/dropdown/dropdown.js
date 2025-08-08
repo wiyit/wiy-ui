@@ -13,12 +13,15 @@ export default {
         },
     },
     lifecycle: {
-        init() {
-            window.addEventListener('click', (e) => {
+        mount() {
+            window.addEventListener('click', this.windowClickEventListener = (e) => {
                 if (!this.onEventPath(e)) {
                     this.contentShow = false;
                 }
             });
+        },
+        unmount() {
+            window.removeEventListener('click', this.windowClickEventListener);
         },
     },
 };

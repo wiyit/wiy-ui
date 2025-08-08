@@ -23,13 +23,15 @@ export default {
     lifecycle: {
         mount() {
             const element = this.getElement();
-            element.addEventListener('click', () => {
+            element.addEventListener('click', this.clickEventListener = () => {
                 const preview = this.getElement('preview');
                 preview && !preview.open && preview.showModal();
             });
         },
         beforeUnmount() {
             this.closePreview();
+            const element = this.getElement();
+            element.removeEventListener('click', this.clickEventListener);
         },
     },
 };

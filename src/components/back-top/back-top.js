@@ -48,9 +48,13 @@ export default {
         mount() {
             this.show = this.needShow();
             const container = this.getContainer();
-            container.addEventListener('scroll', () => {
+            container.addEventListener('scroll', this.containerScrollEventListener = () => {
                 this.show = this.needShow();
             });
+        },
+        unmount() {
+            const container = this.getContainer();
+            container.removeEventListener('scroll', this.containerScrollEventListener);
         },
     },
 };

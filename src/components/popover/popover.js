@@ -40,7 +40,7 @@ export default {
                         popover.style.top = y + 'px';
                     }
 
-                    source.addEventListener('mousemove', (e) => {
+                    source.addEventListener('mousemove', this.sourceMousemoveEventListener = (e) => {
                         position(e.clientX + offset, e.clientY + offset);
                     });
 
@@ -60,5 +60,9 @@ export default {
                 }
             }
         },
+        beforeUnmount() {
+            const source = this.getElement('source');
+            source.removeEventListener('click', this.sourceMousemoveEventListener);
+        }
     },
 };
