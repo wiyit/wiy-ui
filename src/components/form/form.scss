@@ -129,13 +129,13 @@
 :host,
 :host([operations-pos=left]) {
     #operations {
-        justify-content: left;
+        justify-content: flex-start;
     }
 }
 
 :host([operations-pos=right]) {
     #operations {
-        justify-content: right;
+        justify-content: flex-end;
     }
 }
 
