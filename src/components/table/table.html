@@ -20,9 +20,12 @@
                 <div>{{this.startRowNumber + rowIndex}}</div>
             </td>
             <td wiy:for="columns" wiy:for.index="columnIndex" wiy:for.value="column">
-                <div wiy:let-item="this.getItem(row, column, rowIndex, columnIndex)">
-                    <template wiy:if="!column.isHtml">{{item}}</template>
-                    <template wiy:if="column.isHtml" wiy:html="item"></template>
+                <div wiy:let-item="this.getItem(row, column, rowIndex, columnIndex)" wiy:let-is-html="column.isHtml">
+                    <slot name="r-{{rowIndex}}-c-{{columnIndex}}" wiy:if="!isHtml"
+                        wiy:data="{row, column, rowIndex, columnIndex, item}">
+                        {{item}}
+                    </slot>
+                    <template wiy:if="isHtml" wiy:html="item"></template>
                 </div>
             </td>
             <td class="operation-cell" wiy:let-operations="this.getOperations(row)">
