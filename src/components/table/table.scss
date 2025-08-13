@@ -4,6 +4,7 @@
     width: 100%;
     height: 100%;
     font-size: 14px;
+    overflow: auto;
 
     table {
         width: 100%;
@@ -31,8 +32,18 @@
         }
 
         thead {
-            color: var(--wiy-table-header-text-color);
-            background-color: var(--wiy-table-header-color);
+            position: sticky;
+            top: -0.5px;
+            z-index: 1;
+
+            tr {
+                color: var(--wiy-table-header-text-color);
+                background-color: var(--wiy-table-header-color);
+
+                th {
+                    background-color: inherit;
+                }
+            }
         }
 
         tbody {
@@ -48,6 +59,8 @@
                 }
 
                 td {
+                    background-color: inherit;
+
                     &.number-cell {
                         width: 0;
 
