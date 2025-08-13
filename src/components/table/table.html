@@ -6,17 +6,17 @@
     </colgroup>
     <thead>
         <tr>
-            <th></th>
+            <th class="number-column"></th>
             <th wiy:for="columns">
                 <div>{{value.name}}</div>
             </th>
-            <th></th>
+            <th class="operation-column"></th>
         </tr>
     </thead>
     <tbody wiy:class-row-clickable="!!this.onrowclick">
         <tr wiy:for="data" wiy:for.index="rowIndex" wiy:for.value="row"
             wiy:onclick="e => this.onRowClick(e, row, rowIndex)">
-            <td class="number-cell">
+            <td class="number-column">
                 <div>{{this.startRowNumber + rowIndex}}</div>
             </td>
             <td wiy:for="columns" wiy:for.index="columnIndex" wiy:for.value="column">
@@ -28,7 +28,7 @@
                     <template wiy:if="isHtml" wiy:html="item"></template>
                 </div>
             </td>
-            <td class="operation-cell" wiy:let-operations="this.getOperations(row)">
+            <td class="operation-column" wiy:let-operations="this.getOperations(row)">
                 <div id="operations-{{rowIndex}}" wiy:if="operations">
                     <wiy-dropdown>
                         <div class="title">操作</div>

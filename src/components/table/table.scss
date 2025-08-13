@@ -18,6 +18,7 @@
         td {
             padding: 0;
             border: 1px solid var(--wiy-table-border-color);
+            background-color: inherit;
 
             &>div {
                 display: flex;
@@ -29,6 +30,18 @@
                 justify-content: flex-start;
                 align-items: center;
             }
+
+            &.number-column {
+                width: 0;
+                position: sticky;
+                left: -0.5px;
+            }
+
+            &.operation-column {
+                width: 0;
+                position: sticky;
+                right: -1px;
+            }
         }
 
         thead {
@@ -39,10 +52,6 @@
             tr {
                 color: var(--wiy-table-header-text-color);
                 background-color: var(--wiy-table-header-color);
-
-                th {
-                    background-color: inherit;
-                }
             }
         }
 
@@ -59,11 +68,7 @@
                 }
 
                 td {
-                    background-color: inherit;
-
-                    &.number-cell {
-                        width: 0;
-
+                    &.number-column {
                         &>div {
                             min-width: max-content;
                             justify-content: center;
@@ -72,9 +77,7 @@
                         }
                     }
 
-                    &.operation-cell {
-                        width: 0;
-
+                    &.operation-column {
                         &>div {
                             min-width: max-content;
                             user-select: none;
