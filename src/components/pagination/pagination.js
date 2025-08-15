@@ -39,11 +39,11 @@ export default {
 
             return [
                 1,
-                min == centerMin ? 1 + 1 : '...',
+                min === centerMin ? 1 + 1 : '...',
                 ...Array.from({ length: max - min + 1 }, (_, i) => {
                     return min + i;
                 }),
-                max == centerMax ? pageCount - 1 : '...',
+                max === centerMax ? pageCount - 1 : '...',
                 pageCount,
             ];
         },

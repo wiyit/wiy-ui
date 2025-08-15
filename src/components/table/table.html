@@ -21,7 +21,7 @@
                     <div>{{this.startRowNumber + rowIndex}}</div>
                 </td>
                 <td wiy:for="columns" wiy:for.index="columnIndex" wiy:for.value="column">
-                    <div wiy:let-item="this.getItem(row, column, rowIndex, columnIndex)" wiy:let-is-html="column.isHtml"
+                    <div wiy:let-item="this.getItem(row, rowIndex, column, columnIndex)" wiy:let-is-html="column.isHtml"
                         wiy:style="{...column.style, ...column.valueStyle}">
                         <slot name="r-{{rowIndex}}-c-{{columnIndex}}" wiy:if="!isHtml"
                             wiy:data="{row, column, rowIndex, columnIndex, item}">

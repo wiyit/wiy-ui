@@ -7,8 +7,8 @@
     wiy:oninput="this.onInputInput" wiy:oncompositionend="this.onInputCompositionend" autocomplete="off"
     wiy:attr-placeholder="this.attr('placeholder')"
     wiy:attr-has-icon="this.hasSlotTemplate('icon') || this.attr('icon') ? '' : undefined"
-    wiy:attr-is-password="this.attr('type') == 'password' ? '' : undefined" />
-<div id="password-icon" wiy:if="this.attr('type') == 'password'" wiy:onclick="this.onPasswordToggleClick">
+    wiy:attr-is-password="this.attr('type') === 'password' ? '' : undefined" />
+<div id="password-icon" wiy:if="this.attr('type') === 'password'" wiy:onclick="this.onPasswordToggleClick">
     <wiy-icon name="eye" wiy:if="this.showPassword"></wiy-icon>
     <wiy-icon name="eye-slash" wiy:if="!this.showPassword"></wiy-icon>
 </div>

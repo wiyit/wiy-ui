@@ -1,11 +1,11 @@
 <div id="tabs">
-    <div class="tab {{this.active == index ? 'active' : ''}}" wiy:for="this.items" wiy:for.key="index"
+    <div class="tab {{this.active === index ? 'active' : ''}}" wiy:for="this.items" wiy:for.key="index"
         wiy:for.value="item" wiy:onclick="this.onItemClick(item, index)">
         {{item}}
     </div>
 </div>
 <div id="content">
     <template wiy:for="this.items" wiy:for.key="index">
-        <slot name="content-{{index}}" wiy:if="index == this.active"></slot>
+        <slot name="content-{{index}}" wiy:if="index === this.active"></slot>
     </template>
 </div>

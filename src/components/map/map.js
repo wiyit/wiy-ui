@@ -4,7 +4,7 @@ import * as mapvgl from 'mapvgl';
 
 const getComputedStyle_old = window.getComputedStyle;
 window.getComputedStyle = (...args) => {//hack，百度地图需要向上查找所有父节点来获取鼠标位置，遇到shadow dom，会出现问题
-    if (args[0].nodeType == Node.DOCUMENT_FRAGMENT_NODE) {//shadow dom中的root
+    if (args[0].nodeType === Node.DOCUMENT_FRAGMENT_NODE) {//shadow dom中的root
         return {};
     }
     return getComputedStyle_old(...args);

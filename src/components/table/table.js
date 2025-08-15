@@ -13,24 +13,25 @@ export default {
     },
     methods: {
         getOperations(row) {
-            if (typeof this.operations == 'function') {
-                return this.operations(row);
+            let operations = this.operations;
+            if (typeof operations === 'function') {
+                operations = operations(this, row);
             }
-            return this.operations;
+            return operations;
         },
         async getData() {
             this.actualData = await this.actual(this.data);
             return this.actualData;//返回响应式结果
         },
-        getItem(row, column, rowIndex, columnIndex) {
+        getItem(row, rowIndex, column, columnIndex) {
             let value;
 
-            if (typeof column.value == 'function') {
-                value = column.value(row, rowIndex);
+            if (typeof column.value === 'function') {
+                value = column.value(this, row, rowIndex, column, columnIndex);
             } else {
                 value = row[column.value || columnIndex];
             }
-            if (typeof value == 'undefined') {
+            if (typeof value === 'undefined') {
                 value = column.defaultValue || '';
             }
 

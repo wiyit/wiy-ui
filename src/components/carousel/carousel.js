@@ -52,7 +52,7 @@ export default {
             const items = this.getElement('items');
             for (let index in this.items) {
                 const item = this.getElement(`item-${index}`);
-                if (item.offsetLeft == items.scrollLeft) {
+                if (item.offsetLeft === items.scrollLeft) {
                     this.active = parseInt(index);
                     return;
                 }

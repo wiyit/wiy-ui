@@ -9,7 +9,7 @@ export default {
     },
     methods: {
         onItemClick(item) {
-            item.onclick && item.onclick(this);
+            item.onclick && item.onclick(this, item);
         },
     },
 };

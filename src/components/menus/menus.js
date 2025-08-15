@@ -15,6 +15,13 @@ export default {
         getLevel() {
             return parseInt(this.attr('level')) || 0;
         },
+        getItem(menu) {
+            let name = menu.name;
+            if (typeof name === 'function') {
+                name = name(this, menu);
+            }
+            return name;
+        },
         isOpened(menu) {
             return menu.sub?.length && (menu.subShow || this.isSubActive(menu));
         },

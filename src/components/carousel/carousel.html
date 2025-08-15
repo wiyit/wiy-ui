@@ -2,7 +2,7 @@
     <wiy-flex id="items" wiy:onscrollend="this.onScrollEnd">
         <div id="item-{{key}}" class="item" wiy:for="this.items">
             <slot name="item-{{key}}">
-                <wiy-image block blur-background fit="{{value.fit || 'contain'}}" wiy:if="value.type == 'image'"
+                <wiy-image block blur-background fit="{{value.fit || 'contain'}}" wiy:if="value.type === 'image'"
                     wiy:data-src="value.src"></wiy-image>
             </slot>
         </div>

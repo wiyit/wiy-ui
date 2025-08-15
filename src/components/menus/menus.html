@@ -6,7 +6,7 @@
             <wiy-icon wiy:data-prefix="menu.iconPrefix" wiy:data-name="menu.icon" wiy:if="menu.icon"></wiy-icon>
             <div class="name">
                 <slot name="item-{{index}}">
-                    {{menu.name}}
+                    {{this.getItem(menu)}}
                 </slot>
             </div>
             <wiy-icon class="angle" wiy:if="menu.sub?.length > 0" name="angle-down"

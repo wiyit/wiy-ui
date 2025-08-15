@@ -21,7 +21,7 @@ export default {
     },
     lifecycle: {
         mount() {
-            if (this.attr('popover-pos') == 'mouse') {//当根据鼠标位置定位时，通过showPopover、hidePopover方法来显示、隐藏弹出框
+            if (this.attr('popover-pos') === 'mouse') {//当根据鼠标位置定位时，通过showPopover、hidePopover方法来显示、隐藏弹出框
                 const source = this.getElement('source');
                 const popoverContainer = this.getElement('popover-container');
                 const popover = this.getElement('popover');
