@@ -5,6 +5,7 @@
     height: 100%;
     font-size: 14px;
     overflow: auto;
+    background-color: white;
 
     table {
         width: 100%;
@@ -13,6 +14,7 @@
         border-collapse: collapse;
         border-spacing: 0;
         border: 1px solid var(--wiy-table-border-color);
+        background-color: inherit;
 
         th,
         td {
@@ -56,6 +58,8 @@
         }
 
         tbody {
+            background-color: inherit;
+
             &.row-clickable {
                 tr {
                     cursor: pointer;
@@ -63,6 +67,8 @@
             }
 
             tr {
+                background-color: inherit;
+
                 &:hover {
                     background-color: aliceblue;
                 }
