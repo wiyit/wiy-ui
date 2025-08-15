@@ -18,6 +18,10 @@ export default {
             }
             return this.operations;
         },
+        async getData() {
+            this.actualData = await this.actual(this.data);
+            return this.actualData;//返回响应式结果
+        },
         getItem(row, column, rowIndex, columnIndex) {
             let value;
 

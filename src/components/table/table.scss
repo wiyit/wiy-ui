@@ -49,7 +49,6 @@
         thead {
             position: sticky;
             top: -0.5px;
-            z-index: 1;
 
             tr {
                 color: var(--wiy-table-header-text-color);
@@ -90,8 +89,6 @@
                             cursor: default;
 
                             wiy-dropdown {
-                                z-index: unset; //允许下拉内容覆盖其他内容
-
                                 .title {
                                     margin: 4px 4px 4px 0;
                                 }

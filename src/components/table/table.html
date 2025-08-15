@@ -1,42 +1,46 @@
-<table wiy:let-columns="this.columns" wiy:let-data="this.data">
-    <colgroup>
-        <col />
-        <col wiy:for="columns" wiy:style="value.style" />
-        <col />
-    </colgroup>
-    <thead>
-        <tr>
-            <th class="number-column"></th>
-            <th wiy:for="columns">
-                <div>{{value.name}}</div>
-            </th>
-            <th class="operation-column"></th>
-        </tr>
-    </thead>
-    <tbody wiy:class-row-clickable="!!this.onrowclick">
-        <tr wiy:for="data" wiy:for.index="rowIndex" wiy:for.value="row"
-            wiy:onclick="e => this.onRowClick(e, row, rowIndex)">
-            <td class="number-column">
-                <div>{{this.startRowNumber + rowIndex}}</div>
-            </td>
-            <td wiy:for="columns" wiy:for.index="columnIndex" wiy:for.value="column">
-                <div wiy:let-item="this.getItem(row, column, rowIndex, columnIndex)" wiy:let-is-html="column.isHtml">
-                    <slot name="r-{{rowIndex}}-c-{{columnIndex}}" wiy:if="!isHtml"
-                        wiy:data="{row, column, rowIndex, columnIndex, item}">
-                        {{item}}
-                    </slot>
-                    <template wiy:if="isHtml" wiy:html="item"></template>
-                </div>
-            </td>
-            <td class="operation-column" wiy:let-operations="this.getOperations(row)">
-                <div id="operations-{{rowIndex}}" wiy:if="operations">
-                    <wiy-dropdown>
-                        <div class="title">操作</div>
-                        <wiy-menus wiy:slot="content" wiy:data-items="operations"></wiy-menus>
-                    </wiy-dropdown>
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<wiy-empty wiy:if="!this.data.length"></wiy-empty>
+<template wiy:let-data="this.getData()">
+    <table wiy:let-columns="this.columns">
+        <colgroup>
+            <col />
+            <col wiy:for="columns" wiy:style="value.style" />
+            <col />
+        </colgroup>
+        <thead wiy:style-z-index="data?.length + 1">
+            <tr>
+                <th class="number-column"></th>
+                <th wiy:for="columns">
+                    <div wiy:style="value.style">{{value.name}}</div>
+                </th>
+                <th class="operation-column"></th>
+            </tr>
+        </thead>
+        <tbody wiy:class-row-clickable="!!this.onrowclick">
+            <tr wiy:for="data" wiy:for.index="rowIndex" wiy:for.value="row"
+                wiy:onclick="e => this.onRowClick(e, row, rowIndex)">
+                <td class="number-column">
+                    <div>{{this.startRowNumber + rowIndex}}</div>
+                </td>
+                <td wiy:for="columns" wiy:for.index="columnIndex" wiy:for.value="column">
+                    <div wiy:let-item="this.getItem(row, column, rowIndex, columnIndex)" wiy:let-is-html="column.isHtml"
+                        wiy:style="{...column.style, ...column.valueStyle}">
+                        <slot name="r-{{rowIndex}}-c-{{columnIndex}}" wiy:if="!isHtml"
+                            wiy:data="{row, column, rowIndex, columnIndex, item}">
+                            {{item}}
+                        </slot>
+                        <template wiy:if="isHtml" wiy:html="item"></template>
+                    </div>
+                </td>
+                <td class="operation-column" wiy:let-operations="this.getOperations(row)"
+                    wiy:style-z-index="data.length - rowIndex">
+                    <div id="operations-{{rowIndex}}" wiy:if="operations">
+                        <wiy-dropdown>
+                            <div class="title">操作</div>
+                            <wiy-menus wiy:slot="content" wiy:data-items="operations"></wiy-menus>
+                        </wiy-dropdown>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <wiy-empty wiy:if="!data.length"></wiy-empty>
+</template>
