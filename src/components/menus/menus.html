@@ -4,10 +4,11 @@
         <wiy-flex ai="center" g="8px" class="item" wiy:class-opened="opened" wiy:class-active="active"
             wiy:onclick="this.onItemClick(menu)">
             <wiy-icon wiy:data-prefix="menu.iconPrefix" wiy:data-name="menu.icon" wiy:if="menu.icon"></wiy-icon>
-            <div class="name">
-                <slot name="item-{{index}}">
-                    {{this.getItem(menu)}}
+            <div class="name" wiy:let-item="this.getItem(menu)" wiy:let-is-html="menu.isHtml">
+                <slot name="item-{{index}}" wiy:if="!isHtml" wiy:data="{item}">
+                    {{item}}
                 </slot>
+                <template wiy:if="isHtml" wiy:html="item"></template>
             </div>
             <wiy-icon class="angle" wiy:if="menu.sub?.length > 0" name="angle-down"
                 wiy:onclick="e => this.onAngleClick(e, menu)"></wiy-icon>
