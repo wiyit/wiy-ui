@@ -17,27 +17,35 @@
         margin-top: 6px;
 
         .file {
-            font-size: 0.9em;
             display: flex;
             gap: 6px;
 
-            .delete {
-                flex-shrink: 0;
-                cursor: pointer;
-                color: red;
-
-                &:hover {
-                    color: rgb(64, 158, 255);
-                }
-            }
-
             .file-name {
+                font-size: 0.9em;
                 cursor: pointer;
                 color: var(--wiy-file-picker-file-name-color);
 
                 &:hover {
                     color: var(--wiy-file-picker-file-name-color-hover);
+
+                    .delete {
+                        display: unset;
+                    }
                 }
+
+                .delete {
+                    display: none;
+                    cursor: pointer;
+                    color: gray;
+
+                    &:hover {
+                        color: red;
+                    }
+                }
+            }
+
+            wiy-icon {
+                flex-shrink: 0;
             }
         }
     }

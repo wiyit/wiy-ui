@@ -7,8 +7,29 @@ export default {
     data: {
         files: [],
         tips: undefined,
+        directory: false,
     },
     methods: {
+        getStatusIcon(file) {
+            switch (file.status) {
+                case 'uploading':
+                    return 'circle-notch';
+                case 'success':
+                    return 'circle-check';
+                case 'error':
+                    return 'circle-exclamation';
+            }
+        },
+        getStatusTheme(file) {
+            switch (file.status) {
+                case 'uploading':
+                    return 'info';
+                case 'success':
+                    return 'success';
+                case 'error':
+                    return 'error';
+            }
+        },
         onButtonClick() {
             this.getElement('file').click();
         },
@@ -19,6 +40,8 @@ export default {
                 Array.from(element.files).forEach(file => {
                     this.files.push({
                         name: file.name,
+                        path: file.webkitRelativePath,
+                        size: file.size,
                         getFile() {
                             return file;
                         },
@@ -30,9 +53,10 @@ export default {
                 files: this.files,
             });
         },
-        onDeleteClick(key) {
+        onDeleteClick(e, index) {
+            e.stopPropagation();
             this.files = this.files || [];
-            this.files.splice(key, 1);
+            this.files.splice(index, 1);
             this.trigger('change', {
                 files: this.files,
             });
