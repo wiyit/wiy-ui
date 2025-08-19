@@ -44,7 +44,8 @@
                             wiy:style="item.style" wiy:attr-prompt="item.prompt"
                             wiy:ondestroy="this.onItemDestroy(item)"></wiy-select>
                         <wiy-file-picker wiy:if="item.type === 'file-picker'" wiy:data-files="data[item.name]"
-                            wiy:data-tips="item.tips" wiy:onchange="this.onItemValueChange(item)"
+                            wiy:data-tips="item.tips" wiy:data-directory="item.directory"
+                            wiy:onchange="this.onItemValueChange(item)"
                             wiy:onfileclick="e => this.onFilePickerFileClick(e, item)" wiy:style="item.style"
                             wiy:ondestroy="this.onItemDestroy(item)"></wiy-file-picker>
                         <wiy-textarea wiy:if="item.type === 'textarea'" wiy:data-text="data[item.name]"
