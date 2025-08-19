@@ -139,6 +139,22 @@ export default {
             updateColumns();
 
             this.observe(() => {
+                return this.actualData;
+            }, (_, firstObserve) => {
+                if (firstObserve) {
+                    return;
+                }
+                updateRows();
+            });
+            this.observe(() => {
+                return this.columns;
+            }, (_, firstObserve) => {
+                if (firstObserve) {
+                    return;
+                }
+                updateColumns();
+            });
+            this.observe(() => {
                 return virtual.row.viewSize;
             }, (_, firstObserve) => {
                 if (firstObserve) {
