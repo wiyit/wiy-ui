@@ -34,6 +34,10 @@ export default {
             }
             return operations;
         },
+        async getColumns() {
+            this.actualColumns = await this.actual(this.columns);
+            return this.actualColumns;//返回响应式结果
+        },
         async getData() {
             this.actualData = await this.actual(this.data);
             return this.actualData;//返回响应式结果
@@ -129,7 +133,7 @@ export default {
                 let dimension = virtual.column || {};
                 dimension.defaultSize = virtual.columnWidth;
                 dimension.bufferCount = virtual.columnBufferCount;
-                dimension.source = this.columns;
+                dimension.source = this.actualColumns;
                 virtual.column = dimension = update(dimension);
                 container.style.minWidth = `${dimension.size}px`;
                 table.style.left = `${dimension.offset}px`;
@@ -147,7 +151,7 @@ export default {
                 updateRows();
             });
             this.observe(() => {
-                return this.columns;
+                return this.actualColumns;
             }, (_, firstObserve) => {
                 if (firstObserve) {
                     return;

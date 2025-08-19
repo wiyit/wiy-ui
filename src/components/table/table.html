@@ -1,7 +1,7 @@
-<template wiy:let-virtual="this.virtual" wiy:let-all-data="this.getData()">
+<template wiy:let-virtual="this.virtual" wiy:let-all-data="this.getData()" wiy:let-all-columns="this.getColumns()">
     <div id="container" wiy:let-virtual-enabled="virtual.enabled" wiy:let-virtual-row="virtual.row"
         wiy:let-virtual-column="virtual.column" wiy:attr-virtual="virtualEnabled ? '' : null">
-        <table id="table" wiy:let-columns="virtualEnabled ? virtualColumn?.renderItems : this.columns"
+        <table id="table" wiy:let-columns="virtualEnabled ? virtualColumn?.renderItems : allColumns"
             wiy:let-data="virtualEnabled ? virtualRow?.renderItems : allData"
             wiy:let-row-start-index="virtualEnabled ? virtualRow?.actualRenderStart : 0"
             wiy:let-column-start-index="virtualEnabled ? virtualColumn?.actualRenderStart : 0">
