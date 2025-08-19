@@ -1,5 +1,5 @@
 import template from './icon.html';
-import style from './icon.css';
+import style from './icon.scss';
 import { library, icon, config } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
