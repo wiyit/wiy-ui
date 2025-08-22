@@ -47,19 +47,19 @@ export default {
                         // 创建地图实例
                         Object.defineProperty(this, 'map', {
                             writable: false,
-                            value: new BMapGL.Map(container, {
+                            value: this.raw(new BMapGL.Map(container, {
                                 ...(this.hasAttr('no-background') ? {
                                     backgroundColor: [0, 0, 0, 0],
                                 } : undefined),
-                            }),
+                            })),
                         });
 
                         // 创建MapVGL图层管理器
                         Object.defineProperty(this, 'view', {
                             writable: false,
-                            value: new mapvgl.View({
+                            value: this.raw(new mapvgl.View({
                                 map: this.map,
-                            }),
+                            })),
                         });
 
                         const center = this.attr('center') || '116.403748,39.915055';//默认天安门

@@ -12,7 +12,7 @@ export default {
             parent.on('create', this.parentCreateEventListener = () => {
                 Object.defineProperty(this, 'layer', {
                     writable: false,
-                    value: new mapvgl[this.attr('type')](),
+                    value: this.raw(new mapvgl[this.attr('type')]()),
                 });
 
                 this.observe(() => {

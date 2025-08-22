@@ -28,7 +28,7 @@ export default {
                     if (width > 0 && height > 0) {//图表变为可见，则初始化图表
                         Object.defineProperty(this, 'chart', {
                             writable: false,
-                            value: echarts.init(container, this.attr('theme')),
+                            value: this.raw(echarts.init(container, this.attr('theme'))),
                         });
 
                         this.chart.on('rendered', () => {
