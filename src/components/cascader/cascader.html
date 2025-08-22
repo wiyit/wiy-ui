@@ -1,7 +1,7 @@
 <template wiy:let-options="this.getOptions()" wiy:let-level="this.getLevel()">
-    <wiy-select wiy:attr-prompt="this.prompts?.[level]" wiy:data-options="options" wiy:data-data="this.data[level]"
-        wiy:onchange="this.onSelectChange"></wiy-select>
-    <wiy-cascader level="{{level + 1}}" wiy:let-sub-options="this.getSubOptions()" wiy:if="subOptions"
+    <wiy-select wiy:attr-no-prompt="this.hasAttr('no-prompt') ? '' : null" wiy:attr-prompt="this.prompts?.[level]"
+        wiy:data-options="options" wiy:data-data="this.data[level]" wiy:onchange="this.onSelectChange"></wiy-select>
+    <wiy-cascader level="{{level + 1}}" wiy:let-sub-options="this.getSubOptions()" wiy:if="subOptions?.length"
         wiy:data-options="subOptions" wiy:data-data="this.data" wiy:data-prompts="this.prompts"
         wiy:onchange="this.onSubChange"></wiy-cascader>
 </template>
