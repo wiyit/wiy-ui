@@ -173,7 +173,9 @@ export default {
                     return;
                 }
                 updateRows();
-            }, null, null, 100);
+            }, {
+                throttle: 100,
+            });
             this.observe(() => {
                 return virtual.column.viewSize;
             }, (_, firstObserve) => {
@@ -189,7 +191,9 @@ export default {
                     return;
                 }
                 updateColumns();
-            }, null, null, 100);
+            }, {
+                throttle: 100,
+            });
 
             new ResizeObserver((entries) => {
                 const {
