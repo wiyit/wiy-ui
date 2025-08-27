@@ -3,7 +3,7 @@
         <slot></slot>
     </div>
     <div id="popover-container" popover="manual" wiy:attr-visible="this.visible ? '' : undefined"
-        wiy:if="this.hasSlotTemplate('content')">
+        wiy:if="this.isSlotAssigned('content')">
         <div id="popover">
             <slot name="content"></slot>
         </div>
