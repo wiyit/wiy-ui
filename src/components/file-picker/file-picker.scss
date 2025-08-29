@@ -11,15 +11,9 @@
     }
 
     #files {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
         margin-top: 6px;
 
         .file {
-            display: flex;
-            gap: 6px;
-
             .file-name {
                 font-size: 0.9em;
                 cursor: pointer;

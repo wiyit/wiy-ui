@@ -1,14 +1,14 @@
 <input type="file" id="file" multiple wiy:attr-webkitdirectory="this.directory ? '' : null"
     wiy:onchange="this.onInputChange" />
 <wiy-button id="button" wiy:onclick="this.onButtonClick">添加文件</wiy-button>
-<div id="files" wiy:let-files="this.files" wiy:if="files?.length">
-    <div class="file" wiy:for="files" wiy:for.value="file">
+<wiy-flex id="files" v g="6px" wiy:let-files="this.files" wiy:if="files?.length">
+    <wiy-flex class="file" g="6px" ai="baseline" wiy:for="files" wiy:for.value="file">
         <wiy-icon wiy:if="file.status" wiy:attr-theme="this.getStatusTheme(file)"
             wiy:data-name="this.getStatusIcon(file)" wiy:attr-spin="file.status === 'uploading' ? '' : null"></wiy-icon>
         <span class="file-name" wiy:onclick="this.onFileClick(file)">
             {{file.path || file.name}}
             <wiy-icon name="close" class="delete" wiy:onclick="e => this.onDeleteClick(e, index)"></wiy-icon>
         </span>
-    </div>
-</div>
+    </wiy-flex>
+</wiy-flex>
 <wiy-pre id="tips" wiy:data-text="this.tips" wiy:if="this.tips"></wiy-pre>
