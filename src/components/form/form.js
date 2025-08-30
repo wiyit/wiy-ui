@@ -55,7 +55,7 @@ export default {
 
                 const data = this.actualData[item.name];
                 if (item.required) {
-                    if (_.isUndefined(data) || _.isNull(data) || data.length === 0) {
+                    if (_.isNil(data) || data.length === 0) {
                         return {
                             item,
                             info: `${label}不能为空`,
