@@ -1,6 +1,6 @@
 <wiy-flex class="option" ai="center" wiy:for="this.getOptions()" wiy:for.value="option">
     <input id="radio-{{key}}" name="radio" type="radio" wiy:data="this.data === option.value"
-        wiy:onchange="e => this.onInputChange(e, option.value)" />
+        wiy:attr-disabled="option.disabled ? '' : null" wiy:onchange="e => this.onInputChange(e, option.value)" />
     <label for="radio-{{key}}">{{option.label || option.value}}</label>
 </wiy-flex>
 <wiy-flex id="other" class="option" ai="center" wiy:let-other-data="this.getOtherData()">
