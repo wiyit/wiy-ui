@@ -45,16 +45,45 @@
                     align-items: center;
                 }
 
+                &.checkbox-column {
+                    width: 0;
+                    position: sticky;
+                    left: -0.5px;
+
+                    &>div {
+                        padding: 4px;
+                    }
+                }
+
                 &.number-column {
                     width: 0;
                     position: sticky;
                     left: -0.5px;
+
+                    &>div {
+                        min-width: max-content;
+                        justify-content: center;
+                        user-select: none;
+                        color: var(--wiy-table-number-text-color);
+                    }
                 }
 
                 &.operation-column {
                     width: 0;
                     position: sticky;
                     right: -1px;
+
+                    &>div {
+                        min-width: max-content;
+                        user-select: none;
+                        cursor: default;
+
+                        wiy-dropdown {
+                            .title {
+                                margin: 4px 4px 4px 0;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -82,31 +111,6 @@
 
                     &:hover {
                         background-color: aliceblue;
-                    }
-
-                    td {
-                        &.number-column {
-                            &>div {
-                                min-width: max-content;
-                                justify-content: center;
-                                user-select: none;
-                                color: var(--wiy-table-number-text-color);
-                            }
-                        }
-
-                        &.operation-column {
-                            &>div {
-                                min-width: max-content;
-                                user-select: none;
-                                cursor: default;
-
-                                wiy-dropdown {
-                                    .title {
-                                        margin: 4px 4px 4px 0;
-                                    }
-                                }
-                            }
-                        }
                     }
                 }
             }

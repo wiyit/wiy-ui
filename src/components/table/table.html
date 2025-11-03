@@ -1,17 +1,25 @@
 <template wiy:let-virtual="this.virtual" wiy:let-all-data="this.getData()" wiy:let-all-columns="this.getColumns()">
     <div id="container" wiy:let-virtual-enabled="virtual.enabled" wiy:let-virtual-row="virtual.row"
         wiy:let-virtual-column="virtual.column" wiy:attr-virtual="virtualEnabled ? '' : null">
-        <table id="table" wiy:let-columns="virtualEnabled ? virtualColumn?.renderItems : allColumns"
+        <table id="table"
+            wiy:let-columns="(virtualEnabled ? virtualColumn?.renderItems : allColumns).filter(this.needShowColumn)"
             wiy:let-data="virtualEnabled ? virtualRow?.renderItems : allData"
             wiy:let-row-start-index="virtualEnabled ? virtualRow?.actualRenderStart : 0"
             wiy:let-column-start-index="virtualEnabled ? virtualColumn?.actualRenderStart : 0">
             <colgroup>
+                <col />
                 <col />
                 <col wiy:for="columns" wiy:for.id="this.columnId" wiy:style="value.style" />
                 <col />
             </colgroup>
             <thead wiy:style-z-index="allData?.length + 1">
                 <tr>
+                    <th class="checkbox-column">
+                        <div>
+                            <wiy-checkbox wiy:data-checked="allData?.length && allData?.every(i => i.checked)"
+                                wiy:onchange="this.onCheckAllChange"></wiy-checkbox>
+                        </div>
+                    </th>
                     <th class="number-column"></th>
                     <th id="c-{{index + columnStartIndex}}" wiy:for="columns" wiy:for.id="this.columnId">
                         <div wiy:style="value.style">{{value.name}}</div>
@@ -23,6 +31,11 @@
                 <template wiy:for="data" wiy:for.id="this.dataId" wiy:for.index="rowIndex" wiy:for.value="row">
                     <tr id="r-{{rowIndex}}" wiy:let-row-index="rowIndex + rowStartIndex"
                         wiy:onclick="e => this.onRowClick(e, row, rowIndex)">
+                        <td class="checkbox-column">
+                            <div id="checkbox-{{rowIndex}}">
+                                <wiy-checkbox wiy:data-checked="row.checked"></wiy-checkbox>
+                            </div>
+                        </td>
                         <td class="number-column">
                             <div>{{this.startRowNumber + rowIndex}}</div>
                         </td>
@@ -40,8 +53,8 @@
                             </td>
                         </template>
                         <td class="operation-column" wiy:let-operations="this.getOperations(row)"
-                            wiy:style-z-index="allData.length - rowIndex">
-                            <div id="operations-{{rowIndex}}" wiy:if="operations">
+                            wiy:style-z-index="allData?.length - rowIndex">
+                            <div id="operations-{{rowIndex}}" wiy:if="operations?.length">
                                 <wiy-dropdown>
                                     <div class="title">操作</div>
                                     <wiy-menus wiy:slot="content" wiy:data-items="operations"></wiy-menus>
@@ -53,5 +66,5 @@
             </tbody>
         </table>
     </div>
-    <wiy-empty wiy:if="!allData.length"></wiy-empty>
+    <wiy-empty wiy:if="!allData?.length"></wiy-empty>
 </template>

@@ -42,6 +42,9 @@ export default {
             this.actualData = await this.actual(this.data);
             return this.actualData;//返回响应式结果
         },
+        needShowColumn(column) {
+            return !column.when || column.when(this, column);
+        },
         getItem(row, rowIndex, column, columnIndex) {
             let value;
 
@@ -57,12 +60,21 @@ export default {
             return value;
         },
         onRowClick(e, row, rowIndex) {
+            const checkboxElement = this.getElement(`checkbox-${rowIndex}`);
+            if (checkboxElement && this.onEventPath(e, checkboxElement)) {//复选框列有内容时忽略点击事件
+                return;
+            }
             const operationsElement = this.getElement(`operations-${rowIndex}`);
             if (operationsElement && this.onEventPath(e, operationsElement)) {//操作列有内容时忽略点击事件
                 return;
             }
             this.onrowclick && this.onrowclick(this, row, rowIndex);
         },
+        onCheckAllChange(e) {
+            this.actualData?.forEach(row => {
+                row.checked = e.data.checked;
+            });
+        }
     },
     lifecycle: {
         mount() {
