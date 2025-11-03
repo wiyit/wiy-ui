@@ -1,6 +1,6 @@
 <input type="file" id="file" multiple wiy:attr-webkitdirectory="this.directory ? '' : null"
     wiy:onchange="this.onInputChange" />
-<wiy-button id="button" wiy:onclick="this.onButtonClick">添加文件</wiy-button>
+<wiy-button id="button" wiy:onclick="this.onButtonClick">{{this.directory ? '选择目录' : '选择文件'}}</wiy-button>
 <wiy-flex id="files" v g="6px" wiy:let-files="this.files" wiy:if="files?.length">
     <wiy-flex class="file" g="6px" ai="baseline" wiy:for="files" wiy:for.value="file">
         <wiy-icon wiy:if="file.status" wiy:attr-theme="this.getStatusTheme(file)"
