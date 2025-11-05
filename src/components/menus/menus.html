@@ -3,8 +3,11 @@
         wiy:let-active="this.isActive(menu)">
         <wiy-flex ai="center" g="8px" class="item" wiy:class-opened="opened" wiy:class-active="active"
             wiy:onclick="this.onItemClick(menu)">
-            <wiy-icon wiy:data-prefix="menu.iconPrefix" wiy:data-name="menu.icon" wiy:style-color="menu.iconColor"
-                wiy:if="menu.icon"></wiy-icon>
+            <div class="icon" wiy:let-icon="menu.icon" wiy:let-icon-html="menu.iconHtml" wiy:if="icon || iconHtml">
+                <wiy-icon wiy:data-prefix="menu.iconPrefix" wiy:data-name="icon" wiy:style="menu.iconStyle"
+                    wiy:if="icon && !iconHtml"></wiy-icon>
+                <template wiy:if="iconHtml" wiy:html="iconHtml"></template>
+            </div>
             <div class="name" wiy:let-item="this.getItem(menu)" wiy:let-is-html="menu.isHtml">
                 <slot name="item-{{index}}" wiy:if="!isHtml" wiy:data="{item}">
                     {{item}}
