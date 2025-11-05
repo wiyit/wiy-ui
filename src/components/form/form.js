@@ -54,7 +54,7 @@ export default {
                 }
 
                 const data = this.actualData[item.name];
-                if (item.required) {
+                if (item.required && this.needShowItem(item)) {
                     if (_.isNil(data) || data.length === 0) {
                         return {
                             item,
