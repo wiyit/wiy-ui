@@ -1,5 +1,6 @@
 <a wiy:let-href="this.hasAttr('no-href') ? 'javascript:void(0)' : (this.href || this.attr('href'))" wiy:attr-href="href"
     wiy:attr-target="this.attr('target')" wiy:onclick="this.onClick">
-    <wiy-icon wiy:if="this.attr('icon')" name="{{this.attr('icon')}}" wiy:attr-spin="this.attr('icon-spin')"></wiy-icon>
+    <wiy-icon wiy:if="this.attr('icon')" name="{{this.attr('icon')}}" wiy:attr-spin="this.attr('icon-spin')"
+        wiy:attr-prefix="this.attr('icon-prefix')"></wiy-icon>
     <slot>{{href}}</slot>
 </a>
