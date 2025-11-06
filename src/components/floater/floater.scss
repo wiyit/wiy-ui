@@ -20,3 +20,11 @@
         }
     }
 }
+
+:host([non-closable]) {
+    #container {
+        #close {
+            display: none;
+        }
+    }
+}
