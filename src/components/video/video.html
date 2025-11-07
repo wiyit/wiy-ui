@@ -2,4 +2,5 @@
     wiy:attr-controlslist="this.attr('controlslist')"
     wiy:attr-src="this.src || this.attr('src') || this.attr('default')"
     wiy:attr-poster="this.poster || this.attr('poster')" wiy:attr-loop="this.hasAttr('loop') ? '' : undefined"
-    wiy:onended="this.trigger('ended')" wiy:oncontextmenu="this.oncontextmenu"></video>
+    wiy:onended="this.trigger('ended')" wiy:oncontextmenu="this.oncontextmenu"
+    wiy:ontimeupdate="this.trigger('timeupdate')"></video>
