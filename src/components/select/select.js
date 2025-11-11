@@ -30,7 +30,7 @@ export default {
             const select = this.getElement('select');
             this.observe(() => {
                 return this.actualOptions.findIndex(o => o.value === this.data);
-            }, (result) => {
+            }, ({ result }) => {
                 select.value = result;
             });
         },

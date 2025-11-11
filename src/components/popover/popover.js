@@ -50,7 +50,7 @@ export default {
 
                     this.observe(() => {
                         return this.visible;
-                    }, (result) => {
+                    }, ({ result }) => {
                         if (result) {
                             !popoverContainer.matches(":popover-open") && popoverContainer.showPopover();
                         } else {

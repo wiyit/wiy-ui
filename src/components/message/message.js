@@ -63,7 +63,7 @@ export default {
             this.visible = true;
             this.observe(() => {
                 return this.visible;
-            }, (result) => {
+            }, ({ result }) => {
                 if (!result) {
                     setTimeout(() => {//消息消失后destroy当前组件
                         this.destroy();

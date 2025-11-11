@@ -43,7 +43,7 @@ export default {
 
                         this.observe(() => {
                             return this.option;
-                        }, (result) => {
+                        }, ({ result }) => {
                             const option = this.raw(result);
                             this.chart.setOption(option);
                         });

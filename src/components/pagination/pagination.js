@@ -55,7 +55,7 @@ export default {
         init() {
             this.observe(() => {
                 return this.total;
-            }, (_, firstObserve) => {
+            }, ({ firstObserve }) => {
                 if (firstObserve) {
                     return;
                 }
@@ -69,7 +69,7 @@ export default {
 
             this.observe(() => {
                 return this.pageSize;
-            }, (_, firstObserve) => {
+            }, ({ firstObserve }) => {
                 if (firstObserve) {
                     return;
                 }
@@ -89,7 +89,7 @@ export default {
 
             this.observe(() => {
                 return this.current;
-            }, (result, firstObserve) => {
+            }, ({ result, firstObserve }) => {
                 this.current = Math.max(Math.min(result, this.getPageCount()), 1);// 调整current
                 this.items = this.generateItems();// 更新items
 

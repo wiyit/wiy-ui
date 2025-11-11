@@ -45,7 +45,7 @@ export default {
             if (this.hasAttr('autoplay')) {
                 this.observe(() => {
                     return this.src;
-                }, (result) => {
+                }, () => {
                     this.autoplay();
                 });
             }

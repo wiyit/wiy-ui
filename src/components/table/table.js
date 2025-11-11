@@ -156,7 +156,7 @@ export default {
 
             this.observe(() => {
                 return this.actualData;
-            }, (_, firstObserve) => {
+            }, ({ firstObserve }) => {
                 if (firstObserve) {
                     return;
                 }
@@ -164,7 +164,7 @@ export default {
             });
             this.observe(() => {
                 return this.actualColumns;
-            }, (_, firstObserve) => {
+            }, ({ firstObserve }) => {
                 if (firstObserve) {
                     return;
                 }
@@ -172,7 +172,7 @@ export default {
             });
             this.observe(() => {
                 return virtual.row.viewSize;
-            }, (_, firstObserve) => {
+            }, ({ firstObserve }) => {
                 if (firstObserve) {
                     return;
                 }
@@ -180,7 +180,7 @@ export default {
             });
             this.observe(() => {
                 return virtual.row.scroll;
-            }, (_, firstObserve) => {
+            }, ({ firstObserve }) => {
                 if (firstObserve) {
                     return;
                 }
@@ -190,7 +190,7 @@ export default {
             });
             this.observe(() => {
                 return virtual.column.viewSize;
-            }, (_, firstObserve) => {
+            }, ({ firstObserve }) => {
                 if (firstObserve) {
                     return;
                 }
@@ -198,7 +198,7 @@ export default {
             });
             this.observe(() => {
                 return virtual.column.scroll;
-            }, (_, firstObserve) => {
+            }, ({ firstObserve }) => {
                 if (firstObserve) {
                     return;
                 }

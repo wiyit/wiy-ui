@@ -20,7 +20,7 @@ export default {
 
                 this.observe(() => {
                     return this.loading;
-                }, (result) => {
+                }, ({ result }) => {
                     if (result) {
                         !mask.open && mask.showModal();
                     } else {

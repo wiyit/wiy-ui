@@ -101,7 +101,7 @@ export default {
 
             this.observe(() => {
                 return this.theme;
-            }, (result) => {
+            }, ({ result }) => {
                 view.dispatch({
                     effects: [
                         themeCompartment.reconfigure(result || []),
