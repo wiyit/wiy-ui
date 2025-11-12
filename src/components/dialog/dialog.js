@@ -11,17 +11,25 @@ export default {
         onCloseClick() {
             this.close();
         },
-        showModal() {
+        async showModal() {
             const dialog = this.getElement('dialog');
             !dialog.open && dialog.showModal();
+            return new Promise((resolve) => {
+                const handler = e => {
+                    this.off('close', handler);
+                    resolve(e.data);
+                };
+                this.on('close', handler);
+            });
         },
         show() {
             const dialog = this.getElement('dialog');
             !dialog.open && dialog.show();
         },
-        close() {
+        close(data) {
             const dialog = this.getElement('dialog');
             dialog.open && dialog.close();
+            this.trigger('close', data);
         },
     },
     lifecycle: {
