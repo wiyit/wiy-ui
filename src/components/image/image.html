@@ -1,5 +1,7 @@
-<img id="background" wiy:attr-src="this.src || this.attr('src') || this.attr('default')">
-<img id="img" wiy:attr-src="this.src || this.attr('src') || this.attr('default')" />
+<template wiy:let-src="this.src || this.attr('src') || this.attr('default')">
+    <img id="background" wiy:attr-src="src" loading="lazy">
+    <img id="img" wiy:attr-src="src" loading="lazy" />
+</template>
 <dialog id="preview" wiy:if="this.srcList.length">
     <wiy-flex id="preview-container" ai="center">
         <wiy-icon id="close" class="icon" name="circle-xmark" wiy:onclick="this.closePreview"></wiy-icon>
