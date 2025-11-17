@@ -1,0 +1,5 @@
+<wiy-flex id="viewer" v ai="center" wiy:let-items="this.items" wiy:let-active="this.active">
+    <wiy-carousel wiy:data-items="items" wiy:data-active="this.active"></wiy-carousel>
+    <wiy-flex id="name" ai="center" jc="center">{{items[active]?.name}}</wiy-flex>
+    <span id="number">{{active + 1}}/{{items.length}}</span>
+</wiy-flex>

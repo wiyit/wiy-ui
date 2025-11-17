@@ -25,6 +25,7 @@ const components = {
     'wiy-grid': () => import('./components/grid/grid.js'),
     'wiy-icon': () => import('./components/icon/icon.js'),
     'wiy-image': () => import('./components/image/image.js'),
+    'wiy-image-viewer': () => import('./components/image-viewer/image-viewer.js'),
     'wiy-input': () => import('./components/input/input.js'),
     'wiy-keep-aspect-radio': () => import('./components/keep-aspect-radio/keep-aspect-radio.js'),
     'wiy-link': () => import('./components/link/link.js'),
