@@ -1,0 +1,6 @@
+<wiy-flex ai="center" g="8px">
+    <progress wiy:attr-value="this.value ?? this.attr('value')" wiy:attr-max="this.max ?? this.attr('max')"></progress>
+    <div wiy:if="this.isSlotAssigned()">
+        <slot></slot>
+    </div>
+</wiy-flex>

@@ -36,6 +36,7 @@ const components = {
     'wiy-pagination': () => import('./components/pagination/pagination.js'),
     'wiy-popover': () => import('./components/popover/popover.js'),
     'wiy-pre': () => import('./components/pre/pre.js'),
+    'wiy-progress': () => import('./components/progress/progress.js'),
     'wiy-radio': () => import('./components/radio/radio.js'),
     'wiy-radio-group': () => import('./components/radio-group/radio-group.js'),
     'wiy-rate': () => import('./components/rate/rate.js'),
