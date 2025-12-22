@@ -71,4 +71,7 @@ export const methods = {
             transform,
         });
     },
+    registerChartMap(name, map) {
+        echarts.registerMap(name, map);
+    },
 };
