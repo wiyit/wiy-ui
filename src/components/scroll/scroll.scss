@@ -1,0 +1,10 @@
+:host {
+    display: block;
+    overflow: auto;
+    will-change: scroll-position;
+
+    #inner {
+        width: 100%;
+        height: auto;
+    }
+}

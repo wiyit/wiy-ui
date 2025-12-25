@@ -40,6 +40,7 @@ const components = {
     'wiy-radio': () => import('./components/radio/radio.js'),
     'wiy-radio-group': () => import('./components/radio-group/radio-group.js'),
     'wiy-rate': () => import('./components/rate/rate.js'),
+    'wiy-scroll': () => import('./components/scroll/scroll.js'),
     'wiy-select': () => import('./components/select/select.js'),
     'wiy-table': () => import('./components/table/table.js'),
     'wiy-tabs': () => import('./components/tabs/tabs.js'),
