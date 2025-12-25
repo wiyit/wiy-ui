@@ -31,14 +31,11 @@ export default {
                             value: this.raw(echarts.init(container, this.attr('theme'))),
                         });
 
-                        this.chart.on('rendered', () => {
-                            this.trigger('rendered');
-                        });
-                        this.chart.on('selectchanged', (e) => {
-                            this.trigger('selectchanged', e);
+                        this.trigger('chartinit', {
+                            chart: this.chart,
                         });
                         this.chart.on('click', (e) => {
-                            this.trigger('chartclick', e);
+                            this.trigger('chartclick', null, e);
                         });
 
                         this.observe(() => {
@@ -61,17 +58,6 @@ export default {
     },
 };
 
-export const methods = {
-    registerChartTheme(name, theme) {
-        echarts.registerTheme(name, theme);
-    },
-    registerChartTransform(type, transform) {
-        echarts.registerTransform({
-            type,
-            transform,
-        });
-    },
-    registerChartMap(name, map) {
-        echarts.registerMap(name, map);
-    },
+export {
+    echarts,
 };
