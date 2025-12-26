@@ -11,6 +11,7 @@ export default {
             startDelay: 2000,
             endDelay: 2000,
             startTimeoutId: undefined,
+            endTimeoutId: undefined,
             id: undefined,
         },
     },
@@ -32,7 +33,7 @@ export default {
                     const newScrollTop = startScrollTop + offset;
                     if (newScrollTop > maxScrollTop) {//自动滚动到底部后
                         this.stopAutoScroll();//停止自动滚动
-                        setTimeout(() => {//延迟endDelay之后
+                        this.autoScroll.endTimeoutId = setTimeout(() => {//延迟endDelay之后
                             outer.scrollTop = 0;//自动滚动到顶部
                             this.startAutoScroll();//开始自动滚动
                         }, this.autoScroll.endDelay);
@@ -46,6 +47,7 @@ export default {
         },
         stopAutoScroll() {
             clearTimeout(this.autoScroll.startTimeoutId);
+            clearTimeout(this.autoScroll.endTimeoutId);
             cancelAnimationFrame(this.autoScroll.id);
         },
     },
