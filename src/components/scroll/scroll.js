@@ -26,6 +26,9 @@ export default {
                 const start = performance.now();
                 const startScrollTop = outer.scrollTop;
                 const maxScrollTop = inner.offsetHeight - outer.offsetHeight;
+                if (maxScrollTop <= 0) {//如果内容高度小于等于容器高度，则不需要自动滚动
+                    return;
+                }
 
                 const update = () => {
                     const interval = performance.now() - start;
