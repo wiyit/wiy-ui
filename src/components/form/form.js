@@ -47,15 +47,15 @@ export default {
             item.onclick && item.onclick(this, item);
         },
         validate() {
-            const validateItem = (item, parentLabel = '') => {
+            const validateItem = (item, parentLabel = '', data = this.actualData) => {
                 const label = parentLabel + (item.label || item.name || '').trim();
                 if (item.type === 'form') {
-                    return validateItems(item.items, label);
+                    return validateItems(item.items, label, item.name ? data[item.name] : data);
                 }
 
-                const data = this.actualData[item.name];
+                const value = data[item.name];
                 if (item.required && this.needShowItem(item)) {
-                    if (_.isNil(data) || data.length === 0) {
+                    if (_.isNil(value) || value.length === 0) {
                         return {
                             item,
                             info: `${label}不能为空`,
@@ -63,9 +63,9 @@ export default {
                     }
                 }
             };
-            const validateItems = (items, parentLabel = '') => {
+            const validateItems = (items, parentLabel = '', data = this.actualData) => {
                 for (let item of items) {
-                    const error = validateItem(item, parentLabel);
+                    const error = validateItem(item, parentLabel, data);
                     if (error) {
                         return error;
                     }
