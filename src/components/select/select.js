@@ -16,7 +16,7 @@ export default {
         onSelectChange(e) {
             const { options } = e.target;
             this.trigger('change', {
-                data: this.data = options[options.selectedIndex].v || null,
+                data: this.data = options[options.selectedIndex].v,
             });
         },
     },
