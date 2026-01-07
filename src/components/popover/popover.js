@@ -40,9 +40,11 @@ export default {
                         popover.style.top = y + 'px';
                     }
 
-                    source.addEventListener('mousemove', this.sourceMousemoveEventListener = (e) => {
+                    this.sourceMouseonEventListener = (e) => {
                         position(e.clientX + offset, e.clientY + offset);
-                    });
+                    };
+                    source.addEventListener('mousemove', this.sourceMouseonEventListener);
+                    source.addEventListener('mouseenter', this.sourceMouseonEventListener);
 
                     new ResizeObserver(() => {
                         position(popover.offsetLeft, popover.offsetTop);
@@ -62,7 +64,8 @@ export default {
         },
         beforeUnmount() {
             const source = this.getElement('source');
-            source.removeEventListener('click', this.sourceMousemoveEventListener);
+            source.removeEventListener('mousemove', this.sourceMouseonEventListener);
+            source.removeEventListener('mouseenter', this.sourceMouseonEventListener);
         }
     },
 };
