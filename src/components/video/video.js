@@ -35,9 +35,11 @@ export default {
             video.pause();
         },
         autoplay(delay) {
-            setTimeout(() => {
-                this.play();
-            }, delay || this.attr('autoplay-delay') || 0);
+            this.getElement('video').addEventListener('canplay', () => {
+                setTimeout(() => {
+                    this.play();
+                }, delay || this.attr('autoplay-delay') || 0);
+            });
         },
     },
     lifecycle: {
