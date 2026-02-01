@@ -1,2 +1,4 @@
-<wiy-icon name="{{this.attr('icon') || 'envelope-open-text'}}"></wiy-icon>
+<slot name="icon">
+    <wiy-icon name="{{this.attr('icon') || 'envelope-open-text'}}"></wiy-icon>
+</slot>
 <div id="title">{{this.attr('title') || '暂无数据'}}</div>
