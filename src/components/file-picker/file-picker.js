@@ -8,6 +8,7 @@ export default {
         files: [],
         tips: undefined,
         directory: false,
+        multiple: true,
     },
     methods: {
         getStatusIcon(file) {
