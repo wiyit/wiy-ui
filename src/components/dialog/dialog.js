@@ -28,8 +28,10 @@ export default {
         },
         close(data) {
             const dialog = this.getElement('dialog');
-            dialog.open && dialog.close();
-            this.trigger('close', data);
+            if (dialog.open) {
+                dialog.close();
+                this.trigger('close', data);
+            }
         },
     },
     lifecycle: {
@@ -53,7 +55,7 @@ export const methods = {
                     this.getComponent('dialog').showModal();
                 },
                 remove() {
-                    this.getComponent('dialog').remove();
+                    this.getComponent('dialog')?.remove();
                 }
             },
             lifecycle: {
