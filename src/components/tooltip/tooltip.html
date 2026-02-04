@@ -1,4 +1,4 @@
-<wiy-popover popover-pos="mouse">
+<wiy-popover popover-pos="mouse" wiy:let-text="this.text || this.attr('text')">
     <slot></slot>
-    <wiy-pre wiy:if="this.attr('text')" wiy:slot="content" text="{{this.attr('text')}}"></wiy-pre>
+    <wiy-pre wiy:if="text" wiy:slot="content" wiy:data-text="text"></wiy-pre>
 </wiy-popover>

@@ -4,4 +4,7 @@ import style from './tooltip.scss';
 export default {
     template,
     style,
+    data: {
+        text: undefined,
+    },
 };
