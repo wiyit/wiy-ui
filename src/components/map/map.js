@@ -10,9 +10,21 @@ window.getComputedStyle = (...args) => {//hack，百度地图需要向上查找�
     return getComputedStyle_old(...args);
 };
 
-let promise;
-function loadBMapGL(ak) {
-    return promise || (promise = new Promise((resolve, reject) => {
+let importBMapPromise;
+function importBMap(ak) {
+    return importBMapPromise || (importBMapPromise = new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://api.map.baidu.com/getscript?v=3.0&ak=' + ak;
+        script.onload = () => {
+            resolve();
+        };
+        document.head.appendChild(script);
+    }));
+}
+
+let importBMapGLPromise;
+function importBMapGL(ak) {
+    return importBMapGLPromise || (importBMapGLPromise = new Promise((resolve, reject) => {
         const script = document.createElement('script');
         script.src = 'https://api.map.baidu.com/getscript?v=1.0&type=webgl&ak=' + ak;
         script.onload = () => {
@@ -75,7 +87,7 @@ export default {
                 }
             };
 
-            loadBMapGL(this.attr('ak')).then(() => {
+            importBMapGL(this.attr('ak')).then(() => {
                 new ResizeObserver(() => {
                     requestAnimationFrame(update);
                 }).observe(container);
@@ -90,4 +102,6 @@ export default {
 
 export {
     mapvgl,
+    importBMap,
+    importBMapGL,
 };

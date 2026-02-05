@@ -2,6 +2,15 @@ import template from './chart.html';
 import style from './chart.scss';
 import * as echarts from 'echarts';
 
+function importBMap(ak) {
+    return Promise.all([
+        import('../map/map.js').then(({ importBMap }) => {
+            importBMap(ak);
+        }),
+        import('echarts/extension/bmap/bmap.js'),
+    ]);
+}
+
 export default {
     template,
     style,
@@ -43,6 +52,9 @@ export default {
                         }, ({ result }) => {
                             const option = this.raw(result);
                             this.chart.setOption(option);
+                            this.trigger('optionchange', {
+                                option,
+                            });
                         });
                     }
                 }
@@ -60,4 +72,5 @@ export default {
 
 export {
     echarts,
+    importBMap,
 };
