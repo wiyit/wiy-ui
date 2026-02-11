@@ -64,6 +64,9 @@
                             wiy:data-data="data[item.name]" wiy:onchange="this.onItemValueChange(item)"
                             wiy:style="item.style" wiy:data-prompts="item.prompts"
                             wiy:ondestroy="this.onItemDestroy(item)"></wiy-cascader>
+                        <wiy-editor wiy:if="item.type === 'editor'" wiy:data-content="data[item.name]"
+                            wiy:onchange="this.onItemValueChange(item)" wiy:style="item.style"
+                            wiy:ondestroy="this.onItemDestroy(item)"></wiy-editor>
                     </slot>
                 </div>
             </template>
