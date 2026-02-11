@@ -4,17 +4,6 @@ import tinymce from 'tinymce';
 import 'tinymce/themes/silver';
 import 'tinymce/models/dom';
 import 'tinymce/icons/default';
-import './assets/langs/zh-CN';//TODO 完善翻译
-import editorContentStyle from './editor-content.scss';
-
-import 'tinymce/plugins/wordcount';
-import 'tinymce/plugins/link';
-import 'tinymce/plugins/autolink';
-import 'tinymce/plugins/image';
-import 'tinymce/plugins/media';
-import 'tinymce/plugins/lists';
-import 'tinymce/plugins/preview';
-import 'tinymce/plugins/table';
 
 export default {
     template,
@@ -22,6 +11,8 @@ export default {
     data() {
         return {
             editorId: Math.random(),
+            editor: undefined,
+            options: {},
             content: '',
         };
     },
@@ -34,17 +25,10 @@ export default {
             });
         },
         mount() {
-            tinymce.init({
-                target: this.getElement(this.editorId),
-                license_key: 'gpl',
-                language: 'zh-CN',
-                skin: false,
-                content_css: false,
-                content_style: editorContentStyle,
-                resize: 'both',
-                elementpath: false,
-                promotion: false,
-                plugins: [
+            let {
+                content_style,
+                language = 'zh-CN',//TODO 完善翻译
+                plugins = [
                     'wordcount',
                     'link',
                     'autolink',
@@ -54,9 +38,29 @@ export default {
                     'preview',
                     'table',
                 ],
-                //TODO 文件上传
-                file_picker_callback: () => { },
-                setup: (editor) => {
+                ...optherOptions
+            } = this.options;
+
+            Promise.all([
+                content_style ?? import('./editor-content.scss'),
+                import(`./assets/langs/${language}`),
+                Promise.all(plugins.map(plugin => import(`tinymce/plugins/${plugin}`))),
+            ]).then(([content_style]) => {
+                content_style = content_style.default ?? content_style;
+
+                tinymce.init({
+                    target: this.getElement(this.editorId),
+                    license_key: 'gpl',
+                    skin: false,
+                    content_css: false,
+                    resize: 'both',
+                    elementpath: false,
+                    promotion: false,
+                    content_style,
+                    language,
+                    plugins,
+                    ...optherOptions,
+                }).then(([editor]) => {
                     this.editor = this.raw(editor);
                     this.observe(() => {
                         return this.content;
@@ -68,7 +72,7 @@ export default {
                             content: this.content = editor.getContent(),
                         });
                     });
-                },
+                });
             });
         },
         unmount() {
