@@ -28,6 +28,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "codemirror": "^6.0.1",
     "echarts": "^6.0.0",
-    "mapvgl": "^1.0.0-beta.191"
+    "mapvgl": "^1.0.0-beta.191",
+    "tinymce": "^8.3.2"
   }
 }

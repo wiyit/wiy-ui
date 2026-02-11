@@ -15,6 +15,7 @@ const components = {
     'wiy-dialog': wiyDialog,
     'wiy-divider': () => import('./components/divider/divider.js'),
     'wiy-dropdown': () => import('./components/dropdown/dropdown.js'),
+    // 'wiy-editor': () => import('./components/editor/editor.js'),
     'wiy-ellipsis': () => import('./components/ellipsis/ellipsis.js'),
     'wiy-empty': () => import('./components/empty/empty.js'),
     'wiy-file-picker': () => import('./components/file-picker/file-picker.js'),
