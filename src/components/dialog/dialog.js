@@ -8,12 +8,12 @@ export default {
         title: undefined,
     },
     methods: {
-        onCloseClick() {
-            this.close();
-        },
         async showModal() {
             const dialog = this.getElement('dialog');
-            !dialog.open && dialog.showModal();
+            if (!dialog.open) {
+                dialog.showModal();
+                this.trigger('show');
+            }
             return new Promise((resolve) => {
                 const handler = e => {
                     this.off('close', handler);
@@ -24,7 +24,10 @@ export default {
         },
         show() {
             const dialog = this.getElement('dialog');
-            !dialog.open && dialog.show();
+            if (!dialog.open) {
+                dialog.show();
+                this.trigger('show');
+            }
         },
         close(data) {
             const dialog = this.getElement('dialog');

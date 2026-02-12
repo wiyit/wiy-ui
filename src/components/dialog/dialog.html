@@ -1,7 +1,7 @@
-<dialog id="dialog" wiy:onclose="this.trigger('close')">
+<dialog id="dialog" wiy:oncancel="this.close">
     <div id="head">
         <div id="title">{{this.title || this.attr('title') || ''}}</div>
-        <wiy-icon id="close" name="close" wiy:onclick="this.onCloseClick"></wiy-icon>
+        <wiy-icon id="close" name="close" wiy:onclick="this.close"></wiy-icon>
     </div>
     <div id="content">
         <slot></slot>
