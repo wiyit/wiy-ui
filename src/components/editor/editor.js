@@ -42,12 +42,10 @@ export default {
             } = this.options;
 
             Promise.all([
-                content_style ?? import('./editor-content.scss'),
+                content_style ?? import('./editor-content.scss').then(m => m.default),
                 import(`./assets/langs/${language}`),
                 Promise.all(plugins.map(plugin => import(`tinymce/plugins/${plugin}`))),
             ]).then(([content_style]) => {
-                content_style = content_style.default ?? content_style;
-
                 tinymce.init({
                     target: this.getElement(this.editorId),
                     license_key: 'gpl',
@@ -61,12 +59,17 @@ export default {
                     plugins,
                     ...optherOptions,
                 }).then(([editor]) => {
-                    this.editor = this.raw(editor);
+                    Object.defineProperty(this, 'editor', {
+                        writable: false,
+                        value: this.raw(editor),
+                    });
+
                     this.observe(() => {
                         return this.content;
                     }, ({ result }) => {
                         editor.setContent(result);
                     });
+
                     editor.on('change', e => {
                         this.trigger('change', {
                             content: this.content = editor.getContent(),
