@@ -105,4 +105,14 @@
     --wiy-icon-success-color: var(--success-color);
     --wiy-icon-warning-color: var(--warning-color);
     --wiy-icon-error-color: var(--error-color);
+
+    --wiy-steps-indicator-color: var(--text-color-placeholder);
+    --wiy-steps-indicator-color-finish: var(--brand-color);
+    --wiy-steps-indicator-color-active: var(--brand-color);
+    --wiy-steps-name-color: var(--text-color-placeholder);
+    --wiy-steps-name-color-finish: unset;
+    --wiy-steps-name-color-active: var(--brand-color);
+    --wiy-steps-info-color: var(--text-color-placeholder);
+    --wiy-steps-info-color-finish: var(--text-color-secondary);
+    --wiy-steps-info-color-active: var(--text-color-secondary);
 }

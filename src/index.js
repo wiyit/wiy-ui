@@ -43,6 +43,7 @@ const components = {
     'wiy-rate': () => import('./components/rate/rate.js'),
     'wiy-scroll': () => import('./components/scroll/scroll.js'),
     'wiy-select': () => import('./components/select/select.js'),
+    'wiy-steps': () => import('./components/steps/steps.js'),
     'wiy-table': () => import('./components/table/table.js'),
     'wiy-tabs': () => import('./components/tabs/tabs.js'),
     'wiy-textarea': () => import('./components/textarea/textarea.js'),

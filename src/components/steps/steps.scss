@@ -1,0 +1,121 @@
+:host {
+    display: block;
+
+    #container {
+        .item {
+            flex-direction: column;
+
+            .indicator {
+                .icon {
+                    width: 4px;
+                    height: 4px;
+                    margin: 4px;
+                    border: 2px solid var(--wiy-steps-indicator-color);
+                    border-radius: 100%;
+                }
+
+                wiy-icon {
+                    flex-shrink: 0;
+                }
+
+                .line {
+                    flex-grow: 1;
+                    height: 1px;
+                    background-color: var(--wiy-steps-indicator-color);
+                }
+            }
+
+            .content {
+                padding: 0 16px 0 0;
+
+                .name {
+                    line-height: 1em;
+                    color: var(--wiy-steps-name-color);
+                }
+
+                .info {
+                    color: var(--wiy-steps-info-color);
+                    font-size: 14px;
+                }
+            }
+
+            &.finish {
+                .indicator {
+                    .icon {
+                        border-color: var(--wiy-steps-indicator-color-finish);
+                    }
+
+                    .line {
+                        background-color: var(--wiy-steps-indicator-color-finish);
+                        height: 2px;
+                    }
+                }
+
+                .content {
+                    .name {
+                        color: var(--wiy-steps-name-color-finish);
+                    }
+
+                    .info {
+                        color: var(--wiy-steps-info-color-finish);
+                    }
+                }
+            }
+
+            &.active {
+                .indicator {
+                    .icon {
+                        border-color: var(--wiy-steps-indicator-color-active);
+                        background-color: var(--wiy-steps-indicator-color-active);
+                    }
+                }
+
+                .content {
+                    .name {
+                        color: var(--wiy-steps-name-color-active);
+                        font-weight: bold;
+                    }
+
+                    .info {
+                        color: var(--wiy-steps-info-color-active);
+                    }
+                }
+            }
+
+            &.clickable {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+:host([v]) {
+    #container {
+        flex-direction: column;
+
+        .item {
+            flex-direction: row;
+
+            .indicator {
+                flex-direction: column;
+
+                .line {
+                    width: 1px;
+                    height: unset;
+                }
+            }
+
+            .content {
+                padding: 0 0 16px 0;
+            }
+
+            &.finish {
+                .indicator {
+                    .line {
+                        width: 2px;
+                    }
+                }
+            }
+        }
+    }
+}

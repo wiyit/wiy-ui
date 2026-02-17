@@ -1,0 +1,19 @@
+<wiy-flex id="container">
+    <template wiy:for="this.items">
+        <wiy-flex class="item" wiy:class-finish="index < this.current" wiy:class-active="index === this.current"
+            wiy:class-clickable="index !== this.current" wiy:onclick="this.onItemClick(value, index)">
+            <wiy-flex class="indicator" ai="center">
+                <div class="icon"></div>
+                <div class="line" wiy:if="index < this.items.length - 1"></div>
+            </wiy-flex>
+            <div class="content">
+                <slot name="content-{{index}}">
+                    <wiy-flex v g="2px">
+                        <div class="name">{{value.name}}</div>
+                        <wiy-pre class="info" wiy:data-text="value.info"></wiy-pre>
+                    </wiy-flex>
+                </slot>
+            </div>
+        </wiy-flex>
+    </template>
+</wiy-flex>
