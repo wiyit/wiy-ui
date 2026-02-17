@@ -45,28 +45,41 @@ export default {
 };
 export const methods = {
     showDialog(options) {
-        const element = document.createElement('wiy-dialog');
-        element.id = 'dialog';
-        options.title && element.setAttribute('title', options.title);
-        element.setAttribute('wiy:onmount', "this.show");
-        element.setAttribute('wiy:onclose', "this.remove");
-        element.innerHTML = options.content;
+        return new Promise((resolve) => {
+            this.newComponent({
+                data: {
+                    dialogData: {
+                        title: options.title,
+                    },
 
-        this.newComponent({
-            methods: {
-                show() {
-                    this.getComponent('dialog').showModal();
                 },
-                remove() {
-                    this.getComponent('dialog')?.remove();
+                methods: {
+                    onDialogInit(e) {
+                        resolve(e.target);
+                    },
+                    onDialogMount(e) {
+                        e.target.showModal();
+                    },
+                    onDialogClose(e) {
+                        e.target.remove();
+                    },
+                },
+                lifecycle: {
+                    init() {
+                        const element = document.createElement('wiy-dialog');
+                        options.position && element.setAttribute('position', options.position);
+                        element.setAttribute('wiy:data', 'this.dialogData');
+                        element.setAttribute('wiy:oninit', "this.onDialogInit")
+                        element.setAttribute('wiy:onmount', "this.onDialogMount");
+                        element.setAttribute('wiy:onclose', "this.onDialogClose");
+                        element.innerHTML = options.content;
+                        document.body.appendChild(element);
+                        this.renderElement(element, [
+                            options.contentData ?? {},
+                        ]);
+                    }
                 }
-            },
-            lifecycle: {
-                init() {
-                    document.body.appendChild(element);
-                    this.renderElement(element);
-                }
-            }
+            });
         });
-    },
+    }
 };
