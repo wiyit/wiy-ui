@@ -75,7 +75,7 @@ export const methods = {
                         element.innerHTML = options.content;
                         document.body.appendChild(element);
                         this.renderElement(element, [
-                            options.contentData ?? {},
+                            this.proxy(options.contentData ?? {}),
                         ]);
                     }
                 }
