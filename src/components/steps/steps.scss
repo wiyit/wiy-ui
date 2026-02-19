@@ -9,7 +9,7 @@
                 .icon {
                     width: 4px;
                     height: 4px;
-                    margin: 4px;
+                    margin: calc((1em - 8px) / 2);
                     border: 2px solid var(--wiy-steps-indicator-color);
                     border-radius: 100%;
                 }

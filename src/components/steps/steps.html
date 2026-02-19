@@ -1,4 +1,4 @@
-<wiy-flex id="container">
+<wiy-flex id="container" ai="flex-start">
     <template wiy:for="this.items">
         <wiy-flex class="item" wiy:class-finish="index < this.current" wiy:class-active="index === this.current"
             wiy:class-clickable="index !== this.current" wiy:onclick="this.onItemClick(value, index)">
