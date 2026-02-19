@@ -16,56 +16,71 @@
     }
 
     #items {
-        display: grid;
-        gap: 8px 16px;
+        &>* {
+            padding-left: 8px;
+        }
 
         .label {
             padding-top: 6px;
             position: relative;
-        }
 
-        .required {
-            color: red;
-            position: absolute;
-            user-select: none;
-        }
+            .required {
+                color: red;
+                position: absolute;
+                user-select: none;
+                left: 0;
+            }
 
-        .label-name {
-            padding-left: 8px;
-            color: var(--wiy-form-label-color);
+            .label-name {
+                color: var(--wiy-form-label-color);
+            }
+
+            &.group-label {
+                padding: 8px 0;
+                grid-column: 1 / -1;
+
+                &:has(.required) {
+                    padding-left: 8px;
+                }
+
+                .label-name {
+                    color: unset;
+                    font-weight: bold;
+                }
+            }
         }
 
         .value {
-            display: flex;
-            padding-left: 8px;
+            .info {
+                padding-top: 6px;
+                box-sizing: border-box;
+            }
+
+            .icons {
+                font-size: 16px;
+
+                &>* {
+                    margin-left: 8px;
+                }
+            }
+
+            &>*,
+            &>slot>* {
+                min-height: 32px;
+            }
 
             &.disabled {
                 pointer-events: none;
             }
 
-            &>* {
-                width: 100%;
-                min-height: 32px;
+            &:has(wiy-form) {
+                grid-column: 1 / -1;
+                padding-left: 0;
             }
-        }
-
-        .group-label {
-            font-weight: bold;
-            padding: 8px 0;
-            grid-column: 1 / -1;
-        }
-
-        .info {
-            padding-top: 6px;
-            box-sizing: border-box;
         }
 
         .newline {
             grid-column: auto / -1;
-        }
-
-        wiy-form {
-            grid-column: 1 / -1;
         }
     }
 
@@ -109,20 +124,26 @@
 
 :host,
 :host([label-align=left]) {
-    .label {
-        text-align: left;
+    #items {
+        .label {
+            text-align: left;
+        }
     }
 }
 
 :host([label-align=center]) {
-    .label {
-        text-align: center;
+    #items {
+        .label {
+            text-align: center;
+        }
     }
 }
 
 :host([label-align=right]) {
-    .label {
-        text-align: right;
+    #items {
+        .label {
+            text-align: right;
+        }
     }
 }
 

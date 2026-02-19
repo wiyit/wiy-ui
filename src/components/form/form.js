@@ -10,6 +10,7 @@ export default {
         items: [],
         operations: [],
         data: {},
+        deleteDataOnItemDestroy: true,
     },
     methods: {
         async getItems() {
@@ -34,7 +35,9 @@ export default {
             item.onchange && item.onchange(this, item);
         },
         onItemDestroy(item) {
-            delete this.actualData[item.name];
+            if (this.deleteDataOnItemDestroy && !item.multiple) {
+                delete this.actualData[item.name];
+            }
             item.ondestroy && item.ondestroy(this, item);
         },
         needShowItem(item) {
@@ -49,17 +52,20 @@ export default {
         validate() {
             const validateItem = (item, parentLabel = '', data = this.actualData) => {
                 const label = parentLabel + (item.label || item.name || '').trim();
-                if (item.type === 'form') {
-                    return validateItems(item.items, label, item.name ? data[item.name] : data);
-                }
-
                 const value = data[item.name];
-                if (item.required && this.needShowItem(item)) {
-                    if (_.isNil(value) || value.length === 0) {
-                        return {
-                            item,
-                            info: `${label}不能为空`,
-                        };
+                for (let v of (item.multiple ? value : [value])) {
+                    if (item.type === 'form') {
+                        const error = validateItems(item.data.items, label, item.name ? v : data);
+                        if (error) {
+                            return error;
+                        }
+                    } else if (item.required && this.needShowItem(item)) {
+                        if (_.isNil(v) || v.length === 0) {
+                            return {
+                                item,
+                                info: `${label}不能为空`,
+                            };
+                        }
                     }
                 }
             };
