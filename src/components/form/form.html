@@ -24,7 +24,8 @@
                         </template>
                     </label>
                     <wiy-grid tc="1fr max-content" ai="center" class="value" wiy:class-disabled="item.disabled">
-                        <slot name="value-{{item.name}}" wiy:data-form="this" wiy:data-item="item">
+                        <slot name="value-{{item.name}}{{item.multiple ? `-${index}` : ''}}" wiy:data-form="this"
+                            wiy:data-item="item">
                             <div class="info" wiy:if="!item.type" wiy:style="item.style">
                                 <template wiy:if="!item.isHtml">{{data[dataKey] ?? ''}}</template>
                                 <template wiy:if="item.isHtml" wiy:html="data[dataKey] ?? ''"></template>
