@@ -83,7 +83,7 @@
                                 <wiy-icon name="plus"></wiy-icon>
                             </wiy-link>
                             <wiy-link no-href wiy:if="item.multiple && list.length > 1"
-                                wiy:onclick="data.splice(index, 1), list.splice(index, 1)">
+                                wiy:onclick="list.splice(index, 1), data.splice(index, 1)">
                                 <wiy-icon name="minus"></wiy-icon>
                             </wiy-link>
                         </wiy-flex>
