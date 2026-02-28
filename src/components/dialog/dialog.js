@@ -6,6 +6,7 @@ export default {
     style,
     data: {
         title: undefined,
+        closeOnClickOutside: false,
     },
     methods: {
         async showModal() {
@@ -36,6 +37,17 @@ export default {
                 this.trigger('close', data);
             }
         },
+        onDialogClick(e) {
+            if (this.closeOnClickOutside) {
+                const dialogRect = this.getElement('dialog').getBoundingClientRect();
+                if (e.clientX < dialogRect.left ||
+                    e.clientX > dialogRect.right ||
+                    e.clientY < dialogRect.top ||
+                    e.clientY > dialogRect.bottom) {
+                    this.close();
+                }
+            }
+        }
     },
     lifecycle: {
         beforeUnmount() {
@@ -50,8 +62,8 @@ export const methods = {
                 data: {
                     dialogData: {
                         title: options.title,
+                        closeOnClickOutside: options.closeOnClickOutside,
                     },
-
                 },
                 methods: {
                     onDialogInit(e) {

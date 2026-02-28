@@ -4,7 +4,7 @@
     dialog[open] {
         display: flex;
         flex-direction: column;
-        border: 1px solid gray;
+        border: none;
         border-radius: 8px;
         padding: 0;
         outline: none;
@@ -24,14 +24,6 @@
 
             #title {
                 font-weight: bold;
-            }
-
-            #close {
-                cursor: pointer;
-
-                &:hover {
-                    color: rgb(64, 158, 255);
-                }
             }
         }
 

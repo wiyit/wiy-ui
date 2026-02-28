@@ -1,7 +1,9 @@
-<dialog id="dialog" wiy:oncancel="this.close">
+<dialog id="dialog" wiy:oncancel="this.close" wiy:onclick="this.onDialogClick">
     <div id="head">
         <div id="title">{{this.title || this.attr('title') || ''}}</div>
-        <wiy-icon id="close" name="close" wiy:onclick="this.close"></wiy-icon>
+        <wiy-link no-href wiy:onclick="this.close">
+            <wiy-icon name="close"></wiy-icon>
+        </wiy-link>
     </div>
     <div id="content">
         <slot></slot>
