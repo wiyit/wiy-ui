@@ -5,12 +5,10 @@
 <wiy-grid id="items" g="8px 16px" ai="start" wiy:let-all-data="this.getData()">
     <template wiy:for="this.getItems()" wiy:for.value="item">
         <template wiy:if="this.needShowItem(item)" wiy:let-label="item.label ?? item.name">
-            <template wiy:if="item.isGroup">
-                <wiy-pre class="group-label" wiy:data-text="label"></wiy-pre>
-            </template>
-            <template wiy:if="item.newline">
-                <div class="newline"></div>
-            </template>
+            <label class="label group-label" wiy:if="item.isGroup">
+                <wiy-pre class="label-name" wiy:data-text="label"></wiy-pre>
+            </label>
+            <div class="newline" wiy:if="item.newline"></div>
             <template wiy:if="!item.isGroup && !item.newline">
                 <template wiy:let-data="item.multiple ? (allData[item.name] ||= [undefined]) : allData"
                     wiy:let-list="item.multiple ? [Math.random()] : undefined"
