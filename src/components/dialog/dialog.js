@@ -39,12 +39,14 @@ export default {
         },
         onDialogClick(e) {
             if (this.closeOnClickOutside) {
-                const dialogRect = this.getElement('dialog').getBoundingClientRect();
-                if (e.clientX < dialogRect.left ||
-                    e.clientX > dialogRect.right ||
-                    e.clientY < dialogRect.top ||
-                    e.clientY > dialogRect.bottom) {
-                    this.close();
+                const dialogRect = this.getElement('dialog')?.getBoundingClientRect();
+                if (dialogRect) {
+                    if (e.clientX < dialogRect.left ||
+                        e.clientX > dialogRect.right ||
+                        e.clientY < dialogRect.top ||
+                        e.clientY > dialogRect.bottom) {
+                        this.close();
+                    }
                 }
             }
         }
