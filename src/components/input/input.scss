@@ -12,6 +12,8 @@
         border-radius: 3px;
         border: 1px solid var(--wiy-input-border-color);
         background-color: var(--wiy-input-color);
+        font-family: inherit;
+        font-size: 14px;
 
         &:hover {
             border-color: var(--wiy-input-border-color-hover);

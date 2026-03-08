@@ -11,6 +11,8 @@
         border-radius: 3px;
         border: 1px solid var(--wiy-textarea-border-color);
         background-color: var(--wiy-textarea-color);
+        font-family: inherit;
+        font-size: 14px;
 
         &:hover {
             border-color: var(--wiy-textarea-border-color-hover);
