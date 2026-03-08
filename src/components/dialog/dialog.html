@@ -1,4 +1,4 @@
-<dialog id="dialog" wiy:oncancel="this.close" wiy:onclick="this.onDialogClick">
+<dialog id="dialog" wiy:oncancel="this.close" wiy:onmousedown="this.onDialogMousedown">
     <div id="head">
         <div id="title">{{this.title || this.attr('title') || ''}}</div>
         <wiy-link no-href wiy:onclick="this.close">

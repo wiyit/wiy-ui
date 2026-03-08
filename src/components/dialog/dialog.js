@@ -37,8 +37,8 @@ export default {
                 this.trigger('close', data);
             }
         },
-        onDialogClick(e) {
-            if (this.closeOnClickOutside) {
+        onDialogMousedown(e) {
+            if (e.button === 0 && this.closeOnClickOutside) {
                 const dialogRect = this.getElement('dialog')?.getBoundingClientRect();
                 if (dialogRect) {
                     if (e.clientX < dialogRect.left ||
