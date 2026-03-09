@@ -43,6 +43,7 @@ export default {
                         name: file.name,
                         path: file.webkitRelativePath,
                         size: file.size,
+                        type: file.type,
                         getFile() {
                             return file;
                         },
