@@ -6,11 +6,12 @@ export default {
     style,
     data: {
         href: undefined,
+        target: undefined,
     },
     methods: {
         onClick(e) {
             const href = this.href || this.attr('href');
-            const target = this.attr('target') || '_self';
+            const target = this.target || this.attr('target') || '_self';
             if (!href || href.startsWith('http://') || href.startsWith('https://')) {
                 return;
             }
