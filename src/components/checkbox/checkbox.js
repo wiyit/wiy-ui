@@ -1,5 +1,5 @@
 import template from './checkbox.html';
-import style from './checkbox.css';
+import style from './checkbox.scss';
 
 export default {
     template,
