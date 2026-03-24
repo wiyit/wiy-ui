@@ -66,6 +66,7 @@ export const methods = {
                         title: options.title,
                         closeOnClickOutside: options.closeOnClickOutside,
                     },
+                    content: options.content,
                 },
                 methods: {
                     onDialogInit(e) {
@@ -86,7 +87,7 @@ export const methods = {
                         element.setAttribute('wiy:oninit', "this.onDialogInit")
                         element.setAttribute('wiy:onmount', "this.onDialogMount");
                         element.setAttribute('wiy:onclose', "this.onDialogClose");
-                        element.innerHTML = options.content;
+                        element.setAttribute('wiy:html', 'this.content');
                         document.body.appendChild(element);
                         this.renderElement(element, [
                             this.proxy(options.contentData ?? {}),
