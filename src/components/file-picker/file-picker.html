@@ -11,4 +11,7 @@
         </span>
     </wiy-flex>
 </wiy-flex>
-<wiy-pre id="tips" wiy:data-text="this.tips" wiy:if="this.tips"></wiy-pre>
+<div id="tips" wiy:if="this.tips">
+    <wiy-pre wiy:data-text="this.tips" wiy:if="!this.tipsIsHtml"></wiy-pre>
+    <template wiy:html="this.tips" wiy:if="this.tipsIsHtml"></template>
+</div>
