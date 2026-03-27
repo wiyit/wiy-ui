@@ -7,6 +7,7 @@ export default {
     data: {
         files: [],
         tips: undefined,
+        tipsIsHtml: false,
         directory: false,
         multiple: true,
     },
