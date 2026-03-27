@@ -1,5 +1,5 @@
-import template from './keep-aspect-radio.html';
-import style from './keep-aspect-radio.scss';
+import template from './keep-aspect-ratio.html';
+import style from './keep-aspect-ratio.scss';
 
 export default {
     template,
@@ -10,8 +10,8 @@ export default {
             const inner = this.getElement('inner');
 
             const transform = () => {
-                const aspectRatio = Math.min(outer.offsetWidth / inner.offsetWidth, outer.offsetHeight / inner.offsetHeight);
-                inner.style.transform = `scale(${aspectRatio})`;
+                const scale = Math.min(outer.offsetWidth / inner.offsetWidth, outer.offsetHeight / inner.offsetHeight);
+                inner.style.transform = `scale(${scale})`;
             };
 
             const observer = new ResizeObserver(transform);
